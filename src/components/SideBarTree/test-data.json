@@ -1,0 +1,54 @@
+[
+	{
+		 "name": "Europe",
+		 "path": "/europe",
+		 "countries": [
+			  {
+					"name": "Sweden",
+					"path": "/sweden"
+			  },
+			  {
+					"name": "Norway",
+					"path": "/norway"
+			  },
+			  {
+					"name": "Finland",
+					"path": "/finland"
+			  },
+			  {
+					"name": "Spain",
+					"path": "/spain"
+			  },
+			  {
+					"name": "Poland",
+					"path": "/poland"
+			  }
+		 ]
+	},
+	{
+		 "name": "Asia",
+		 "path": "/asia",
+		 "countries": [
+			  {
+					"name": "China",
+					"path": "/china"
+			  },
+			  {
+					"name": "Taiwan",
+					"path": "/taiwan"
+			  },
+			  {
+					"name": "Another 1",
+					"path": "/another"
+			  },
+			  {
+					"name": "Another 2",
+					"path": "/another-2"
+			  },
+			  {
+					"name": "Another 3",
+					"path": "/another-3"
+			  }
+		 ]
+	}
+]

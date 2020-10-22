@@ -1,0 +1,45 @@
+.Header {
+	background-color: var(--color-blue-dark);
+	height: 120px;
+	position: relative;
+}
+
+.Header-logo {
+	width: 300px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px;
+}
+
+.Header-logo svg {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.Header-navigation {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+	margin: auto;
+}
+
+.Header-menu {
+	list-style: none;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+
+.Header-menuItem {
+	flex: 0 1 auto;
+	color: var(--color-white);
+	font-weight: bold;
+	padding: 10px 20px;
+}
+
+.Header-menuItem a.active {
+	color: var(--color-orange);
+}
