@@ -1,0 +1,32 @@
+.StatusSummary {
+	padding: 20px;
+}
+.StatusSummary .inner {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.StatusSummary .header {
+	margin: 30px 0;
+}
+
+.StatusSummary .header p {
+	font-size: 1.3em;
+	margin: 10px 0 0 0;
+}
+
+.StatusSummary .content {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	gap: 50px;
+}
+
+.StatusSummary .box {
+	padding: 20px;
+	box-shadow: 0 0 8px rgba(0,0,0,.1);
+}
+
+.StatusSummary .content .map {
+	grid-row: 1/3;
+}

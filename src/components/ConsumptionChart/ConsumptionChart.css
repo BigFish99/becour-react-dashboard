@@ -1,0 +1,9 @@
+.ConsumptionChart .chart {
+	height: 280px;
+}
+
+.ConsumptionChart .chart {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

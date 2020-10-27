@@ -1,0 +1,26 @@
+.ConsumptionPie {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.ConsumptionPie .pie {
+	flex: 1 1 300px;
+}
+
+.ConsumptionPie-content {
+	flex: 1 1 30%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+
+.ConsumptionPie p.percent {
+	font-weight: bold;
+	font-size: 3em;
+	color: var(--color-green);
+}
+.ConsumptionPie p.title {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: var(--color-green);
+}

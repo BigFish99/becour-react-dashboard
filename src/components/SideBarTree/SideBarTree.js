@@ -20,7 +20,7 @@ const Region = ({ name, countries, path }) => {
 	const [active, setActive] = useState(false)
 	return (
 		<div className="SideBarTree-region">
-			<button className={active ? 'active' : ''} onClick={() => setActive(!active)}>{active ? '-' : '+'}</button>
+			<button className={active ? 'active' : ''} onClick={() => setActive(!active)}>{active ? '–' : '+'}</button>
 			{ path && <NavLink to={`/my-documents${path}`}>{name}</NavLink> }
 			{
 				countries.length > 0

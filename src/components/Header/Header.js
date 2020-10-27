@@ -15,17 +15,20 @@ export default () => {
                         <NavLink exact to="/">Home</NavLink>
                     </li>
                     <li className="Header-menuItem">
-                        <NavLink exact to="/my-documents">My Documents</NavLink>
+                        <NavLink to="/my-documents">My Documents</NavLink>
                     </li>
                     <li className="Header-menuItem">
-                        <NavLink exact to="/my-consumption">My Consumption</NavLink>
+                        <NavLink to="/my-consumption">My Consumption</NavLink>
                     </li>
                     <li className="Header-menuItem">
-                        <NavLink exact to="/my-powerplants">My Power plants</NavLink>
+                        <NavLink to="/my-powerplants">My Power plants</NavLink>
                     </li>
                     <li className="Header-menuItem">
                         <NavLink exact to="/contact">Contact</NavLink>
                     </li>
+						  <li>
+							  <a className="Header-button" rel="noopener noreferrer" target="_blank" href="//react.becour.com">Buy Renewable Energy</a>
+						  </li>
                 </ul>
             </nav>
         </header>
