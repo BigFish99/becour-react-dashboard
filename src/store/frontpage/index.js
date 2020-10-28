@@ -55,11 +55,29 @@ const initialState = {
 	],
 	powerplants: [
 		{
-			name: 'Borgund',
-			url: '//react.becour.com/powerplants/borgund',
-			text: 'Hello, world',
-			imageUrl: null
-		}
+			name: 'Godfarfoss',
+			url: '//react.becour.com/powerplants/godfarfoss',
+			text: 'Godfarfoss is located in the middle of the mountainous parts of Norway, between the municipalities Hol, and Nore – Uvdal, in the southeastern part of the country.',
+			imageUrl: 'https://react.becour.com/wp-content/uploads/2020/05/Favorittwater-3229727_1920-1024x683.jpg'
+		},
+		{
+			name: 'Øvre Forsland',
+			url: '//react.becour.com/powerplants/ovre-forsland',
+			text: 'The hydropower plant, located in Forslandsdalen in Norway, produces 33 GWh every year. It’s been nominated for several prizes for its architectural and environmental solutions.',
+			imageUrl: 'https://react.becour.com/wp-content/uploads/2019/07/F_illustrasjon_bygg-e1568718930472-1024x577.jpg'
+		},
+		{
+			name: 'Geithusfoss',
+			url: '//react.becour.com/powerplants/geithusfoss',
+			text: 'Geithusfoss power plant is a hydroelectric power plant at the outlet of the Bergsjøen at Geithus Modum municipality in Viken county.',
+			imageUrl: 'https://react.becour.com/wp-content/uploads/2020/03/Geithusfoss-12-2007-07-07-Flyfototo-143-1024x681.jpg'
+		},
+		{
+			name: 'Skravlåga',
+			url: '//react.becour.com/powerplants/skravlaga',
+			text: 'Skravlåga is a modern, reservoir power plant in the municipality of Wefsn, Nordland County.',
+			imageUrl: 'https://react.becour.com/wp-content/uploads/2019/10/Skravl%C3%A5ga-sm%C3%A5kraftverk-1024x768.jpg'
+		},
 	],
 	tiles: {
 		renewable: 200,

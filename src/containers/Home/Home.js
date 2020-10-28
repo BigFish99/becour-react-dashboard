@@ -1,15 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import StatusSummary from '../../components/StatusSummary/StatusSummary'
 
 // Components
 import Welcome from '../../components/Welcome/Welcome'
+import StatusSummary from '../../components/StatusSummary/StatusSummary'
+import HomePowerplants from '../../components/HomePowerplants/HomePowerplants'
 
 const Home = () => {
 	return (
 		<main className="Home">
 			<Welcome />
 			<StatusSummary />
+			<HomePowerplants />
 		</main>
 	)
 }

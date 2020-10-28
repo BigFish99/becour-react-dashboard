@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {removeLoader} from '../../store/frontpage/actions'
 import {connect} from 'react-redux'
-import {BeatLoader} from 'react-spinners'
+import Loader from '../Loader/Loader'
 import './Welcome.css'
 
 const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading, removeLoader }) => {
@@ -22,7 +22,7 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading, 
 			<div className="content">
 				{
 					loading
-					? <BeatLoader color="currentColor" size={10} />
+					? <Loader />
 					: <p className="company-title">Welcome {company}</p>
 				}
 				<p>Here you will find your corporate renewable energy overview</p>
@@ -31,7 +31,7 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading, 
 				<p className="title">Renewable energy</p>
 				{
 					loading
-					? <BeatLoader color="currentColor" size={10} />
+					? <Loader />
 					: <p className="value green">{renewable} GWh</p>
 				}
 			</div>
@@ -39,7 +39,7 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading, 
 				<p className="title">Non-renewable energy</p>
 				{
 					loading
-					? <BeatLoader color="currentColor" size={10} />
+					? <Loader />
 					: <p className="value red">{nonRenewable} GWh</p>
 				}
 			</div>
@@ -47,7 +47,7 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading, 
 				<p className="title">Avoided emissions</p>
 				{
 					loading
-					? <BeatLoader color="currentColor" size={10} />
+					? <Loader />
 					: <p className="value">{avoidedEmissions} tonnes CO2</p>
 				}
 			</div>

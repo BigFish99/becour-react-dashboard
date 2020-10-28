@@ -1,7 +1,7 @@
 import React from 'react'
 import './ConsumptionMap.css'
 import { connect } from 'react-redux'
-import {BeatLoader} from 'react-spinners'
+import Loader from '../Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import highchartsMap from "highcharts/modules/map"
@@ -55,14 +55,16 @@ const ConsumptionMap = ({ map, loading }) => {
 		<div className="ConsumptionMap">
 			{
 				loading
-				? <BeatLoader color="currentColor" size={10} />
+				? <Loader />
 				: map.length > 0
-					?  <HighchartsReact
-							className="map"
-							highcharts={Highcharts}
-							constructorType={'mapChart'}
-							options={options}
-						/>
+					?  <div className="ConsumptionMap-map">
+							<HighchartsReact
+								className="map"
+								highcharts={Highcharts}
+								constructorType={'mapChart'}
+								options={options}
+							/>
+						</div>
 					: <p>No map data</p>
 			}
 		</div>

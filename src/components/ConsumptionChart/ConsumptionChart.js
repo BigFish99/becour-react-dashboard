@@ -1,7 +1,7 @@
 import React from 'react'
 import './ConsumptionChart.css'
 import { connect } from 'react-redux'
-import { BeatLoader } from 'react-spinners'
+import Loader from '../Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
@@ -13,6 +13,13 @@ const ConsumptionChart = ({ chart, loading }) => {
 		},
 		credits: {
 			enabled: false
+		},
+		colors: ['#48AD4E', '#ccc'],
+		plotOptions: {
+			series: {
+				borderWidth: 0,
+				pointPadding: 0
+			}
 		},
 		xAxis: {
 			labels: {
@@ -44,7 +51,6 @@ const ConsumptionChart = ({ chart, loading }) => {
 			}
 		},
 		chart: {
-			height: 280,
 			type: 'column'
 		},
 		tooltip: {
@@ -58,7 +64,7 @@ const ConsumptionChart = ({ chart, loading }) => {
 			  },
 			  chartOptions: {
 				 legend: {
-					enabled: false
+					enabled: true
 				 }
 			  }
 			}]
@@ -67,19 +73,19 @@ const ConsumptionChart = ({ chart, loading }) => {
 
 	return (
 		<div className="ConsumptionChart">
-			<div className="chart">
-				{
-					loading
-						? <BeatLoader color="currentColor" size={10} />
-						: chart.length > 0
-							? <HighchartsReact
-								highcharts={Highcharts}
-								constructorType={'chart'}
-								options={options}
-							/>
-							: <p>No data</p>
-				}
-			</div>
+			{
+				loading
+					? <Loader />
+					: chart.length > 0
+						? 	<div className="ConsumptionChart-chart">
+								<HighchartsReact
+									highcharts={Highcharts}
+									constructorType={'chart'}
+									options={options}
+								/>
+							</div>
+						: <p>No data</p>
+			}
 		</div>
 	)
 }

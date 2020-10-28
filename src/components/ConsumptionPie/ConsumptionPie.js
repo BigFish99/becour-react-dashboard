@@ -1,7 +1,7 @@
 import React from 'react'
 import './ConsumptionPie.css'
 import {connect} from 'react-redux'
-import {BeatLoader} from 'react-spinners'
+import Loader from '../Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
@@ -15,8 +15,7 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 			enabled: false
 		},
 		chart: {
-			type: 'pie',
-			height: 200
+			type: 'pie'
 		},
 		tooltip: {
 			enabled: false
@@ -47,6 +46,7 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 			},
 			{
 				name: 'Non renewable',
+				color: '#ccc',
 				y: Math.round(nonRenewable / (renewable + nonRenewable) * 100)
 			}]
 		}]
@@ -57,7 +57,7 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 			<div className="pie">
 				{
 					loading
-					? <BeatLoader color="currentColor" size={10} />
+					? <Loader />
 					: renewable !== undefined && nonRenewable !== undefined
 						?  <HighchartsReact
 								highcharts={Highcharts}
@@ -68,8 +68,13 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 				}
 			</div>
 			<div className="ConsumptionPie-content">
-				<p className="percent">{Math.round(renewable / (renewable + nonRenewable) * 100)}%</p>
-				<p className="title">Renewable energy</p>
+				{
+					!loading &&
+						<>
+							<p className="percent">{Math.round(renewable / (renewable + nonRenewable) * 100)}%</p>
+							<p className="title">Renewable<br/>energy</p>
+						</>
+				}
 			</div>
 		</div>
 	)
