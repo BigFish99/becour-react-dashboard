@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Collapse } from 'react-collapse'
 import {NavLink} from 'react-router-dom'
-import testData from './test-data.json'
 import './SideBarTree.css'
 
 const Countries = ({ countries, active }) => {
@@ -30,14 +29,14 @@ const Region = ({ name, countries, path }) => {
 	)
 }
 
-export default () => {
+export default ({regions}) => {
 	return (
 		<nav className="SideBarTree">
 			<div className="SideBarTree-logo"></div>
 			<div className="list">
 				{
-					testData.length > 0
-					&& testData.map((region, i) => <Region key={i} {...region} />)
+					regions.length > 0
+					&& regions.map((region, i) => <Region key={i} {...region} />)
 				}
 			</div>
 		</nav>

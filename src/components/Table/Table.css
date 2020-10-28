@@ -1,0 +1,19 @@
+table.Table {
+	width: 100%;
+	text-align: left;
+	border-spacing: 0;
+}
+
+table.Table th,
+table.Table td {
+	padding: 12px 12px 12px 0;
+}
+
+table.Table th {
+	padding-bottom: 18px;
+}
+
+table.Table thead th {
+	border-bottom: 1px solid var(--color-black);
+	font-weight: bold;
+}
