@@ -1,13 +1,27 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
-import Consumption from '../../components/Consumption/Consumption'
+import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 
-export default () => {
+const MyConsumption = () => {
+
 	return (
-		<main className="container-sidebar">
+		<main className="MyConsumption container-sidebar">
 			<SideBarTree />
-			<Route path="/my-consumption/:id" component={Consumption} />
+			<PageNavigation
+				title="My consumption"
+				navigation={[
+					{
+						path: `/my-consumption/`,
+						title: 'Consumption overview'
+					},
+					{
+						path: `/my-consumption/consumption-matching`,
+						title: 'Consumption matching'
+					}
+				]}
+			/>
 		</main>
 	)
 }
+
+export default MyConsumption

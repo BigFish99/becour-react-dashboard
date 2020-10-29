@@ -3,7 +3,7 @@ import {getTradeConfirmations} from '../../store/documents/actions'
 import {connect} from 'react-redux'
 import Table from '../Table/Table'
 
-const TradeConfirmations = ({tradeConfirmations, year, getTradeConfirmations}) => {
+const TradeConfirmations = ({tradeConfirmations, year, getTradeConfirmations, currentRegion}) => {
 
 	let table = {
 		headers: ['Tradedate', 'Trade', 'Power plant', 'Delivery profile', 'Volume (MWh)', 'Price per MWh', 'PDF'],
@@ -15,8 +15,8 @@ const TradeConfirmations = ({tradeConfirmations, year, getTradeConfirmations}) =
 	})
 
 	useEffect(() => {
-		getTradeConfirmations(year)
-	}, [year, getTradeConfirmations])
+		getTradeConfirmations(year, currentRegion)
+	}, [year, getTradeConfirmations, currentRegion])
 
 	return(
 		<div className="TradeConfirmations">
@@ -26,7 +26,8 @@ const TradeConfirmations = ({tradeConfirmations, year, getTradeConfirmations}) =
 }
 
 const mapStateToProps = state => ({
-	year: state.documents.years.current,
+	year: state.user.years.current,
+	currentRegion: state.user.regions.current,
 	tradeConfirmations: state.documents.tradeConfirmations
 })
 

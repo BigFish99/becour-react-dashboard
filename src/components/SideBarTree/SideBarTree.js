@@ -1,44 +1,51 @@
-import React, { useState } from 'react'
+import React from 'react'
+import {connect} from 'react-redux'
+import {setCurrentRegion, toggleRegionExpand} from '../../store/user/actions'
 import { Collapse } from 'react-collapse'
-import {NavLink} from 'react-router-dom'
 import './SideBarTree.css'
 
-const Countries = ({ countries, active }) => {
+const Children = ({ children, active, setCurrentRegion, currentRegion }) => {
 	return (
 		<Collapse isOpened={active} theme={{ collapse: 'wrapper', content: 'content' }}>
 			<ul>
 				{
-					countries.map((country, i) => <li key={i}><NavLink to={`/my-documents${country.path}`}>{country.name}</NavLink></li>)
+					children.map((child, i) => <li key={i}><button className={child.id === currentRegion ? 'link active' : 'link'} onClick={() => setCurrentRegion(child.id)}>{child.name}</button></li>)
 				}
 			</ul>
 		</Collapse>
 	)
 }
 
-const Region = ({ name, countries, path }) => {
-	const [active, setActive] = useState(false)
+const Region = ({ name, children, id, setCurrentRegion, currentRegion, toggleRegionExpand, index, expanded }) => {
 	return (
 		<div className="SideBarTree-region">
-			<button className={active ? 'active' : ''} onClick={() => setActive(!active)}>{active ? '–' : '+'}</button>
-			{ path && <NavLink to={`/my-documents${path}`}>{name}</NavLink> }
+			<button className={expanded ? 'expand active' : 'expand'} onClick={() => toggleRegionExpand(index)}>{expanded ? '–' : '+'}</button>
+			<button className={currentRegion === id ? 'link active' : 'link'} onClick={() => setCurrentRegion(id)}>{name}</button>
 			{
-				countries.length > 0
-				&& <Countries countries={countries} active={active} />
+				children.length > 0
+				&& <Children children={children} active={expanded} setCurrentRegion={setCurrentRegion} currentRegion={currentRegion} />
 			}
 		</div>
 	)
 }
 
-export default ({regions}) => {
+const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpand}) => {
 	return (
 		<nav className="SideBarTree">
 			<div className="SideBarTree-logo"></div>
 			<div className="list">
 				{
-					regions.length > 0
-					&& regions.map((region, i) => <Region key={i} {...region} />)
+					regions && regions.length > 0
+					&& regions.map((region, i) => <Region key={i} index={i} {...region} currentRegion={currentRegion} setCurrentRegion={setCurrentRegion} toggleRegionExpand={toggleRegionExpand} />)
 				}
 			</div>
 		</nav>
 	)
 }
+
+const mapStateToProps = state => ({
+	currentRegion: state.user.regions.current,
+	regions: state.user.regions.available
+})
+
+export default connect(mapStateToProps, {setCurrentRegion, toggleRegionExpand})(SideBarTree)

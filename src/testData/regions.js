@@ -1,35 +1,38 @@
 export const regions = [
 	{
 		name: 'Europe',
-		path: '/europe',
-		countries: [
-			{name: 'Norway', path: '/norway'},
-			{name: 'Sweden', path: '/sweden'},
-			{name: 'Denmark', path: '/denmark'},
-			{name: 'Finland', path: '/finland'},
-			{name: 'England', path: '/england'}
+		id: 'europe',
+		expanded: false,
+		children: [
+			{name: 'Norway', id: 'norway'},
+			{name: 'Sweden', id: 'sweden'},
+			{name: 'Denmark', id: 'denmark'},
+			{name: 'Finland', id: 'finland'},
+			{name: 'England', id: 'england'}
 		]
 	},
 	{
 		name: 'America',
-		path: '/america',
-		countries: [
-			{name: 'United Stated', path: '/usa'},
-			{name: 'Brazil', path: '/brazil'},
-			{name: 'Mexico', path: '/mexico'},
-			{name: 'Colombia', path: '/colombia'},
-			{name: 'Argentina', path: '/argentina'}
+		id: 'america',
+		expanded: false,
+		children: [
+			{name: 'United Stated', id: 'usa'},
+			{name: 'Brazil', id: 'brazil'},
+			{name: 'Mexico', id: 'mexico'},
+			{name: 'Colombia', id: 'colombia'},
+			{name: 'Argentina', id: 'argentina'}
 		]
 	},
 	{
 		name: 'Asia',
-		path: '/asia',
-		countries: [
-			{name: 'China', path: '/china'},
-			{name: 'Russia', path: '/russia'},
-			{name: 'India', path: '/india'},
-			{name: 'Kazakhstan', path: '/kazakhstan'},
-			{name: 'Saudi Arabia', path: '/saudi-arabia'}
+		id: 'asia',
+		expanded: false,
+		children: [
+			{name: 'China', id: 'china'},
+			{name: 'Russia', id: 'russia'},
+			{name: 'India', id: 'india'},
+			{name: 'Kazakhstan', id: 'kazakhstan'},
+			{name: 'Saudi Arabia', id: 'saudi-arabia'}
 		]
 	},
 ]
