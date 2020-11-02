@@ -3,7 +3,7 @@ import logo from '../../assets/svg/becour_react.svg'
 import {NavLink} from 'react-router-dom'
 import './Header.css'
 
-export default () => {
+const Header = () => {
     return(
         <header className="Header">
             <div className="Header-logo">
@@ -34,3 +34,5 @@ export default () => {
         </header>
     )
 }
+
+export default Header

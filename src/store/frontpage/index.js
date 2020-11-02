@@ -98,7 +98,7 @@ const initialState = {
 	}
 };
 
-export default function (state = initialState, action) {
+const frontpage = (state = initialState, action) => {
 	switch (action.type) {
 		case 'REMOVE_LOADER': {
 			return {
@@ -110,3 +110,5 @@ export default function (state = initialState, action) {
 			return state;
 	}
 }
+
+export default frontpage

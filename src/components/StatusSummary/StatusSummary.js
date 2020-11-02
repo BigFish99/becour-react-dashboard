@@ -4,7 +4,7 @@ import ConsumptionMap from '../ConsumptionMap/ConsumptionMap'
 import ConsumptionChart from '../ConsumptionChart/ConsumptionChart'
 import ConsumptionPie from '../ConsumptionPie/ConsumptionPie'
 
-export default () => {
+const StatusSummary = () => {
 	return(
 		<div className="StatusSummary">
 			<div className="inner">
@@ -27,3 +27,5 @@ export default () => {
 		</div>
 	)
 }
+
+export default StatusSummary

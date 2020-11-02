@@ -17,7 +17,7 @@ const initialState = {
 	},
 };
 
-export default function (state = initialState, action) {
+const user = (state = initialState, action) => {
 	switch (action.type) {
 		case 'USER_SET_CURRENT_YEAR': {
 			return {
@@ -65,3 +65,5 @@ export default function (state = initialState, action) {
 			return state;
 	}
 }
+
+export default user

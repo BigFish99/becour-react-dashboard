@@ -1,7 +1,7 @@
 import React from 'react'
 import './Table.css'
 
-export default ({headers, rows, fixed}) => {
+const Table = ({headers, rows, fixed}) => {
 	return(
 		<table className="Table">
 			<thead>
@@ -23,3 +23,5 @@ export default ({headers, rows, fixed}) => {
 		</table>
 	)
 }
+
+export default Table

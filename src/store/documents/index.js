@@ -8,7 +8,7 @@ const initialState = {
 	reportingData: []
 };
 
-export default (state = initialState, action) => {
+const documents = (state = initialState, action) => {
 	switch (action.type) {
 		case 'GET_TRADE_CONFIRMATIONS': {
 			if(action.year === 2020) {
@@ -26,3 +26,5 @@ export default (state = initialState, action) => {
 			return state;
 	}
 }
+
+export default documents

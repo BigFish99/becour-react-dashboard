@@ -20,7 +20,7 @@ const initialState = {
 	consumptionLocations: []
 };
 
-export default (state = initialState, action) => {
+const consumption = (state = initialState, action) => {
 	switch (action.type) {
 		case 'GET_CONSUMPTION_DATA': {
 			if(action.year === 2021) {
@@ -35,3 +35,5 @@ export default (state = initialState, action) => {
 			return state;
 	}
 }
+
+export default consumption

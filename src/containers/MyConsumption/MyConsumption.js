@@ -9,7 +9,7 @@ const MyConsumption = ({currentYear, currentRegion, getConsumptionData}) => {
 
 	useEffect(() => {
 		getConsumptionData(currentYear, currentRegion)
-	}, [currentYear, currentRegion])
+	}, [currentYear, currentRegion, getConsumptionData])
 
 	return (
 		<main className="MyConsumption container-sidebar">
