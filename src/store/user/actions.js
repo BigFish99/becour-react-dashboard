@@ -3,6 +3,10 @@ export const setCurrentYear = year => ({
 	year
 });
 
+export const setRegionToCompanyOverview = () => ({
+	type: 'USER_SET_REGION_TO_COMPANY_OVERVIEW'
+})
+
 export const setCurrentRegion = id => ({
 	type: 'USER_SET_CURRENT_REGION',
 	id

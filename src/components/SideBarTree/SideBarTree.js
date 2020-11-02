@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setCurrentRegion, toggleRegionExpand} from '../../store/user/actions'
+import {setCurrentRegion, toggleRegionExpand, setRegionToCompanyOverview} from '../../store/user/actions'
 import { Collapse } from 'react-collapse'
 import './SideBarTree.css'
 
@@ -9,7 +9,7 @@ const Children = ({ children, active, setCurrentRegion, currentRegion }) => {
 		<Collapse isOpened={active} theme={{ collapse: 'wrapper', content: 'content' }}>
 			<ul>
 				{
-					children.map((child, i) => <li key={i}><button className={child.id === currentRegion ? 'link active' : 'link'} onClick={() => setCurrentRegion(child.id)}>{child.name}</button></li>)
+					children.map((child, i) => <li key={i}><button className={child.id === currentRegion ? 'sublink active' : 'sublink'} onClick={() => setCurrentRegion(child.id)}>{child.name}</button></li>)
 				}
 			</ul>
 		</Collapse>
@@ -19,7 +19,7 @@ const Children = ({ children, active, setCurrentRegion, currentRegion }) => {
 const Region = ({ name, children, id, setCurrentRegion, currentRegion, toggleRegionExpand, index, expanded }) => {
 	return (
 		<div className="SideBarTree-region">
-			<button className={expanded ? 'expand active' : 'expand'} onClick={() => toggleRegionExpand(index)}>{expanded ? '–' : '+'}</button>
+			<button className={expanded ? 'expand active' : 'expand'} onClick={() => toggleRegionExpand(index)}></button>
 			<button className={currentRegion === id ? 'link active' : 'link'} onClick={() => setCurrentRegion(id)}>{name}</button>
 			{
 				children.length > 0
@@ -29,15 +29,18 @@ const Region = ({ name, children, id, setCurrentRegion, currentRegion, toggleReg
 	)
 }
 
-const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpand}) => {
+const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpand, setRegionToCompanyOverview}) => {
 	return (
 		<nav className="SideBarTree">
-			<div className="SideBarTree-logo"></div>
-			<div className="list">
-				{
-					regions && regions.length > 0
-					&& regions.map((region, i) => <Region key={i} index={i} {...region} currentRegion={currentRegion} setCurrentRegion={setCurrentRegion} toggleRegionExpand={toggleRegionExpand} />)
-				}
+			<div className="inner">
+				<div className="SideBarTree-logo"></div>
+				<button className={currentRegion === 'all' ? 'companyOverview active' : 'companyOverview'} onClick={() => setRegionToCompanyOverview()}>All regions</button>
+				<div className="list">
+					{
+						regions && regions.length > 0
+						&& regions.map((region, i) => <Region key={i} index={i} {...region} currentRegion={currentRegion} setCurrentRegion={setCurrentRegion} toggleRegionExpand={toggleRegionExpand} />)
+					}
+				</div>
 			</div>
 		</nav>
 	)
@@ -48,4 +51,4 @@ const mapStateToProps = state => ({
 	regions: state.user.regions.available
 })
 
-export default connect(mapStateToProps, {setCurrentRegion, toggleRegionExpand})(SideBarTree)
+export default connect(mapStateToProps, {setCurrentRegion, toggleRegionExpand, setRegionToCompanyOverview})(SideBarTree)

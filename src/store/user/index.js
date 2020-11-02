@@ -4,7 +4,7 @@ const initialState = {
 	loading: true,
 	customer: 'Big Fish AS',
 	regions: {
-		current: regions[0].id,
+		current: 'all',
 		available: regions
 	},
 	years: {
@@ -30,6 +30,15 @@ export default function (state = initialState, action) {
 				regions: {
 					...state.regions,
 					current: action.id
+				}
+			}
+		}
+		case 'USER_SET_REGION_TO_COMPANY_OVERVIEW': {
+			return {
+				...state,
+				regions: {
+					...state.regions,
+					current: 'all'
 				}
 			}
 		}
