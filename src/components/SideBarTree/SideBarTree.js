@@ -9,7 +9,7 @@ const Children = ({ children, active, setCurrentRegion, currentRegion }) => {
 		<Collapse isOpened={active} theme={{ collapse: 'wrapper', content: 'content' }}>
 			<ul>
 				{
-					children.map((child, i) => <li key={i}><button className={child.id === currentRegion ? 'sublink active' : 'sublink'} onClick={() => setCurrentRegion(child.id)}>{child.name}</button></li>)
+					children.map((child, i) => <li key={i}><button className={child.id === currentRegion.id ? 'sublink active' : 'sublink'} onClick={() => setCurrentRegion(child.id)}>{child.name}</button></li>)
 				}
 			</ul>
 		</Collapse>
@@ -20,7 +20,7 @@ const Region = ({ name, children, id, setCurrentRegion, currentRegion, toggleReg
 	return (
 		<div className="SideBarTree-region">
 			<button className={expanded ? 'expand active' : 'expand'} onClick={() => toggleRegionExpand(index)}></button>
-			<button className={currentRegion === id ? 'link active' : 'link'} onClick={() => setCurrentRegion(id)}>{name}</button>
+			<button className={currentRegion.id === id ? 'link active' : 'link'} onClick={() => setCurrentRegion(id)}>{name}</button>
 			{
 				children.length > 0
 				&& <Children children={children} active={expanded} setCurrentRegion={setCurrentRegion} currentRegion={currentRegion} />
@@ -34,7 +34,7 @@ const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpa
 		<nav className="SideBarTree">
 			<div className="inner">
 				<div className="SideBarTree-logo"></div>
-				<button className={currentRegion === 'all' ? 'companyOverview active' : 'companyOverview'} onClick={() => setRegionToCompanyOverview()}>All regions</button>
+				<button className={currentRegion.id === 'all' ? 'companyOverview active' : 'companyOverview'} onClick={() => setRegionToCompanyOverview()}>All regions</button>
 				<div className="list">
 					{
 						regions && regions.length > 0

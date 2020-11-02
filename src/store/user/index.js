@@ -1,10 +1,14 @@
 import {regions} from '../../testData/regions'
+import {getCurrentRegion} from './functions'
 
 const initialState = {
 	loading: true,
 	customer: 'Big Fish AS',
 	regions: {
-		current: 'all',
+		current: {
+			id: 'all',
+			name: 'All'
+		},
 		available: regions
 	},
 	years: {
@@ -25,11 +29,12 @@ export default function (state = initialState, action) {
 			};
 		}
 		case 'USER_SET_CURRENT_REGION': {
+			let regions = state.regions.available.slice();
 			return {
 				...state,
 				regions: {
 					...state.regions,
-					current: action.id
+					current: getCurrentRegion(regions, action.id)
 				}
 			}
 		}
@@ -38,7 +43,10 @@ export default function (state = initialState, action) {
 				...state,
 				regions: {
 					...state.regions,
-					current: 'all'
+					current: {
+						id: 'all',
+						name: 'All'
+					}
 				}
 			}
 		}

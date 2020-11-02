@@ -4,7 +4,7 @@ import App from './containers/App/App';
 import * as serviceWorker from './serviceWorker';
 
 import reducers from './store'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import {Provider} from 'react-redux'
 import axios from 'axios'
 import axiosMiddleware from 'redux-axios-middleware'
@@ -14,11 +14,13 @@ const client = axios.create({
 	responseType: 'json'
 });
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 let store = createStore(
 	reducers,
+	composeEnhancers(
 	applyMiddleware(
 		axiosMiddleware(client)
-	)
+	))
 )
 
 ReactDOM.render(
