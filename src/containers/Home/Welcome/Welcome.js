@@ -1,16 +1,10 @@
-import React, {useEffect} from 'react'
-import {removeLoader} from '../../store/frontpage/actions'
+import React from 'react'
+import {removeLoader} from '../../../store/frontpage/actions'
 import {connect} from 'react-redux'
-import Loader from '../Loader/Loader'
+import Loader from '../../../components/Loader/Loader'
 import './Welcome.css'
 
-const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading, removeLoader }) => {
-
-	useEffect(() => {
-		setTimeout(() => {
-			removeLoader()
-		}, 1000)
-	}, [removeLoader])
+const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }) => {
 
 	return (
 		<section className="Welcome">

@@ -1,6 +1,6 @@
 import React from 'react'
 import './HomePowerplants.css'
-import Loader from '../Loader/Loader'
+import Loader from '../../../components/Loader/Loader'
 import {connect} from 'react-redux'
 
 const Powerplant = ({name, url, text, imageUrl}) => {

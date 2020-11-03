@@ -2,7 +2,7 @@ import React from 'react'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import {Route} from 'react-router-dom'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
-import TradeConfirmations from '../../components/TradeConfirmations/TradeConfirmations'
+import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
 
 const MyDocuments = () => {
 

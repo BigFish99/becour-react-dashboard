@@ -1,8 +1,8 @@
 import React from 'react'
 import './StatusSummary.css'
-import ConsumptionMap from '../ConsumptionMap/ConsumptionMap'
-import ConsumptionChart from '../ConsumptionChart/ConsumptionChart'
-import ConsumptionPie from '../ConsumptionPie/ConsumptionPie'
+import ConsumptionMap from './ConsumptionMap/ConsumptionMap'
+import ConsumptionChart from './ConsumptionChart/ConsumptionChart'
+import ConsumptionPie from './ConsumptionPie/ConsumptionPie'
 
 const StatusSummary = () => {
 	return(

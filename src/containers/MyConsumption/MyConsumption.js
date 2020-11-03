@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react'
+import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getConsumptionData} from '../../store/consumption/actions'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
-import ConsumptionOverview from '../../components/ConsumptionOverview/ConsumptionOverview'
+import Overview from './Overview/Overview'
 
 const MyConsumption = ({currentYear, currentRegion, getConsumptionData}) => {
 
@@ -27,7 +28,7 @@ const MyConsumption = ({currentYear, currentRegion, getConsumptionData}) => {
 					}
 				]}
 			/>
-			<ConsumptionOverview />
+			<Route path="/my-consumption/" exact component={Overview} />
 		</main>
 	)
 }

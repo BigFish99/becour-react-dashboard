@@ -1,8 +1,6 @@
-import {tradeConfirmations} from '../../testData/tradeConfirmations'
-import {tradeConfirmationsUpdate} from '../../testData/tradeConfirmationsUpdate'
-
 const initialState = {
-	tradeConfirmations: tradeConfirmations,
+	loading: true,
+	tradeConfirmations: [],
 	billingHistory: [],
 	contracts: [],
 	reportingData: []
@@ -11,15 +9,16 @@ const initialState = {
 const documents = (state = initialState, action) => {
 	switch (action.type) {
 		case 'GET_TRADE_CONFIRMATIONS': {
-			if(action.year === 2020) {
-				return {
-					...state,
-					tradeConfirmations: tradeConfirmations
-				}
-			}
 			return {
 				...state,
-				tradeConfirmations: tradeConfirmationsUpdate
+				loading: true
+			}
+		}
+		case 'GET_TRADE_CONFIRMATIONS_SUCCESS': {
+			return {
+				...state,
+				loading: false,
+				tradeConfirmations: action.payload.data.tradeConfirmations ? action.payload.data.tradeConfirmations : []
 			}
 		}
 		default:

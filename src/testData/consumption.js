@@ -15,6 +15,13 @@ export const year2020 = {
 		nuclear: 2.2,
 		fossil: 2.8
 	},
+	details: {
+		renewable: 100,
+		totalPurchased: 200000,
+		totalInderectEmissions: 0,
+		referenceMixEmissions: 41674,
+		totalSavings: 41674
+	},
 	consumptionLocations: []
 };
 
@@ -34,6 +41,13 @@ export const year2021 = {
 		},
 		nuclear: 2.3,
 		fossil: 1
+	},
+	details: {
+		renewable: 100,
+		totalPurchased: 200000,
+		totalInderectEmissions: 0,
+		referenceMixEmissions: 41674,
+		totalSavings: 41674
 	},
 	consumptionLocations: [
 		{
@@ -73,6 +87,13 @@ export const year2019 = {
 		},
 		nuclear: 3,
 		fossil: 2.3
+	},
+	details: {
+		renewable: 100,
+		totalPurchased: 200000,
+		totalInderectEmissions: 0,
+		referenceMixEmissions: 41674,
+		totalSavings: 41674
 	},
 	consumptionLocations: [
 		{

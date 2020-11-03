@@ -1,7 +1,7 @@
 import React from 'react'
 import './ConsumptionPie.css'
 import {connect} from 'react-redux'
-import Loader from '../Loader/Loader'
+import Loader from '../../../../components/Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
@@ -58,7 +58,7 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 				{
 					loading
 					? <Loader />
-					: renewable !== undefined && nonRenewable !== undefined
+					: renewable !== null && nonRenewable !== null
 						?  <HighchartsReact
 								highcharts={Highcharts}
 								constructorType={'chart'}
@@ -69,7 +69,7 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 			</div>
 			<div className="ConsumptionPie-content">
 				{
-					!loading &&
+					!loading && renewable &&
 						<>
 							<p className="percent">{Math.round(renewable / (renewable + nonRenewable) * 100)}%</p>
 							<p className="title">Renewable<br/>energy</p>

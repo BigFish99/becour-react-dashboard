@@ -10,19 +10,23 @@ const ConsumptionOverview = ({overview, currentRegion}) => {
 			<div className="sections">
 				<div className="part">
 					<h3>Total energy consumption</h3>
-					<p><CountUp suffix="<span class='suffix'> GWh</span>" end={overview.totalConsumption} duration={1} redraw={false} preserveValue={true} /></p>
+					<p className="counter text-blue-dark"><CountUp end={overview.totalConsumption} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} /></p>
+					<p className="suffix text-blue-dark">GWh</p>
 				</div>
 				<div className="part">
 					<h3>Total renewable energy</h3>
-					<p className="text-green"><CountUp suffix="<span class='suffix'> GWh</span>" end={overview.totalRenewable} duration={1} redraw={false} preserveValue={true} /></p>
+					<p className="counter text-green"><CountUp end={overview.totalRenewable} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} /></p>
+					<p className="suffix text-green">GWh</p>
 				</div>
 				<div className="part">
 					<h3>Non-renewable energy</h3>
-					<p className="text-red"><CountUp suffix="<span class='suffix'> GWh</span>" end={overview.totalNonRenewable} duration={1} redraw={false} preserveValue={true} /></p>
+					<p className="counter text-red"><CountUp end={overview.totalNonRenewable} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} /></p>
+					<p className="suffix text-red">GWh</p>
 				</div>
 				<div className="part">
 					<h3>Total avoided emissions</h3>
-					<p><CountUp suffix="<span class='suffix'> tonnes CO2</span>" end={overview.totalAvoidedEmissions} duration={1} redraw={false} preserveValue={true} /></p>
+					<p className="counter"><CountUp end={overview.totalAvoidedEmissions} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} /></p>
+					<p className="suffix">tonnes CO<sub>2</sub></p>
 				</div>
 			</div>
 		</div>

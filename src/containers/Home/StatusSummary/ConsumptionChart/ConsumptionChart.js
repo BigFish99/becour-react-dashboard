@@ -1,7 +1,7 @@
 import React from 'react'
 import './ConsumptionChart.css'
 import { connect } from 'react-redux'
-import Loader from '../Loader/Loader'
+import Loader from '../../../../components/Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
