@@ -72,8 +72,8 @@ const ConsumptionMap = ({ map, loading }) => {
 }
 
 const mapStateToProps = state => ({
-	map: state.frontpage.map,
-	loading: state.frontpage.loading
+	map: state.user.map,
+	loading: state.user.loading
 })
 
 export default connect(mapStateToProps, null)(ConsumptionMap)

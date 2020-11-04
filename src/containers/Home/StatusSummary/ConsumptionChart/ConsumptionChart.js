@@ -91,8 +91,8 @@ const ConsumptionChart = ({ chart, loading }) => {
 }
 
 const mapStateToProps = state => ({
-	loading: state.frontpage.loading,
-	chart: state.frontpage.tiles.chart.series
+	loading: state.user.loading,
+	chart: state.user.tiles.chart.series
 })
 
 export default connect(mapStateToProps, null)(ConsumptionChart)

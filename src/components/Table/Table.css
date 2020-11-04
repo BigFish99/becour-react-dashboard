@@ -17,3 +17,22 @@ table.Table thead th {
 	border-bottom: 1px solid var(--color-black);
 	font-weight: bold;
 }
+
+table.Table td.select-box {
+	width: 40px;
+}
+
+a.download-button {
+	display: inline-block;
+	width: 1.3em;
+	height: 1.3em;
+	background-image: url(../../assets/svg/icon-download.svg);
+	text-indent: -9999px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+form.form-select {
+	margin-left: -40px;
+}

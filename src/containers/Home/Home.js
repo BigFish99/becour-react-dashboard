@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {frontPageGetConsumerData} from '../../store/frontpage/actions'
+import {getConsumerData} from '../../store/user/actions'
 import {connect} from 'react-redux'
 
 // Components
@@ -7,11 +7,11 @@ import Welcome from './Welcome/Welcome'
 import StatusSummary from './StatusSummary/StatusSummary'
 import HomePowerplants from './HomePowerplants/HomePowerplants'
 
-const Home = ({frontPageGetConsumerData}) => {
+const Home = ({getConsumerData}) => {
 
 	useEffect(() => {
-		frontPageGetConsumerData()
-	}, [frontPageGetConsumerData])
+		getConsumerData()
+	}, [getConsumerData])
 
 	return (
 		<main className="Home">
@@ -22,10 +22,4 @@ const Home = ({frontPageGetConsumerData}) => {
 	)
 }
 
-const mapStateToProps = state => ({
-	map: state.frontpage.map,
-	powerplants: state.frontpage.powerplants,
-	tiles: state.frontpage.tiles
-})
-
-export default connect(mapStateToProps, {frontPageGetConsumerData})(Home)
+export default connect(null, {getConsumerData})(Home)

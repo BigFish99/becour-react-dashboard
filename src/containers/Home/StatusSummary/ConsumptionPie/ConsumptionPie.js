@@ -81,9 +81,9 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 }
 
 const mapStateToProps = state => ({
-	renewable: state.frontpage.tiles.renewable,
-	nonRenewable: state.frontpage.tiles.nonRenewable,
-	loading: state.frontpage.loading
+	renewable: state.user.tiles.renewable,
+	nonRenewable: state.user.tiles.nonRenewable,
+	loading: state.user.loading
 })
 
 export default connect(mapStateToProps, null)(ConsumptionPie)

@@ -42,8 +42,8 @@ const HomePowerplants = ({powerplants, loading}) => {
 }
 
 const mapStateToProps = state => ({
-	loading: state.frontpage.loading,
-	powerplants: state.frontpage.powerplants
+	loading: state.user.loading,
+	powerplants: state.user.powerplants
 })
 
 export default connect(mapStateToProps, null)(HomePowerplants)

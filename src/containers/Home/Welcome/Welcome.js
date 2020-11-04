@@ -50,11 +50,11 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 }
 
 const mapStateToProps = state => ({
-	loading: state.frontpage.loading,
-	company: state.frontpage.customer,
-	renewable: state.frontpage.tiles.renewable,
-	nonRenewable: state.frontpage.tiles.nonRenewable,
-	avoidedEmissions: state.frontpage.tiles.avoidedEmissions
+	loading: state.user.loading,
+	company: state.user.customer,
+	renewable: state.user.tiles.renewable,
+	nonRenewable: state.user.tiles.nonRenewable,
+	avoidedEmissions: state.user.tiles.avoidedEmissions
 
 })
 

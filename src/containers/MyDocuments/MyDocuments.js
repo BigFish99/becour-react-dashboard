@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
+import {connect} from 'react-redux'
+import {getConsumerDocuments} from '../../store/documents/actions'
 import {Route} from 'react-router-dom'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
 
-const MyDocuments = () => {
+const MyDocuments = ({getConsumerDocuments, year, region}) => {
+
+	useEffect(() => {
+		getConsumerDocuments(year, region.id)
+	}, [year, getConsumerDocuments, region])
 
 	return (
 		<main className="MyDocuments container-sidebar">
@@ -35,4 +41,9 @@ const MyDocuments = () => {
 	)
 }
 
-export default MyDocuments
+const mapStateToProps = state => ({
+	year: state.user.years.current,
+	region: state.user.regions.current,
+})
+
+export default connect(mapStateToProps, {getConsumerDocuments})(MyDocuments)

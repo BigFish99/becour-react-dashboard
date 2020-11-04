@@ -15,6 +15,16 @@ const initialState = {
 		current: new Date().getFullYear(),
 		available: [2019, 2020, 2021, 2022]
 	},
+	map: [],
+	powerplants: [],
+	tiles: {
+		renewable: null,
+		nonRenewable: null,
+		avoidedEmissions: null,
+		chart: {
+			series: []
+		}
+	}
 };
 
 const user = (state = initialState, action) => {
@@ -59,6 +69,22 @@ const user = (state = initialState, action) => {
 					...state.regions,
 					available: regions
 				}
+			}
+		}
+		case 'USER_GET_CONSUMER_DATA': {
+			return {
+				...state,
+				loading: true
+			}
+		}
+		case 'USER_GET_CONSUMER_DATA_SUCCESS': {
+			return {
+				...state,
+				loading: false,
+				customer: action.payload.data.customer ? action.payload.data.customer : false,
+				map: action.payload.data.map ? action.payload.data.map : [],
+				powerplants: action.payload.data.powerplants ? action.payload.data.powerplants : [],
+				tiles: action.payload.data.tiles ? action.payload.data.tiles : state.tiles
 			}
 		}
 		default:

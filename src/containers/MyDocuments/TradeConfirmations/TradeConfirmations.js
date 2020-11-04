@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react'
-import {getTradeConfirmations} from '../../../store/documents/actions'
+import React from 'react'
 import {connect} from 'react-redux'
 import Loader from '../../../components/Loader/Loader'
 import Table from '../../../components/Table/Table'
 
-const TradeConfirmations = ({tradeConfirmations, year, getTradeConfirmations, currentRegion, loading}) => {
+const TradeConfirmations = ({tradeConfirmations, loading}) => {
 
 	let table = {
 		headers: ['Tradedate', 'Trade', 'Power plant', 'Delivery profile', 'Volume (MWh)', 'Price per MWh', 'PDF'],
@@ -17,17 +16,13 @@ const TradeConfirmations = ({tradeConfirmations, year, getTradeConfirmations, cu
 		})
 	}
 
-	useEffect(() => {
-		getTradeConfirmations(year, currentRegion)
-	}, [year, getTradeConfirmations, currentRegion])
-
 	return(
 		<div className="TradeConfirmations">
 			{
 				loading
 				? <Loader />
 				: table.rows.length > 0
-					? <Table {...table} />
+					? <Table {...table} select={true} />
 					: <p>No table data</p>
 			}
 		</div>
@@ -36,9 +31,7 @@ const TradeConfirmations = ({tradeConfirmations, year, getTradeConfirmations, cu
 
 const mapStateToProps = state => ({
 	loading: state.documents.loading,
-	year: state.user.years.current,
-	currentRegion: state.user.regions.current,
 	tradeConfirmations: state.documents.tradeConfirmations
 })
 
-export default connect(mapStateToProps, {getTradeConfirmations})(TradeConfirmations)
+export default connect(mapStateToProps, null)(TradeConfirmations)
