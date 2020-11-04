@@ -81,6 +81,14 @@ const user = (state = initialState, action) => {
 			return {
 				...state,
 				loading: false,
+				regions: {
+					...state.regions,
+					available: action.payload.data.regions ? action.payload.data.regions : false
+				},
+				years: {
+					...state.years,
+					available: action.payload.data.years ? action.payload.data.years : false
+				},
 				customer: action.payload.data.customer ? action.payload.data.customer : false,
 				map: action.payload.data.map ? action.payload.data.map : [],
 				powerplants: action.payload.data.powerplants ? action.payload.data.powerplants : [],
