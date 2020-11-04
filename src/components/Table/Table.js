@@ -1,45 +1,28 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { exportCSV } from './exportCSV'
 import './Table.css'
 
-const TableContent = ({ headers, rows, select, selectRow }) => {
-
-	const table = useRef(null)
-
-	const selectAllRows = e => {
-		Array.from(table.current.querySelectorAll('input[type=checkbox]')).forEach(input => {
-			console.log(input.value)
-		})
-		// if(e.currentTarget.checked) {
-		// 	if(table !== null) {
-		// 		Array.from(table.current.querySelectorAll('input[type=checkbox]')).forEach(input => input.checked = true)
-		// 	}
-		// } else {
-		// 	if(table !== null) {
-		// 		Array.from(table.current.querySelectorAll('input[type=checkbox]')).forEach(input => input.checked = false)
-		// 	}
-		// }
-	}
+const TableContent = ({ headers, rows, select, selectRow, selectAllRows, allSelected }) => {
 
 	return (
 		<table className="Table">
 			<thead>
 				<tr>
-					{select && <td className="select-box"><input onChange={selectAllRows} type="checkbox" /></td>}
+					{select && <td className="select-box"><input checked={allSelected} onChange={selectAllRows} type="checkbox" /></td>}
 					{headers.map((title, headIndex) => <th key={headIndex}>{title}</th>)}
 				</tr>
 			</thead>
-			<tbody ref={table}>
+			<tbody>
 				{
 					rows.map((row, rowIndex) =>
 						<tr key={rowIndex}>
 							{select &&
 								<td className="select-box">
-									<input type="checkbox" value={rowIndex} onChange={e => selectRow(e, rowIndex)} />
+									<input type="checkbox" checked={row.selected} onChange={e => selectRow(e, rowIndex)} />
 								</td>
 							}
 							{
-								row.map((cell, cellIndex) =>
+								row.items.map((cell, cellIndex) =>
 									<td key={cellIndex}>
 										{
 											`${cell}` === '#' || `${cell}`.includes('http')
@@ -60,29 +43,57 @@ const TableContent = ({ headers, rows, select, selectRow }) => {
 
 const Table = ({ headers, rows, select }) => {
 
-	const [exportList, setExportList] = useState([]);
+	const [allSelected, setAllSelected] = useState(false);
+	const [exportAvailable, setExportAvailable] = useState(false)
+	const [tableRows, setTableRows] = useState([]);
+
+	useEffect(() => {
+		if(rows.length > 0) {
+			let tempList = []
+			rows.forEach((row, id) => {
+				tempList.push({
+					id: id,
+					selected: false,
+					items: row
+				})
+			})
+			setTableRows(tempList)
+		}
+	}, [rows])
+
+	useEffect(() => {
+		setExportAvailable(tableRows.some(row => { return row.selected }))
+		setAllSelected(tableRows.every(row => { return row.selected }))
+	},[tableRows])
 
 	const selectRow = (e, index) => {
-		if (e.currentTarget.checked) {
-			let list = Array.from(exportList)
-			list.push(index)
-			setExportList(list)
+		let tempList = Array.from(tableRows)
+		tempList[index].selected = !tempList[index].selected
+		setTableRows(tempList)
+	}
+
+	const selectAllRows = () => {
+		let tempList = Array.from(tableRows)
+		if(!allSelected) {
+			tempList.forEach((row) => row.selected = true)
 		} else {
-			let list = Array.from(exportList)
-			list.forEach((id, arrayIndex) => {
-				if (list[arrayIndex] === index) {
-					list.splice(arrayIndex, 1)
-				}
-			})
-			setExportList(list)
+			tempList.forEach(row => row.selected = false)
 		}
+		setTableRows(tempList)
+		setAllSelected(!allSelected)
 	}
 
 	const submitForm = e => {
 		e.preventDefault()
 
+		let indexList = [];
+		tableRows.forEach(row => {
+			if(row.selected) {
+				indexList.push(row.id)
+			}
+		})
+
 		// Sort selected items
-		let indexList = Array.from(exportList)
 		let documentList = []
 		indexList.sort()
 		indexList.forEach(index => {
@@ -97,9 +108,9 @@ const Table = ({ headers, rows, select }) => {
 	if (select) {
 		return (
 			<form className="form-select" onSubmit={submitForm}>
-				<TableContent headers={headers} rows={rows} select={true} selectRow={selectRow} />
+				<TableContent headers={headers} rows={tableRows} select={true} selectRow={selectRow} selectAllRows={selectAllRows} allSelected={allSelected} />
 				{
-					exportList.length > 0 &&
+					exportAvailable &&
 					<button type="submit">Export CSV</button>
 				}
 			</form>
