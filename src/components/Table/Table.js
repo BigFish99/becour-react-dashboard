@@ -2,13 +2,25 @@ import React, { useState, useEffect } from 'react'
 import { exportCSV } from './exportCSV'
 import './Table.css'
 
+const Checkbox = ({checked, onChange}) => {
+	let id = Math.random().toString(36).substring(7);
+	return(
+		<div className="Checkbox">
+			<label htmlFor={id}>
+				<input id={id} checked={checked} onChange={onChange} type="checkbox" />
+				<span className="box"></span>
+			</label>
+		</div>
+	)
+}
+
 const TableContent = ({ headers, rows, select, selectRow, selectAllRows, allSelected }) => {
 
 	return (
-		<table className="Table">
+		<table>
 			<thead>
 				<tr>
-					{select && <td className="select-box"><input checked={allSelected} onChange={selectAllRows} type="checkbox" /></td>}
+					{select && <th className="select-box"><Checkbox checked={allSelected} onChange={selectAllRows} /></th>}
 					{headers.map((title, headIndex) => <th key={headIndex}>{title}</th>)}
 				</tr>
 			</thead>
@@ -18,7 +30,7 @@ const TableContent = ({ headers, rows, select, selectRow, selectAllRows, allSele
 						<tr key={rowIndex}>
 							{select &&
 								<td className="select-box">
-									<input type="checkbox" checked={row.selected} onChange={e => selectRow(e, rowIndex)} />
+									<Checkbox checked={row.selected} onChange={e => selectRow(e, rowIndex)} />
 								</td>
 							}
 							{
@@ -108,16 +120,17 @@ const Table = ({ headers, rows, select }) => {
 	if (select) {
 		return (
 			<form className="form-select" onSubmit={submitForm}>
-				<TableContent headers={headers} rows={tableRows} select={true} selectRow={selectRow} selectAllRows={selectAllRows} allSelected={allSelected} />
-				{
-					exportAvailable &&
-					<button type="submit">Export CSV</button>
-				}
+				<button disabled={!exportAvailable} className="export-button" type="submit">Export CSV</button>
+				<div className="Table">
+					<TableContent headers={headers} rows={tableRows} select={true} selectRow={selectRow} selectAllRows={selectAllRows} allSelected={allSelected} />
+				</div>
 			</form>
 		)
 	} else {
 		return (
-			<TableContent headers={headers} rows={rows} />
+			<div className="Table">
+				<TableContent headers={headers} rows={rows} />
+			</div>
 		)
 	}
 }
