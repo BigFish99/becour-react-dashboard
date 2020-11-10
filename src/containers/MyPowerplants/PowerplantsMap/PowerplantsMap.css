@@ -1,0 +1,10 @@
+.GoogleMap {
+	width: 100%;
+	position: relative;
+}
+
+.GoogleMap:before {
+	content: '';
+	display: block;
+	padding-top: 66%;
+}

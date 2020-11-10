@@ -24,7 +24,8 @@ function App() {
 					<Route path="/" exact component={Home} />
 					<Route path="/my-documents" component={MyDocuments} />
 					<Route path="/my-consumption" component={MyConsumption} />
-					<Route path="/my-powerplants" component={MyPowerplants} />
+					<Route path="/my-powerplants" exact component={MyPowerplants} />
+					<Route path="/my-powerplants/:id" component={MyPowerplants} />
 					<Route path="/contact" component={Contact} />
 					<Route path="/api/webapp/37f7ed03-42a3-4151-a01b-452a21a93b14/preview" exact render={() => <Redirect to="/" />} />
 				</Switch>

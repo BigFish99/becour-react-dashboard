@@ -112,7 +112,7 @@ export const year2019 = {
 			name: 'Malmö',
 			consumptionVolume: 800000,
 			plannedVolume: 20000,
-			purchasedRE: 100
+			purchasedRE: 55
 		},
 	]
 };
