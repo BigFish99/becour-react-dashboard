@@ -18,11 +18,12 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 			type: 'pie'
 		},
 		tooltip: {
-			enabled: false
+			pointFormat: '{series.name}<b>{point.y}</b>',
+			valueSuffix: ' %',
 	  },
 		plotOptions: {
 			pie: {
-				 allowPointSelect: false,
+				 allowPointSelect: true,
 				 cursor: 'pointer',
 				 dataLabels: {
 					 format: '{point.y}%',
@@ -34,11 +35,6 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 		series: [{
 			name: '',
 			innerSize: '30%',
-			states: {
-				hover: {
-					enabled: false
-				}
-			},
 			data: [{
 				name: 'Renewable',
 				color: '#48AD4E',
@@ -46,7 +42,7 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 			},
 			{
 				name: 'Non renewable',
-				color: '#ccc',
+				color: '#666',
 				y: Math.round(nonRenewable / (renewable + nonRenewable) * 100)
 			}]
 		}]

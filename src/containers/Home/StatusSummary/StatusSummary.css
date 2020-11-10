@@ -1,13 +1,18 @@
 .StatusSummary {
 	padding: 20px;
+	color: var(--color-blue-dark);
 }
 .StatusSummary .inner {
 	max-width: 1400px;
 	margin: 0 auto;
 }
 
+.StatusSummary h1 {
+	font-size: 2.3em;
+}
+
 .StatusSummary .header {
-	margin: 30px 0;
+	margin: 50px 0 50px 0;
 }
 
 .StatusSummary .header p {
@@ -24,7 +29,9 @@
 
 .StatusSummary .box {
 	padding: 20px;
-	box-shadow: 0 0 8px rgba(0,0,0,.1);
+	box-shadow: 1px 1px 9px rgba(0,0,0,.2);
+	border-radius: 12px;
+	overflow: hidden;
 }
 
 .StatusSummary .content .map {

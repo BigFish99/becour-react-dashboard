@@ -24,6 +24,8 @@
 	background-color: var(--color-blue-dark);
 	color: var(--color-white);
 	position: relative;
+	border-radius: 12px;
+	overflow: hidden;
 }
 
 .HomePowerplants-Powerplant-image {

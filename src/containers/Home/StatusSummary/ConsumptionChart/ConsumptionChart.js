@@ -5,7 +5,9 @@ import Loader from '../../../../components/Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-const ConsumptionChart = ({ chart, loading }) => {
+import {chart} from '../../../../testData/frontPageChart'
+
+const ConsumptionChart = ({ loading }) => {
 
 	let options = {
 		title: {
@@ -14,13 +16,16 @@ const ConsumptionChart = ({ chart, loading }) => {
 		credits: {
 			enabled: false
 		},
-		colors: ['#48AD4E', '#ccc'],
 		plotOptions: {
-			series: {
-				borderWidth: 0,
-				pointPadding: 0
+			areaspline: {
+				 fillOpacity: .75,
+				 lineWidth: 0,
+				 marker: {
+					 enabled: false
+				 }
 			}
-		},
+	  },
+	  colors: ['#58BEBB', '#48AD4E', '#666'],
 		xAxis: {
 			labels: {
 				enabled: true
@@ -51,11 +56,12 @@ const ConsumptionChart = ({ chart, loading }) => {
 			}
 		},
 		chart: {
-			type: 'column'
+			type: 'areaspline'
 		},
 		tooltip: {
-			enabled: true
-		},
+			shared: true,
+			valueSuffix: ' GWh'
+	  },
 		series: chart,
 		responsive: {
 			rules: [{

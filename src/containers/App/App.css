@@ -95,7 +95,12 @@ a {
 
 sub {
 	vertical-align: sub;
-	font-size: smaller;
+	font-size: .65em;
+}
+
+sup {
+	vertical-align: super;
+	font-size: .65em;
 }
 
 .text-red {
