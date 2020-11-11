@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import PowerplantsMap from './PowerplantsMap/PowerplantsMap'
+import PowerplantList from './PowerplantList/PowerplantList'
 
 const MyPowerplants = ({region, year}) => {
 
@@ -39,6 +40,7 @@ const MyPowerplants = ({region, year}) => {
 				]}
 			/>
 			<PowerplantsMap />
+			<PowerplantList />
 		</main>
 	)
 }

@@ -2,16 +2,17 @@ import React from 'react'
 import './PowerplantsMap.css'
 import {connect} from 'react-redux'
 import Loader from '../../../components/Loader/Loader'
-import GoogleMap from './GoogleMap'
+import HighChartsMap from './HighChartsMap'
 
-const PowerplantsMap = ({powerplants, loading}) => {
+
+const PowerplantsMap = ({powerplants, regions, loading}) => {
 	return(
 		<div className="PowerplantsMap">
 			{
 				loading
 				? <Loader />
 				: powerplants.length > 0
-					? <GoogleMap powerplants={powerplants} />
+					? <HighChartsMap powerplants={powerplants} regions={regions} />
 					: <p>No powerplants fetched</p>
 			}
 		</div>
@@ -20,6 +21,7 @@ const PowerplantsMap = ({powerplants, loading}) => {
 
 const mapStateToProps = state => ({
 	powerplants: state.powerplants.plants,
+	regions: state.powerplants.regions,
 	loading: state.powerplants.loading
 })
 

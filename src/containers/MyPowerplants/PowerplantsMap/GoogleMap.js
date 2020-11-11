@@ -1,6 +1,6 @@
 import React from 'react'
 import mapStyles from './mapStyles.json'
-import { GoogleMap as GoogleMapComponent, LoadScript, MarkerClusterer, Marker, InfoBox } from '@react-google-maps/api';
+import { GoogleMap as GoogleMapComponent, LoadScript, MarkerClusterer, Marker } from '@react-google-maps/api';
 
 const GoogleMap = ({ powerplants }) => {
 

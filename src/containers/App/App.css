@@ -103,6 +103,10 @@ sup {
 	font-size: .65em;
 }
 
+strong {
+	font-weight: bold;
+}
+
 .text-red {
 	color: var(--color-red);
 }
