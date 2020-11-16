@@ -5,7 +5,7 @@ import Loader from '../../../../components/Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import {chart} from '../../../../testData/frontPageChart'
+import { chart } from '../../../../testData/frontPageChart'
 
 const ConsumptionChart = ({ loading }) => {
 
@@ -18,14 +18,25 @@ const ConsumptionChart = ({ loading }) => {
 		},
 		plotOptions: {
 			areaspline: {
-				 fillOpacity: .75,
-				 lineWidth: 0,
-				 marker: {
-					 enabled: false
-				 }
+				stacking: 'normal',
+				fillOpacity: .75,
+				lineWidth: 0,
+				marker: {
+					enabled: false
+				}
+			},
+			column: {
+				borderWidth: 0,
+				stacking: 'normal',
+				borderRadius: 0
+			},
+			spline: {
+				marker: {
+					enabled: false
+				}
 			}
-	  },
-	  colors: ['#58BEBB', '#48AD4E', '#666'],
+		},
+		colors: ['#58BEBB', '#48AD4E', '#666'],
 		xAxis: {
 			labels: {
 				enabled: true
@@ -56,25 +67,25 @@ const ConsumptionChart = ({ loading }) => {
 			}
 		},
 		chart: {
-			type: 'areaspline'
+			type: 'column'
 		},
 		tooltip: {
 			shared: true,
 			valueSuffix: ' GWh'
-	  },
+		},
 		series: chart,
 		responsive: {
 			rules: [{
-			  condition: {
-				 maxWidth: 500
-			  },
-			  chartOptions: {
-				 legend: {
-					enabled: true
-				 }
-			  }
+				condition: {
+					maxWidth: 500
+				},
+				chartOptions: {
+					legend: {
+						enabled: true
+					}
+				}
 			}]
-		 }
+		}
 	}
 
 	return (
@@ -83,13 +94,13 @@ const ConsumptionChart = ({ loading }) => {
 				loading
 					? <Loader />
 					: chart.length > 0
-						? 	<div className="ConsumptionChart-chart">
-								<HighchartsReact
-									highcharts={Highcharts}
-									constructorType={'chart'}
-									options={options}
-								/>
-							</div>
+						? <div className="ConsumptionChart-chart">
+							<HighchartsReact
+								highcharts={Highcharts}
+								constructorType={'chart'}
+								options={options}
+							/>
+						</div>
 						: <p>No data</p>
 			}
 		</div>

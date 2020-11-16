@@ -19,6 +19,13 @@
 	cursor: pointer;
 	text-align: center;
 	min-width: 40px;
+	border-radius: 8px;
+	font-weight: bold;
+}
+
+.PowerplantList .paginationItem:hover {
+	background-color: var(--color-blue-dark);
+	color: var(--color-white);
 }
 
 .PowerplantList .paginateNavButton {
@@ -40,36 +47,46 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	max-width: 1100px;
+	border-bottom: 1px solid var(--color-blue-dark);
+	padding-bottom: 15px;
 }
 
 .PowerplantList .list {
 	max-width: 1100px;
 }
 
-.maxRowsSelect {
+.PowerplantList .info .maxRowsSelect {
 	text-align: right;
 }
 
-.maxRowsSelect p {
+.PowerplantList .info .maxRowsSelect p {
 	font-size: .8em;
 	margin: 0 0 5px 0;
+	font-weight: bold;
 }
 
-.maxRowsSelect select {
+.PowerplantList .info .maxRowsSelect select {
 	padding: 10px;
 	width: 120px;
 	border-radius: 5px;
 }
 
+.PowerplantList .info .count {
+	display: flex;
+	align-items: flex-end;
+	font-size: 1.1em;
+}
+
 .PowerplantList-Plant {
 	background-color: var(--color-white);
 	box-shadow: 0 0 15px rgba(0,0,0,.1);
-	margin: 30px 0;
+	margin: 30px 0 50px 0;
 	padding: 30px;
 	display: grid;
 	grid-template-columns: minmax(200px, 350px) 1fr;
 	gap: 50px;
 	min-height: 300px;
+	border-radius: 10px;
 }
 
 .PowerplantList-Plant .image {

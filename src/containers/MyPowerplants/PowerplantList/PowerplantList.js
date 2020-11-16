@@ -95,12 +95,12 @@ const List = ({powerplants}) => {
 					<p>Total powerplants: <strong>{powerplants.length}</strong></p>
 				</div>
 				<div className="maxRowsSelect">
+					<p>Results per page</p>
 					<select onChange={e => userSetMaxRows(parseInt(e.currentTarget.value))}>
 						<option value={20}>20</option>
 						<option value={50}>50</option>
 						<option value={100}>100</option>
 					</select>
-					<p>Results per page</p>
 				</div>
 			</div>
 			<div className="list" id="powerplantList">

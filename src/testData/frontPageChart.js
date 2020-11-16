@@ -17,6 +17,7 @@ let testTotal = () => {
 export const chart = [
 	{
 		name: 'Total',
+		type: 'spline',
 		data:  testTotal(),
 	},
 	{
