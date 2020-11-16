@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {clearConsumptionData} from '../../../store/consumption/actions'
+import {connect} from 'react-redux'
 import ConsumptionOverview from './ConsumptionOverview/ConsumptionOverview'
 import ConsumptionDetails from './ConsumptionDetails/ConsumptionDetails'
 import ConsumptionRegions from './ConsumptionRegions/ConsumptionRegions'
 
-const Overview = () => {
+const Overview = ({clearConsumptionData}) => {
+
+	useEffect(() => {
+		return () => {
+			clearConsumptionData()
+		}
+	},[])
+
 	return(
 		<>
 			<ConsumptionOverview />
@@ -13,4 +22,4 @@ const Overview = () => {
 	)
 }
 
-export default Overview
+export default connect(null, {clearConsumptionData})(Overview)

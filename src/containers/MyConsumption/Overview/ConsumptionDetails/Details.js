@@ -1,4 +1,5 @@
 import React from 'react'
+import CountUp from 'react-countup'
 
 const Details = ({details}) => {
 	const {
@@ -15,26 +16,26 @@ const Details = ({details}) => {
 				<tbody>
 					<tr>
 						<td>Renewable</td>
-						<td>{renewable}%</td>
+						<td><CountUp end={renewable} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
 						<td>Total purchased</td>
-						<td>{totalPurchased} GWh</td>
+						<td><CountUp end={totalPurchased} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} /> GWh</td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
 						<td>Total inderect emissions</td>
-						<td>{totalInderectEmissions}kg CO<sub>2</sub></td>
+						<td><CountUp end={totalInderectEmissions} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />kg CO<sub>2</sub></td>
 					</tr>
 					<tr>
 						<td>Reference mix emissions</td>
-						<td>{referenceMixEmissions}kg CO<sub>2</sub></td>
+						<td><CountUp end={referenceMixEmissions} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />kg CO<sub>2</sub></td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
 						<th>Total savings inderect emissions</th>
-						<th>{totalSavings}kg CO<sub>2</sub></th>
+						<th><CountUp end={totalSavings} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />kg CO<sub>2</sub></th>
 					</tr>
 				</tbody>
 			</table>

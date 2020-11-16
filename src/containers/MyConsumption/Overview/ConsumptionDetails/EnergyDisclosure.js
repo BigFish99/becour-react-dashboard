@@ -1,6 +1,7 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import CountUp from 'react-countup'
 
 const EnergyDisclosure = ({energyDisclosure}) => {
 
@@ -26,7 +27,9 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 			type: 'pie'
 		},
 		tooltip: {
-			enabled: true
+			enabled: true,
+			headerFormat: '<strong>{point.key}</strong><br/>',
+			pointFormat: '<br>{point.y}%</br>',
 	  },
 		plotOptions: {
 			pie: {
@@ -45,27 +48,27 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 			data: [
 				{
 					name: 'Wind',
-					color: '#ECBE3F',
+					color: '#48AD4E',
 					y: wind
 				},
 				{
 					name: 'Hydro',
-					color: '#58BEBB',
+					color: '#48AD4E',
 					y: hydro
 				},
 				{
 					name: 'Solar',
-					color: '#D86F23',
+					color: '#48AD4E',
 					y: solar
 				},
 				{
 					name: 'Nuclear',
-					color: '#F43C5B',
+					color: '#666',
 					y: nuclear
 				},
 				{
 					name: 'Fossil',
-					color: '#96051C',
+					color: '#666',
 					y: fossil
 				},
 			]
@@ -86,28 +89,28 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 				<tbody>
 					<tr>
 						<th>Renewable</th>
-						<th>{total}%</th>
+						<th><CountUp end={total} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</th>
 					</tr>
 					<tr>
 						<td>Wind</td>
-						<td>{wind}%</td>
+						<td><CountUp end={wind} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
 					</tr>
 					<tr>
 						<td>Solar</td>
-						<td>{solar}%</td>
+						<td><CountUp end={solar} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
 					</tr>
 					<tr>
 						<td>Hydro</td>
-						<td>{hydro}%</td>
+						<td><CountUp end={hydro} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
 						<th>Nuclear</th>
-						<td>{nuclear}%</td>
+						<td><CountUp end={nuclear} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
 					</tr>
 					<tr>
 						<th>Fossil</th>
-						<td>{fossil}%</td>
+						<td><CountUp end={fossil} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
 					</tr>
 				</tbody>
 			</table>

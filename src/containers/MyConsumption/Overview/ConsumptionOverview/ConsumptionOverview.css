@@ -4,6 +4,11 @@
 	font-weight: normal;
 }
 
+.ConsumptionOverview h1 > div {
+	display: inline-block;
+	margin-left: 20px;
+}
+
 .ConsumptionOverview .sections {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));

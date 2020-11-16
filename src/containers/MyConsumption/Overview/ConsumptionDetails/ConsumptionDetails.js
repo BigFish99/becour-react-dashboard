@@ -1,7 +1,6 @@
 import React from 'react'
 import './ConsumptionDetails.css'
 import {connect} from 'react-redux'
-import Loader from '../../../../components/Loader/Loader'
 import EnergyDisclosure from './EnergyDisclosure'
 import Details from './Details'
 
@@ -10,18 +9,10 @@ const ConsumptionDetails = ({energyDisclosure, details, loading}) => {
 	return(
 		<div className="ConsumptionDetails">
 			<div className="section">
-				{
-					loading
-					? <Loader />
-					: <EnergyDisclosure energyDisclosure={energyDisclosure} />
-				}
+				<EnergyDisclosure energyDisclosure={energyDisclosure} />
 			</div>
 			<div className="section">
-				{
-					loading
-					? <Loader />
-					: <Details details={details} />
-				}
+				<Details details={details} />
 			</div>
 		</div>
 	)
