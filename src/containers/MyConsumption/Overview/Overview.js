@@ -11,7 +11,7 @@ const Overview = ({clearConsumptionData}) => {
 		return () => {
 			clearConsumptionData()
 		}
-	},[])
+	},[clearConsumptionData])
 
 	return(
 		<>

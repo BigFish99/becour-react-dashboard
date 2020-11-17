@@ -15,22 +15,23 @@
 	appearance: none;
 	border: 0;
 	padding: 10px;
-	background: transparent;
 	cursor: pointer;
 	text-align: center;
 	min-width: 40px;
 	border-radius: 8px;
 	font-weight: bold;
+	color: var(--color-green);
+	background-color: #edfcef;
 }
 
 .PowerplantList .paginationItem:hover {
-	background-color: var(--color-blue-dark);
+	background-color: var(--color-green);
 	color: var(--color-white);
 }
 
 .PowerplantList .paginateNavButton {
-	background-color: var(--color-blue-dark);
-	color: var(--color-white);
+	background-color: #edfcef;
+	color: var(--color-green);
 }
 
 .PowerplantList .paginateNavButton:disabled {
@@ -39,7 +40,7 @@
 }
 
 .PowerplantList .paginationItem.active {
-	background-color: var(--color-blue-dark);
+	background-color: var(--color-green);
 	color: var(--color-white);
 }
 
@@ -47,7 +48,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	max-width: 1100px;
-	border-bottom: 1px solid var(--color-blue-dark);
+	border-bottom: 1px solid var(--color-green);
 	padding-bottom: 15px;
 }
 

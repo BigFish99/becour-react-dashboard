@@ -1,9 +1,15 @@
 import React from 'react'
+import './Contact.css'
+import Form from './Form'
+import People from './People'
 
 const Contact = () => {
 	return (
-		<main>
-			<h1>Contact</h1>
+		<main className="Contact">
+			<div className="wrapper">
+				<Form />
+				<People />
+			</div>
 		</main>
 	)
 }

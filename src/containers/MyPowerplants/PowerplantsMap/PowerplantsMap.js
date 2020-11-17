@@ -1,20 +1,13 @@
 import React from 'react'
 import './PowerplantsMap.css'
 import {connect} from 'react-redux'
-import Loader from '../../../components/Loader/Loader'
 import HighChartsMap from './HighChartsMap'
 
 
 const PowerplantsMap = ({powerplants, regions, loading}) => {
 	return(
 		<div className="PowerplantsMap">
-			{
-				loading
-				? <Loader />
-				: powerplants.length > 0
-					? <HighChartsMap powerplants={powerplants} regions={regions} />
-					: <p>No powerplants fetched</p>
-			}
+			<HighChartsMap powerplants={powerplants} regions={regions} />
 		</div>
 	)
 }

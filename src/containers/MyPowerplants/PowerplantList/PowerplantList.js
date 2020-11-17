@@ -59,13 +59,19 @@ const List = ({powerplants}) => {
 		}
 		return (
 			<ul className="paginationList">
-				<li>
-					<button disabled={currentPage === 1} onClick={() => { scrollToList(); setCurrentPage(currentPage-1) } } className="paginationItem paginateNavButton prev">Previous</button>
-				</li>
+				{
+					currentPage !== 1 &&
+					<li>
+						<button onClick={() => { scrollToList(); setCurrentPage(currentPage-1) } } className="paginationItem paginateNavButton prev">Previous</button>
+					</li>
+				}
 				{list}
-				<li>
-					<button disabled={currentPage >= parseInt(pages)} onClick={() => { scrollToList(); setCurrentPage(currentPage+1); } } className="paginationItem paginateNavButton next">Next</button>
-				</li>
+				{
+					currentPage < parseInt(pages) &&
+					<li>
+						<button onClick={() => { scrollToList(); setCurrentPage(currentPage+1); } } className="paginationItem paginateNavButton next">Next</button>
+					</li>
+				}
 			</ul>
 		)
 	}
