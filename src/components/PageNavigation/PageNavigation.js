@@ -4,10 +4,10 @@ import {NavLink} from 'react-router-dom'
 import {setCurrentYear} from '../../store/user/actions'
 import {connect} from 'react-redux'
 
-const PageNavigation = ({title, navigation, yearsAvailable, currentYear, setCurrentYear}) => {
+const PageNavigation = ({navigation, yearsAvailable, currentYear, setCurrentYear, currentRegion}) => {
 	return(
-		<header className="PageNavigation">
-			{title && <h1 dangerouslySetInnerHTML={{__html: title}} />}
+		<header className="PageNavigation content-box">
+			{currentRegion.id === 'all' ? <h1>Company overview</h1> : <h1>{currentRegion.name}</h1> }
 			{
 				navigation && navigation.length > 0 &&
 					<nav className="PageNavigation-navigation">
@@ -41,6 +41,7 @@ const PageNavigation = ({title, navigation, yearsAvailable, currentYear, setCurr
 }
 
 const mapStateToProps = state => ({
+	currentRegion: state.user.regions.current,
 	yearsAvailable: state.user.years.available,
 	currentYear: state.user.years.current
 })

@@ -16,7 +16,6 @@ const MyDocuments = ({getConsumerDocuments, year, region}) => {
 		<main className="MyDocuments container-sidebar">
 			<SideBarTree />
 			<PageNavigation
-				title="My documents"
 				navigation={[
 					{
 						path: `/my-documents/`,

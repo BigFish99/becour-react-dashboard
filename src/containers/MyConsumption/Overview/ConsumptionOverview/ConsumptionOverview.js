@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 
 const ConsumptionOverview = ({loading, overview, currentRegion}) => {
 	return(
-		<div className="ConsumptionOverview">
+		<div className="ConsumptionOverview content-box">
 			<h1>
 				{currentRegion.id === 'all' ? 'Company overview' : currentRegion.name}
 				{loading && <Loader />}
