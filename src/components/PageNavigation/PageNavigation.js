@@ -1,13 +1,21 @@
 import React from 'react'
 import './PageNavigation.css'
+import Loader from '../Loader/Loader'
 import {NavLink} from 'react-router-dom'
 import {setCurrentYear} from '../../store/user/actions'
 import {connect} from 'react-redux'
+import PointSelect from './PointSelect'
 
-const PageNavigation = ({navigation, yearsAvailable, currentYear, setCurrentYear, currentRegion}) => {
+const PageNavigation = ({points, loading = null, navigation, yearsAvailable, currentYear, setCurrentYear, currentRegion}) => {
 	return(
 		<header className="PageNavigation content-box">
-			{currentRegion.id === 'all' ? <h1>Company overview</h1> : <h1>{currentRegion.name}</h1> }
+			<h1>
+				{currentRegion.id === 'all' ? <span>Company overview</span> : <span>{currentRegion.name}</span> }
+				{
+					loading &&
+					<Loader loading={loading} />
+				}
+			</h1>
 			{
 				navigation && navigation.length > 0 &&
 					<nav className="PageNavigation-navigation">
@@ -35,6 +43,10 @@ const PageNavigation = ({navigation, yearsAvailable, currentYear, setCurrentYear
 							}
 						</ul>
 					</nav>
+			}
+			{
+				points &&
+				<PointSelect points={points} />
 			}
 		</header>
 	)

@@ -1,4 +1,3 @@
-import {regions} from '../../testData/regions'
 import {getCurrentRegion} from './functions'
 
 const initialState = {
@@ -9,7 +8,8 @@ const initialState = {
 			id: 'all',
 			name: 'All'
 		},
-		available: regions
+		point: false,
+		available: []
 	},
 	years: {
 		current: new Date().getFullYear(),

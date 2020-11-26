@@ -6,7 +6,7 @@ import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import Overview from './Overview/Overview'
 
-const MyConsumption = ({currentYear, currentRegion, getConsumptionData}) => {
+const MyConsumption = ({loading, currentYear, currentRegion, getConsumptionData}) => {
 
 	useEffect(() => {
 		getConsumptionData(currentYear, currentRegion)
@@ -17,6 +17,8 @@ const MyConsumption = ({currentYear, currentRegion, getConsumptionData}) => {
 			<SideBarTree />
 			<PageNavigation
 				title="My consumption"
+				loading={loading}
+				points={currentRegion.points ? currentRegion.points : false}
 				navigation={[
 					{
 						path: `/my-consumption/`,
@@ -34,6 +36,7 @@ const MyConsumption = ({currentYear, currentRegion, getConsumptionData}) => {
 }
 
 const mapStateToProps = state => ({
+	loading: state.consumption.loading,
 	currentYear: state.user.years.current,
 	currentRegion: state.user.regions.current
 })

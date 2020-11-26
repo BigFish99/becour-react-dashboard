@@ -14,7 +14,8 @@ export const getCurrentRegion = (regions, id) => {
 		if(region.id === id) {
 			returnObject = {
 				name: region.name,
-				id: region.id
+				id: region.id,
+				points: region.points ? region.points : false
 			}
 		}
 	})

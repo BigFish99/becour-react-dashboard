@@ -1,16 +1,11 @@
 import React from 'react'
-import Loader from '../../../../components/Loader/Loader'
 import './ConsumptionOverview.css'
 import CountUp from 'react-countup'
 import {connect} from 'react-redux'
 
-const ConsumptionOverview = ({loading, overview, currentRegion}) => {
+const ConsumptionOverview = ({overview}) => {
 	return(
 		<div className="ConsumptionOverview content-box">
-			<h1>
-				{currentRegion.id === 'all' ? 'Company overview' : currentRegion.name}
-				{loading && <Loader />}
-			</h1>
 			<div className="sections">
 				<div className="part">
 					<h3>Total energy consumption</h3>
@@ -38,9 +33,7 @@ const ConsumptionOverview = ({loading, overview, currentRegion}) => {
 }
 
 const mapStateToProps = state => ({
-	loading: state.consumption.loading,
-	overview: state.consumption.overview,
-	currentRegion: state.user.regions.current
+	overview: state.consumption.overview
 })
 
 export default connect(mapStateToProps, null)(ConsumptionOverview	)

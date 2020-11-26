@@ -1,17 +1,12 @@
-import React, {useEffect} from 'react'
-import {getConsumerData} from '../../store/user/actions'
-import {connect} from 'react-redux'
+import React from 'react'
+
 
 // Components
 import Welcome from './Welcome/Welcome'
 import StatusSummary from './StatusSummary/StatusSummary'
 import HomePowerplants from './HomePowerplants/HomePowerplants'
 
-const Home = ({getConsumerData}) => {
-
-	useEffect(() => {
-		getConsumerData()
-	}, [getConsumerData])
+const Home = () => {
 
 	return (
 		<main className="Home">
@@ -22,4 +17,4 @@ const Home = ({getConsumerData}) => {
 	)
 }
 
-export default connect(null, {getConsumerData})(Home)
+export default Home

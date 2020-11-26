@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css'
 import {
 	BrowserRouter as Router,
@@ -7,6 +7,7 @@ import {
 	Redirect
 } from 'react-router-dom'
 
+import {getConsumerData} from '../../store/user/actions'
 // Containers
 import Header from '../../components/Header/Header'
 import Home from '../Home/Home'
@@ -14,8 +15,14 @@ import MyDocuments from '../MyDocuments/MyDocuments'
 import MyConsumption from '../MyConsumption/MyConsumption'
 import MyPowerplants from '../MyPowerplants/MyPowerplants'
 import Contact from '../Contact/Contact'
+import {connect} from 'react-redux'
 
-function App() {
+function App({getConsumerData}) {
+
+	useEffect(() => {
+		getConsumerData()
+	}, [getConsumerData])
+
 	return (
 		<div className="App">
 			<Router>
@@ -34,4 +41,4 @@ function App() {
 	);
 }
 
-export default App;
+export default connect(null, {getConsumerData})(App);
