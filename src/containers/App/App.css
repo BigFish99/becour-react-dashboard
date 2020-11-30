@@ -1,3 +1,4 @@
+/*
 @font-face{
 	font-family:"Mark";
 	src:url("../../assets/fonts/5423411/8706c0b6-b423-44f7-ae1a-dd0aabd8a542.eot?#iefix");
@@ -16,6 +17,7 @@
 	src:url("../../assets/fonts/5423483/230b3c63-b497-421b-ae7d-182024bef8ac.eot?#iefix") format("eot"),url("../../assets/fonts/5423483/ec598369-4d91-4a16-9db3-6654f68d3c28.woff2") format("woff2"),url("../../assets/fonts/5423483/90214997-3760-4b80-a23b-fec02ab55fac.woff") format("woff"),url("../../assets/fonts/5423483/118e930e-1f56-4131-aee9-236212c0a10b.ttf") format("truetype");
 	font-style: 'Regular';
 }
+*/
 
 :root {
 	--color-black: #34373b;
