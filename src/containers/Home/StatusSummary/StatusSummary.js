@@ -9,7 +9,7 @@ const StatusSummary = () => {
 		<div className="StatusSummary">
 			<div className="inner">
 				<div className="header">
-					<h1>Status summary PLANET 9</h1>
+					<h1>Status summary</h1>
 					<p>Your corporate summary based on data from current year Becour has access to.</p>
 				</div>
 				<div className="content">
