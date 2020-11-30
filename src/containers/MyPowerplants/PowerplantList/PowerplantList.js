@@ -121,7 +121,7 @@ const List = ({powerplants}) => {
 
 const PowerplantList = ({loading, powerplants}) => {
 	return(
-		<div className="PowerplantList">
+		<div className="PowerplantList content-box">
 			{
 				loading
 				? <Loader />

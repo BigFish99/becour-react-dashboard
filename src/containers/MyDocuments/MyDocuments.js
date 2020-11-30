@@ -6,7 +6,7 @@ import {Route} from 'react-router-dom'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
 
-const MyDocuments = ({getConsumerDocuments, year, region}) => {
+const MyDocuments = ({getConsumerDocuments, year, region, loading}) => {
 
 	useEffect(() => {
 		getConsumerDocuments(year, region.id)
@@ -16,6 +16,7 @@ const MyDocuments = ({getConsumerDocuments, year, region}) => {
 		<main className="MyDocuments container-sidebar">
 			<SideBarTree />
 			<PageNavigation
+				loading={loading}
 				navigation={[
 					{
 						path: `/my-documents/`,
@@ -43,6 +44,7 @@ const MyDocuments = ({getConsumerDocuments, year, region}) => {
 const mapStateToProps = state => ({
 	year: state.user.years.current,
 	region: state.user.regions.current,
+	loading: state.documents.loading
 })
 
 export default connect(mapStateToProps, {getConsumerDocuments})(MyDocuments)

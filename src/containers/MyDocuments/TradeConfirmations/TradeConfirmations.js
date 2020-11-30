@@ -17,7 +17,7 @@ const TradeConfirmations = ({tradeConfirmations, loading}) => {
 	}
 
 	return(
-		<div className="TradeConfirmations">
+		<div className="TradeConfirmations content-box">
 			{
 				loading
 				? <Loader />

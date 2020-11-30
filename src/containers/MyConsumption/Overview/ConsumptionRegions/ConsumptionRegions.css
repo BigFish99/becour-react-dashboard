@@ -1,6 +1,9 @@
+.ConsumptionRegions {
+	margin-top: 50px;
+}
+
 .ConsumptionRegions h2 {
 	font-size: 1.2em;
-	margin-top: 60px;
 	margin-bottom: 30px;
 	border-bottom: 1px solid currentColor;
 	font-weight: bold;

@@ -4,9 +4,9 @@ import {connect} from 'react-redux'
 import HighChartsMap from './HighChartsMap'
 
 
-const PowerplantsMap = ({powerplants, regions, loading}) => {
+const PowerplantsMap = ({powerplants, regions}) => {
 	return(
-		<div className="PowerplantsMap">
+		<div className="PowerplantsMap content-box">
 			<HighChartsMap powerplants={powerplants} regions={regions} />
 		</div>
 	)
@@ -14,8 +14,7 @@ const PowerplantsMap = ({powerplants, regions, loading}) => {
 
 const mapStateToProps = state => ({
 	powerplants: state.powerplants.plants,
-	regions: state.powerplants.regions,
-	loading: state.powerplants.loading
+	regions: state.powerplants.regions
 })
 
 export default connect(mapStateToProps, null)(PowerplantsMap)

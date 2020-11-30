@@ -8,10 +8,10 @@ import Details from './Details'
 const ConsumptionDetails = ({energyDisclosure, details, loading}) => {
 	return(
 		<div className="ConsumptionDetails">
-			<div className="section">
+			<div className="section content-box">
 				<EnergyDisclosure energyDisclosure={energyDisclosure} />
 			</div>
-			<div className="section">
+			<div className="section content-box">
 				<Details details={details} />
 			</div>
 		</div>

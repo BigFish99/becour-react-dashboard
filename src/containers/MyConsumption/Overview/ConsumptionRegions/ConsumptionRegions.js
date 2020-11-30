@@ -43,7 +43,7 @@ const Region = ({name, consumptionVolume, plannedVolume, purchasedRE}) => {
 
 const ConsumptionRegions = ({consumptionLocations}) => {
 	return(
-		<div className="ConsumptionRegions">
+		<div className="ConsumptionRegions content-box">
 			{ consumptionLocations.length > 0 && <h2>Consumption locations</h2> }
 			{
 				consumptionLocations.length > 0 &&

@@ -32,6 +32,7 @@
 	box-shadow: 1px 1px 9px rgba(0,0,0,.2);
 	border-radius: 12px;
 	overflow: hidden;
+	background-color: #FFF;
 }
 
 .StatusSummary .content .map {

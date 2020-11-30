@@ -1,8 +1,8 @@
 .ConsumptionDetails {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 90px;
-	margin-top: 60px;
+	gap: 50px;
+	margin-top: 50px;
 }
 
 .ConsumptionDetails .section h3 {
