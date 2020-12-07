@@ -8,7 +8,7 @@ const initialState = {
 			id: 'all',
 			name: 'All'
 		},
-		point: false,
+		point: null,
 		available: []
 	},
 	years: {
@@ -93,6 +93,24 @@ const user = (state = initialState, action) => {
 				map: action.payload.data.map ? action.payload.data.map : [],
 				powerplants: action.payload.data.powerplants ? action.payload.data.powerplants : [],
 				tiles: action.payload.data.tiles ? action.payload.data.tiles : state.tiles
+			}
+		}
+		case 'USER_SET_CURRENT_CONSUMPTION_POINT': {
+			return {
+				...state,
+				regions: {
+					...state.regions,
+					point: action.point
+				}
+			}
+		}
+		case 'USER_CLEAR_CURRENT_CONSUMPTION_POINT': {
+			return {
+				...state,
+				regions: {
+					...state.regions,
+					point: null
+				}
 			}
 		}
 		default:

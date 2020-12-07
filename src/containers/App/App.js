@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import './fonts.css'
 import './App.css'
 import {
 	BrowserRouter as Router,
@@ -7,7 +8,7 @@ import {
 	Redirect
 } from 'react-router-dom'
 
-import {getConsumerData} from '../../store/user/actions'
+import {getConsumerData, clearCurrentConsumptionPoint} from '../../store/user/actions'
 // Containers
 import Header from '../../components/Header/Header'
 import Home from '../Home/Home'
@@ -17,11 +18,15 @@ import MyPowerplants from '../MyPowerplants/MyPowerplants'
 import Contact from '../Contact/Contact'
 import {connect} from 'react-redux'
 
-function App({getConsumerData}) {
+function App({getConsumerData, currentRegion, clearCurrentConsumptionPoint}) {
 
 	useEffect(() => {
 		getConsumerData()
 	}, [getConsumerData])
+
+	useEffect(() => {
+		clearCurrentConsumptionPoint()
+	}, [currentRegion, clearCurrentConsumptionPoint])
 
 	return (
 		<div className="App">
@@ -41,4 +46,8 @@ function App({getConsumerData}) {
 	);
 }
 
-export default connect(null, {getConsumerData})(App);
+const mapStateToProps = state => ({
+	currentRegion: state.user.regions.current
+})
+
+export default connect(mapStateToProps, {getConsumerData,clearCurrentConsumptionPoint})(App);

@@ -29,3 +29,12 @@ export const getConsumerData = () => ({
 		}
 	}
 })
+
+export const setCurrentConsumptionPoint = point => ({
+	type: 'USER_SET_CURRENT_CONSUMPTION_POINT',
+	point
+})
+
+export const clearCurrentConsumptionPoint = () => ({
+	type: 'USER_CLEAR_CURRENT_CONSUMPTION_POINT'
+})
