@@ -7,8 +7,12 @@ const Form = () => {
 			<p className="lead">How can we help you</p>
 
 			<form>
-				<label htmlFor="businessName">Business</label>
+				<label htmlFor="message">Message us</label>
+				<textarea id="message" rows="10"></textarea>
+				<button type="submit">Submit</button>
 			</form>
+
+
 		</div>
 	)
 }

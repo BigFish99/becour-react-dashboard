@@ -3,7 +3,6 @@ import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getConsumptionData} from '../../store/consumption/actions'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
-import {clearCurrentConsumptionPoint} from '../../store/user/actions'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import Overview from './Overview/Overview'
 
@@ -16,12 +15,6 @@ const MyConsumption = ({loading, currentYear, currentRegion, getConsumptionData,
 			getConsumptionData(currentYear, currentRegion, null)
 		}
 	}, [currentYear, currentRegion, getConsumptionData, currentPoint])
-
-	useEffect(() => {
-		return () => {
-			clearCurrentConsumptionPoint()
-		}
-	}, [clearCurrentConsumptionPoint])
 
 	return (
 		<main className="MyConsumption container-sidebar">
@@ -52,4 +45,4 @@ const mapStateToProps = state => ({
 	currentPoint: state.user.regions.point
 })
 
-export default connect(mapStateToProps, {getConsumptionData, clearCurrentConsumptionPoint})(MyConsumption)
+export default connect(mapStateToProps, {getConsumptionData})(MyConsumption)

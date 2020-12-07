@@ -4,8 +4,7 @@ import './App.css'
 import {
 	BrowserRouter as Router,
 	Route,
-	Switch,
-	Redirect
+	Switch
 } from 'react-router-dom'
 
 import {getConsumerData, clearCurrentConsumptionPoint} from '../../store/user/actions'
@@ -39,7 +38,6 @@ function App({getConsumerData, currentRegion, clearCurrentConsumptionPoint}) {
 					<Route path="/my-powerplants" exact component={MyPowerplants} />
 					<Route path="/my-powerplants/:id" component={MyPowerplants} />
 					<Route path="/contact" component={Contact} />
-					<Route path="/api/webapp/37f7ed03-42a3-4151-a01b-452a21a93b14/preview" exact render={() => <Redirect to="/" />} />
 				</Switch>
 			</Router>
 		</div>

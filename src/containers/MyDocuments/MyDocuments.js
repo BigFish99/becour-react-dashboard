@@ -2,12 +2,11 @@ import React, {useEffect} from 'react'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import {connect} from 'react-redux'
 import {getConsumerDocuments} from '../../store/documents/actions'
-import {clearCurrentConsumptionPoint} from '../../store/user/actions'
 import {Route} from 'react-router-dom'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
 
-const MyDocuments = ({getConsumerDocuments, currentYear, currentRegion, loading, currentPoint, clearCurrentConsumptionPoint}) => {
+const MyDocuments = ({getConsumerDocuments, currentYear, currentRegion, loading, currentPoint}) => {
 
 	useEffect(() => {
 		if(currentPoint !== null) {
@@ -16,12 +15,6 @@ const MyDocuments = ({getConsumerDocuments, currentYear, currentRegion, loading,
 			getConsumerDocuments(currentYear, currentRegion, null)
 		}
 	}, [currentYear, currentRegion, getConsumerDocuments, currentPoint])
-
-	useEffect(() => {
-		return () => {
-			clearCurrentConsumptionPoint()
-		}
-	}, [clearCurrentConsumptionPoint])
 
 	return (
 		<main className="MyDocuments container-sidebar">
@@ -60,4 +53,4 @@ const mapStateToProps = state => ({
 	currentPoint: state.user.regions.point
 })
 
-export default connect(mapStateToProps, {getConsumerDocuments, clearCurrentConsumptionPoint})(MyDocuments)
+export default connect(mapStateToProps, {getConsumerDocuments})(MyDocuments)

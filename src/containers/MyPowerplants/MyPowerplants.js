@@ -5,11 +5,10 @@ import {useParams} from 'react-router-dom'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import {getConsumerPowerplants, clearPowerplantsData} from '../../store/powerplants/actions'
-import {clearCurrentConsumptionPoint} from '../../store/user/actions'
 import PowerplantsMap from './PowerplantsMap/PowerplantsMap'
 import PowerplantList from './PowerplantList/PowerplantList'
 
-const MyPowerplants = ({currentRegion, currentYear, getConsumerPowerplants, clearPowerplantsData, loading, currentPoint, clearCurrentConsumptionPoint}) => {
+const MyPowerplants = ({currentRegion, currentYear, getConsumerPowerplants, clearPowerplantsData, loading, currentPoint}) => {
 
 	const {id} = useParams()
 
@@ -24,10 +23,9 @@ const MyPowerplants = ({currentRegion, currentYear, getConsumerPowerplants, clea
 
 	useEffect(() => {
 		return () => {
-			clearCurrentConsumptionPoint()
 			clearPowerplantsData()
 		}
-	}, [clearPowerplantsData, clearCurrentConsumptionPoint])
+	}, [clearPowerplantsData])
 
 	return (
 		<main className="MyPowerplants container-sidebar">
@@ -67,4 +65,4 @@ const mapStateToProps = state => ({
 	currentPoint: state.user.regions.point
 })
 
-export default connect(mapStateToProps, {getConsumerPowerplants, clearPowerplantsData, clearCurrentConsumptionPoint})(MyPowerplants)
+export default connect(mapStateToProps, {getConsumerPowerplants, clearPowerplantsData})(MyPowerplants)
