@@ -7,14 +7,13 @@ const initialState = {
 		totalAvoidedEmissions: 0,
 	},
 	energyDisclosure: {
-		renewable: {
+		documented: {
 			total: 0,
 			wind: 0,
 			solar: 0,
 			hydro: 0
 		},
-		nuclear: 0,
-		fossil: 0
+		undocumented: 0
 	},
 	details: {
 		renewable: 0,
@@ -23,7 +22,13 @@ const initialState = {
 		referenceMixEmissions: 0,
 		totalSavings: 0
 	},
-	consumptionLocations: []
+	consumptionLocations: [],
+	consumptionMatching: {
+		wind: [],
+		hydro: [],
+		solar: [],
+		total: []
+	}
 };
 
 const consumption = (state = initialState, action) => {

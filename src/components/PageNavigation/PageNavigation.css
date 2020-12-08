@@ -11,6 +11,17 @@
 	margin-left: 20px;
 }
 
+.PageNavigation h1 img {
+	margin-right: 15px;
+	width: 1.3em !important;
+	height: 1.3em !important;
+	vertical-align: middle;
+}
+
+.PageNavigation h1 span {
+	vertical-align: middle;
+}
+
 .PageNavigation-navigation ul,
 .PageNavigation-years ul {
 	list-style: none;

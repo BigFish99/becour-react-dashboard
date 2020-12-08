@@ -1,8 +1,8 @@
 .Contact .wrapper {
 	display: grid;
-	grid-template-columns: 3fr 1fr;
+	grid-template-columns: 5fr 2fr;
 	gap: 50px;
-	max-width: 1100px;
+	max-width: 1200px;
 	margin: 0 auto;
 	padding: 100px 20px;
 }
@@ -47,4 +47,41 @@
 	background-color: var(--color-green);
 	color: var(--color-white);
 	cursor: pointer;
+}
+
+.Contact-Form .inner {
+	max-width: 600px;
+}
+
+.Contact-People .section {
+	margin-bottom: 50px;
+}
+
+.Contact-People h3 {
+	font-size: 1.4em;
+	font-weight: bold;
+	margin: 0 0 15px 0;
+}
+
+.Contact-People img {
+	width: 100%;
+	max-width: 120px;
+	margin-right: 20px;
+}
+
+.Contact-Person {
+	margin: 0 0 35px 0;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	line-height: 1.6;
+}
+
+.Contact-Person p.name {
+	font-weight: bold;
+	color: var(--color-red);
+}
+
+.Contact-Person p.email a {
+	border-bottom: 1px solid currentColor;
 }

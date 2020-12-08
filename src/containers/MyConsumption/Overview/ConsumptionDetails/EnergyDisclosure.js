@@ -6,14 +6,13 @@ import CountUp from 'react-countup'
 const EnergyDisclosure = ({energyDisclosure}) => {
 
 	const {
-		renewable: {
+		documented: {
 			total,
 			wind,
 			solar,
 			hydro
 		},
-		nuclear,
-		fossil
+		undocumented
 	} = energyDisclosure
 
 	let options = {
@@ -62,15 +61,10 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 					y: solar
 				},
 				{
-					name: 'Nuclear',
+					name: 'Undocumented',
 					color: '#666',
-					y: nuclear
-				},
-				{
-					name: 'Fossil',
-					color: '#666',
-					y: fossil
-				},
+					y: undocumented
+				}
 			]
 		}]
 	}
@@ -88,7 +82,7 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 			<table className="details">
 				<tbody>
 					<tr>
-						<th>Renewable</th>
+						<th>Documented consumption</th>
 						<th><CountUp end={total} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</th>
 					</tr>
 					<tr>
@@ -105,12 +99,8 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
-						<th>Nuclear</th>
-						<td><CountUp end={nuclear} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
-					</tr>
-					<tr>
-						<th>Fossil</th>
-						<td><CountUp end={fossil} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
+						<th>Undocumented</th>
+						<td><CountUp end={undocumented} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
 					</tr>
 				</tbody>
 			</table>

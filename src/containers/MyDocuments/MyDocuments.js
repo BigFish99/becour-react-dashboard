@@ -28,16 +28,8 @@ const MyDocuments = ({getConsumerDocuments, currentYear, currentRegion, loading,
 						title: 'Trade Confirmations'
 					},
 					{
-						path: `/my-documents/billing-history`,
-						title: 'Billing history'
-					},
-					{
 						path: `/my-documents/contracts`,
 						title: 'Contracts'
-					},
-					{
-						path: `/my-documents/reporting-data`,
-						title: 'Reporting'
 					},
 				]}
 			/>

@@ -5,6 +5,7 @@ import {getConsumptionData} from '../../store/consumption/actions'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import Overview from './Overview/Overview'
+import Matching from './Matching/Matching'
 
 const MyConsumption = ({loading, currentYear, currentRegion, getConsumptionData, currentPoint, clearCurrentConsumptionPoint}) => {
 
@@ -34,6 +35,7 @@ const MyConsumption = ({loading, currentYear, currentRegion, getConsumptionData,
 				]}
 			/>
 			<Route path="/my-consumption/" exact component={Overview} />
+			<Route path="/my-consumption/consumption-matching" exact component={Matching} />
 		</main>
 	)
 }
