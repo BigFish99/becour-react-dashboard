@@ -3,9 +3,10 @@ import {connect} from 'react-redux'
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 import HSIndicators from 'highcharts/indicators/indicators'
+import './Matching.css'
 HSIndicators(Highcharts)
 
-const Matching = ({consumptionMatching}) => {
+const Matching = ({consumptionMatching, loading}) => {
 
 	const options = {
 		chart: {
@@ -111,17 +112,20 @@ const Matching = ({consumptionMatching}) => {
 
 	return (
 		<div className="Consumption-Matching content-box">
-			<HighchartsReact
-				options={options}
-				highcharts={Highcharts}
-				constructorType={'stockChart'}
-			/>
+			<div className={loading ? 'chart loading' : 'chart'}>
+				<HighchartsReact
+					options={options}
+					highcharts={Highcharts}
+					constructorType={'stockChart'}
+				/>
+			</div>
 		</div>
 	)
 }
 
 const mapStateToProps = state => ({
-	consumptionMatching: state.consumption.consumptionMatching
+	consumptionMatching: state.consumption.consumptionMatching,
+	loading: state.consumption.loading
 })
 
 export default connect(mapStateToProps, null)(Matching)

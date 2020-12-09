@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import './Table.css'
 
 
@@ -35,11 +35,11 @@ const TableContent = ({ headers, rows}) => {
 	)
 }
 
-const Table = ({ headers, rows, select }) => {
+const Table = ({ headers, rows }) => {
 
 	const [tableRows, setTableRows] = useState([]);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if(rows.length > 0) {
 			let tempList = []
 			rows.forEach((row, id) => {
@@ -53,27 +53,12 @@ const Table = ({ headers, rows, select }) => {
 		}
 	}, [rows])
 
-	const submitForm = e => {
-		e.preventDefault()
 
-	}
-
-	if (select) {
-		return (
-			<form className="form-select" onSubmit={submitForm}>
-				<button className="export-button" type="submit">Export CSV</button>
-				<div className="Table">
-					<TableContent headers={headers} rows={tableRows} />
-				</div>
-			</form>
-		)
-	} else {
-		return (
-			<div className="Table">
-				<TableContent headers={headers} rows={rows} />
-			</div>
-		)
-	}
+	return (
+		<div className="Table">
+			<TableContent headers={headers} rows={tableRows} />
+		</div>
+	)
 }
 
 export default Table
