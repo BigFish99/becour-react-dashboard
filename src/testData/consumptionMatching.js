@@ -17,15 +17,25 @@ for(let i = 0; i < (24 * 7); i++) {
 	])
 }
 
+const randomStockMonthly = [];
+const randomStockMonthlyTotal = [];
 
-const data = {
-	type: 'stock',
-	series: {
-		wind: randomStockData,
-		hydro: randomStockData,
-		solar: randomStockData,
-		total: randomStockDataTotal
-	}
+for(let m = 0; m < 12; m++) {
+	let number = parseFloat((Math.random() * 100).toFixed(2))
+	randomStockMonthly.push(number)
+	randomStockMonthlyTotal.push(parseFloat((number*3).toFixed(2)))
 }
 
-export default data
+export const hourly = {
+	wind: randomStockData,
+	hydro: randomStockData,
+	solar: randomStockData,
+	total: randomStockDataTotal
+};
+
+export const monthly = {
+	wind: randomStockMonthly,
+	hydro: randomStockMonthly,
+	solar: randomStockMonthly,
+	total: randomStockMonthlyTotal
+};

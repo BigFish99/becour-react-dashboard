@@ -1,11 +1,12 @@
-export const getConsumptionData = (year, region) => ({
+export const getConsumptionData = (year, region, consumptionPoint) => ({
 	type: 'GET_CONSUMPTION_DATA',
 	payload: {
 		request: {
 			url: '/getConsumerConsumption',
 			params: {
 				year: year,
-				region: region
+				region: region,
+				consumptionPoint: consumptionPoint
 			},
 			headers: {
 				Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,

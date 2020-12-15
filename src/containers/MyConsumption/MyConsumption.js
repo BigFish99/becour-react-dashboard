@@ -7,13 +7,13 @@ import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import Overview from './Overview/Overview'
 import Matching from './Matching/Matching'
 
-const MyConsumption = ({loading, currentYear, currentRegion, getConsumptionData, currentPoint, clearCurrentConsumptionPoint}) => {
+const MyConsumption = ({loading, currentYear, currentRegion, getConsumptionData, currentPoint}) => {
 
 	useEffect(() => {
 		if(currentPoint !== null) {
-			getConsumptionData(currentYear, currentRegion, currentPoint.value)
+			getConsumptionData(currentYear, currentRegion.id, currentPoint.value)
 		} else {
-			getConsumptionData(currentYear, currentRegion, null)
+			getConsumptionData(currentYear, currentRegion.id, null)
 		}
 	}, [currentYear, currentRegion, getConsumptionData, currentPoint])
 

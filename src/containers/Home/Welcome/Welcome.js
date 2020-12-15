@@ -8,42 +8,44 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 
 	return (
 		<section className="Welcome">
-			<div className="logo">
-				<div className="inner">
+			<div className="wrapper content-box">
+				<div className="logo">
+					<div className="inner">
 
+					</div>
 				</div>
-			</div>
-			<div className="content">
-				{
-					loading
-					? <Loader />
-					: <p className="company-title">Welcome {company}</p>
-				}
-				<p>Here you will find your corporate renewable energy overview</p>
-			</div>
-			<div className="stat">
-				<p className="title">Renewable energy</p>
-				{
-					loading
-					? <Loader />
-					: <p className="value green">{renewable} GWh</p>
-				}
-			</div>
-			<div className="stat">
-				<p className="title">Non-renewable energy</p>
-				{
-					loading
-					? <Loader />
-					: <p className="value red">{nonRenewable} GWh</p>
-				}
-			</div>
-			<div className="stat">
-				<p className="title">Avoided emissions</p>
-				{
-					loading
-					? <Loader />
-					: <p className="value">{avoidedEmissions} tonnes CO2</p>
-				}
+				<div className="content">
+					{
+						loading
+						? <Loader />
+						: <p className="company-title">Welcome {company}</p>
+					}
+					<p>Here you will find your corporate renewable energy overview</p>
+				</div>
+				<div className="stat">
+					<p className="title">Renewable energy</p>
+					{
+						loading
+						? <Loader />
+						: <p className="value green">{renewable} GWh</p>
+					}
+				</div>
+				<div className="stat">
+					<p className="title">Non-renewable energy</p>
+					{
+						loading
+						? <Loader />
+						: <p className="value red">{nonRenewable} GWh</p>
+					}
+				</div>
+				<div className="stat">
+					<p className="title">Avoided emissions</p>
+					{
+						loading
+						? <Loader />
+						: <p className="value">{avoidedEmissions} tonnes CO2</p>
+					}
+				</div>
 			</div>
 		</section>
 	)
