@@ -77,8 +77,8 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 }
 
 const mapStateToProps = state => ({
-	renewable: state.user.tiles.renewable,
-	nonRenewable: state.user.tiles.nonRenewable,
+	renewable: state.user.tiles.renewable.value,
+	nonRenewable: state.user.tiles.nonRenewable.value,
 	loading: state.user.loading
 })
 

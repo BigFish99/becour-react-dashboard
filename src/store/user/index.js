@@ -18,9 +18,18 @@ const initialState = {
 	map: [],
 	powerplants: [],
 	tiles: {
-		renewable: null,
-		nonRenewable: null,
-		avoidedEmissions: null,
+		renewable: {
+			value: 0,
+			unit: ''
+		},
+		nonRenewable: {
+			value: 0,
+			unit: ''
+		},
+		avoidedEmissions: {
+			value: 0,
+			unit: ''
+		},
 		chart: {
 			series: []
 		}

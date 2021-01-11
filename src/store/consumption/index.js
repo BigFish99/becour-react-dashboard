@@ -1,10 +1,22 @@
 const initialState = {
 	loading: true,
 	overview: {
-		totalConsumption: 0,
-		totalRenewable: 0,
-		totalNonRenewable: 0,
-		totalAvoidedEmissions: 0,
+		totalConsumption: {
+			value: 0,
+			unit: ''
+		},
+		totalRenewable: {
+			value: 0,
+			unit: ''
+		},
+		totalNonRenewable: {
+			value: 0,
+			unit: ''
+		},
+		totalAvoidedEmissions: {
+			value: 0,
+			unit: ''
+		},
 	},
 	energyDisclosure: {
 		documented: {
@@ -16,11 +28,26 @@ const initialState = {
 		undocumented: 0
 	},
 	details: {
-		renewable: 0,
-		totalPurchased: 0,
-		totalInderectEmissions: 0,
-		referenceMixEmissions: 0,
-		totalSavings: 0
+		renewable: {
+			value: 0,
+			unit: ''
+		},
+		totalPurchased: {
+			value: 0,
+			unit: ''
+		},
+		totalInderectEmissions: {
+			value: 0,
+			unit: ''
+		},
+		referenceMixEmissions: {
+			value: 0,
+			unit: ''
+		},
+		totalSavings: {
+			value: 0,
+			unit: ''
+		}
 	},
 	consumptionLocations: [],
 	consumptionMatching: {

@@ -2,6 +2,7 @@ import React from 'react'
 import {removeLoader} from '../../../store/frontpage/actions'
 import {connect} from 'react-redux'
 import Loader from '../../../components/Loader/Loader'
+import CountUp from 'react-countup'
 import './Welcome.css'
 
 const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }) => {
@@ -27,7 +28,9 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 					{
 						loading
 						? <Loader />
-						: <p className="value green">{renewable} GWh</p>
+						: <p className="value green">
+								<CountUp end={renewable.value} duration={1} seperator="&nbsp;" suffix={` ${renewable.unit}`} redraw={false} preserveValue={true} />
+							</p>
 					}
 				</div>
 				<div className="stat">
@@ -35,7 +38,9 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 					{
 						loading
 						? <Loader />
-						: <p className="value red">{nonRenewable} GWh</p>
+						: <p className="value red">
+								<CountUp end={nonRenewable.value} duration={1} seperator="&nbsp;" suffix={` ${nonRenewable.unit}`} redraw={false} preserveValue={true} />
+							</p>
 					}
 				</div>
 				<div className="stat">
@@ -43,7 +48,9 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 					{
 						loading
 						? <Loader />
-						: <p className="value">{avoidedEmissions} tonnes CO2</p>
+						: <p className="value">
+								<CountUp end={avoidedEmissions.value} duration={1} seperator="&nbsp;" suffix={` ${avoidedEmissions.unit}`} redraw={false} preserveValue={true} />
+							</p>
 					}
 				</div>
 			</div>

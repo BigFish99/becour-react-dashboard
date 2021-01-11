@@ -16,26 +16,44 @@ const Details = ({details}) => {
 				<tbody>
 					<tr>
 						<td>Renewable</td>
-						<td><CountUp end={renewable} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />%</td>
+						<td><CountUp end={renewable.value} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} suffix={` ${renewable.unit}`} /></td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
 						<td>Total purchased</td>
-						<td><CountUp end={totalPurchased} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} /> GWh</td>
+						<td><CountUp end={totalPurchased.value} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} suffix={` ${totalPurchased.unit}`} /></td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
 						<td>Total inderect emissions</td>
-						<td><CountUp end={totalInderectEmissions} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />kg CO<sub>2</sub></td>
+						<td>
+							{
+								typeof totalInderectEmissions.value === 'number'
+								? <CountUp end={totalInderectEmissions.value} duration={1} seperator="&nbsp;" redraw={false} suffix={` ${totalInderectEmissions.unit}`} preserveValue={true} />
+								: <>{totalInderectEmissions.value}</>
+							}
+						</td>
 					</tr>
 					<tr>
 						<td>Reference mix emissions</td>
-						<td><CountUp end={referenceMixEmissions} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />kg CO<sub>2</sub></td>
+						<td>
+							{
+								typeof referenceMixEmissions.value === 'number'
+								? <CountUp end={referenceMixEmissions.value} duration={1} seperator="&nbsp;" redraw={false} suffix={` ${referenceMixEmissions.unit}`} preserveValue={true} />
+								: <>{referenceMixEmissions.value}</>
+							}
+						</td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
 						<th>Total savings inderect emissions</th>
-						<th><CountUp end={totalSavings} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} />kg CO<sub>2</sub></th>
+						<th>
+							{
+								typeof totalSavings.value === 'number'
+								? <CountUp end={totalSavings.value} duration={1} seperator="&nbsp;" redraw={false} suffix={` ${totalSavings.unit}`} preserveValue={true} />
+								: <>{totalSavings.value}</>
+							}
+						</th>
 					</tr>
 				</tbody>
 			</table>
