@@ -42,7 +42,7 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 			},
 			{
 				name: 'Non renewable',
-				color: '#666',
+				color: '#96051C',
 				y: Math.round(nonRenewable / (renewable + nonRenewable) * 100)
 			}]
 		}]

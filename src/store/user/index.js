@@ -80,6 +80,17 @@ const user = (state = initialState, action) => {
 				}
 			}
 		}
+		case 'USER_SET_REGION_EXPAND': {
+			let regions = state.regions.available.slice()
+			regions[action.index].expanded = true;
+			return {
+				...state,
+				regions: {
+					...state.regions,
+					available: regions
+				}
+			}
+		}
 		case 'USER_GET_CONSUMER_DATA': {
 			return {
 				...state,

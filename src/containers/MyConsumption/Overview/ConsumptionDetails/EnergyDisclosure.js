@@ -62,7 +62,7 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 				},
 				{
 					name: 'Undocumented',
-					color: '#666',
+					color: '#96051C',
 					y: undocumented
 				}
 			]

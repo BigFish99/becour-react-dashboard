@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setCurrentRegion, toggleRegionExpand, setRegionToCompanyOverview} from '../../store/user/actions'
+import {setCurrentRegion, toggleRegionExpand, setRegionExpand, setRegionToCompanyOverview} from '../../store/user/actions'
 import { Collapse } from 'react-collapse'
 import './SideBarTree.css'
 
@@ -16,11 +16,11 @@ const Children = ({ children, active, setCurrentRegion, currentRegion }) => {
 	)
 }
 
-const Region = ({ name, children, id, setCurrentRegion, currentRegion, toggleRegionExpand, index, expanded }) => {
+const Region = ({ name, children, id, setCurrentRegion, currentRegion, toggleRegionExpand, setRegionExpand, index, expanded }) => {
 	return (
 		<div className="SideBarTree-region">
 			<button className={expanded ? 'expand active' : 'expand'} onClick={() => toggleRegionExpand(index)}></button>
-			<button className={currentRegion.id === id ? 'link active' : 'link'} onClick={() => setCurrentRegion(id)}>{name}</button>
+			<button className={currentRegion.id === id ? 'link active' : 'link'} onClick={() => { setCurrentRegion(id); if(!expanded) { setRegionExpand(index); }  }}>{name}</button>
 			{
 				children.length > 0
 				&& <Children children={children} active={expanded} setCurrentRegion={setCurrentRegion} currentRegion={currentRegion} />
@@ -29,7 +29,7 @@ const Region = ({ name, children, id, setCurrentRegion, currentRegion, toggleReg
 	)
 }
 
-const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpand, setRegionToCompanyOverview}) => {
+const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpand, setRegionExpand, setRegionToCompanyOverview}) => {
 	return (
 		<nav className="SideBarTree">
 			<div className="inner">
@@ -38,7 +38,7 @@ const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpa
 				<div className="list">
 					{
 						regions && regions.length > 0
-						&& regions.map((region, i) => <Region key={i} index={i} {...region} currentRegion={currentRegion} setCurrentRegion={setCurrentRegion} toggleRegionExpand={toggleRegionExpand} />)
+						&& regions.map((region, i) => <Region key={i} index={i} {...region} currentRegion={currentRegion} setCurrentRegion={setCurrentRegion} toggleRegionExpand={toggleRegionExpand} setRegionExpand={setRegionExpand} />)
 					}
 				</div>
 			</div>
@@ -51,4 +51,4 @@ const mapStateToProps = state => ({
 	regions: state.user.regions.available
 })
 
-export default connect(mapStateToProps, {setCurrentRegion, toggleRegionExpand, setRegionToCompanyOverview})(SideBarTree)
+export default connect(mapStateToProps, {setCurrentRegion, toggleRegionExpand, setRegionExpand, setRegionToCompanyOverview})(SideBarTree)

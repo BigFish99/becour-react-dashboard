@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import apiGet from '../../../functions/apiGet'
 import createCSV from '../../../functions/createCSV'
 import Table from '../../../components/Table/Table'
+import NoDocuments from '../NoDocuments/NoDocuments'
 
 const TradeConfirmations = ({tradeConfirmations, currentYear, currentRegion}) => {
 
@@ -30,7 +31,13 @@ const TradeConfirmations = ({tradeConfirmations, currentYear, currentRegion}) =>
 	return(
 		<div className="TradeConfirmations content-box">
 			<button onClick={downloadCSV} className="button green">Export CSV</button>
-			<Table {...table} select={true} />
+			{
+				currentRegion.id.length <= 2
+				? 	tradeConfirmations.length > 0
+						? <Table {...table} select={true} />
+						: <NoDocuments type="empty" />
+				: <NoDocuments type="region" />
+			}
 		</div>
 	)
 }

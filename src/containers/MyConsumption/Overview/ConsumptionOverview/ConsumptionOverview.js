@@ -9,8 +9,8 @@ const ConsumptionOverview = ({overview}) => {
 			<div className="sections">
 				<div className="part">
 					<h3>Total energy consumption</h3>
-					<p className="counter text-blue-dark"><CountUp end={overview.totalConsumption.value} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} /></p>
-					<p className="suffix text-blue-dark">{overview.totalConsumption.unit}</p>
+					<p className="counter text-blue"><CountUp end={overview.totalConsumption.value} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} /></p>
+					<p className="suffix text-blue">{overview.totalConsumption.unit}</p>
 				</div>
 				<div className="part">
 					<h3>Total renewable energy</h3>

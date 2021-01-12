@@ -43,16 +43,18 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 							</p>
 					}
 				</div>
-				<div className="stat">
-					<p className="title">Avoided emissions</p>
-					{
-						loading
-						? <Loader />
-						: <p className="value">
-								<CountUp end={avoidedEmissions.value} duration={1} seperator="&nbsp;" suffix={` ${avoidedEmissions.unit}`} redraw={false} preserveValue={true} />
-							</p>
-					}
-				</div>
+				{/*
+					<div className="stat">
+						<p className="title">Avoided emissions</p>
+						{
+							loading
+							? <Loader />
+							: <p className="value">
+									<CountUp end={avoidedEmissions.value} duration={1} seperator="&nbsp;" suffix={` ${avoidedEmissions.unit}`} redraw={false} preserveValue={true} />
+								</p>
+						}
+					</div>
+				*/}
 			</div>
 		</section>
 	)

@@ -36,7 +36,7 @@ const ConsumptionChart = ({ loading }) => {
 				}
 			}
 		},
-		colors: ['#58BEBB', '#48AD4E', '#666'],
+		colors: ['#58BEBB', '#48AD4E', '#96051C'],
 		xAxis: {
 			labels: {
 				enabled: true

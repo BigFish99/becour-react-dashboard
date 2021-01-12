@@ -1,9 +1,7 @@
 const initialState = {
 	loading: true,
 	tradeConfirmations: [],
-	billingHistory: [],
 	contracts: [],
-	reportingData: []
 };
 
 const documents = (state = initialState, action) => {
@@ -19,9 +17,7 @@ const documents = (state = initialState, action) => {
 				...state,
 				loading: false,
 				tradeConfirmations: action.payload.data.tradeConfirmations ? action.payload.data.tradeConfirmations : [],
-				billingHistory: action.payload.data.billingHistory ? action.payload.data.billingHistory : [],
-				contracts: action.payload.data.contracts ? action.payload.data.contracts : [],
-				reportingData: action.payload.data.reportingData ? action.payload.data.reportingData : []
+				contracts: action.payload.data.contracts ? action.payload.data.contracts : []
 			}
 		}
 		default:
