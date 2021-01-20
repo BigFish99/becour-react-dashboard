@@ -125,7 +125,10 @@ const PowerplantList = ({loading, powerplants}) => {
 			{
 				loading
 				? <Loader />
-				: <List powerplants={powerplants} />
+				:
+					powerplants
+						? <List powerplants={powerplants} />
+						: <p>No data.</p>
 			}
 		</div>
 	)

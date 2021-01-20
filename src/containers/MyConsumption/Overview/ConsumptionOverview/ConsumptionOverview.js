@@ -4,6 +4,11 @@ import CountUp from 'react-countup'
 import {connect} from 'react-redux'
 
 const ConsumptionOverview = ({overview}) => {
+	if(!overview) {
+		return(
+			<p>No data</p>
+		)
+	}
 	return(
 		<div className="ConsumptionOverview content-box">
 			<div className="sections">

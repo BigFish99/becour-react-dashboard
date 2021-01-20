@@ -7,6 +7,9 @@ import BarChart from './BarChart'
 
 const Matching = ({loading, consumptionPoint, consumptionMatching}) => {
 
+	if(!consumptionMatching) {
+		return <p>No data.</p>
+	}
 	return (
 		<div className="Consumption-Matching content-box">
 			<div className={loading ? 'chart loading' : 'chart'}>

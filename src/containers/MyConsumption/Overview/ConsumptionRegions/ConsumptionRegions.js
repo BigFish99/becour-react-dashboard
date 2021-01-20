@@ -42,6 +42,9 @@ const Region = ({name, consumptionVolume, plannedVolume, purchasedRE}) => {
 }
 
 const ConsumptionRegions = ({consumptionLocations}) => {
+	if(!consumptionLocations) {
+		return <p>No data.</p>
+	}
 	return(
 		<div className="ConsumptionRegions content-box">
 			{ consumptionLocations.length > 0 && <h2>Consumption locations</h2> }
