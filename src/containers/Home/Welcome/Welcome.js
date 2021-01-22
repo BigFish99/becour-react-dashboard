@@ -29,7 +29,7 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 						loading
 						? <Loader />
 						: <p className="value green">
-								<CountUp end={renewable.value} duration={1} seperator="&nbsp;" suffix={` ${renewable.unit}`} redraw={false} preserveValue={true} />
+								<CountUp end={renewable.value} duration={1} decimals={renewable.value % 1 !== 0 ? 2 : 0} separator=" " suffix={` ${renewable.unit}`} redraw={false} preserveValue={true} />
 							</p>
 					}
 				</div>
@@ -39,7 +39,7 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 						loading
 						? <Loader />
 						: <p className="value red">
-								<CountUp end={nonRenewable.value} duration={1} seperator="&nbsp;" suffix={` ${nonRenewable.unit}`} redraw={false} preserveValue={true} />
+								<CountUp end={nonRenewable.value} duration={1} decimals={nonRenewable.value % 1 !== 0 ? 2 : 0} separator=" " suffix={` ${nonRenewable.unit}`} redraw={false} preserveValue={true} />
 							</p>
 					}
 				</div>

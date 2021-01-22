@@ -5,9 +5,7 @@ import Loader from '../../../../components/Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-import { chart } from '../../../../testData/frontPageChart'
-
-const ConsumptionChart = ({ loading }) => {
+const ConsumptionChart = ({ loading, chart }) => {
 
 	let options = {
 		title: {

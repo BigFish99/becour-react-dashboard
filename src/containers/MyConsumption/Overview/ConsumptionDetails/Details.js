@@ -16,12 +16,12 @@ const Details = ({details}) => {
 				<tbody>
 					<tr>
 						<td>Renewable</td>
-						<td><CountUp end={renewable.value} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} suffix={` ${renewable.unit}`} /></td>
+						<td><CountUp end={renewable.value} duration={1} redraw={false} preserveValue={true} suffix={` ${renewable.unit}`} /></td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
 						<td>Total purchased</td>
-						<td><CountUp end={totalPurchased.value} duration={1} seperator="&nbsp;" redraw={false} preserveValue={true} suffix={` ${totalPurchased.unit}`} /></td>
+						<td><CountUp decimals={totalPurchased.value % 1 !== 0 ? 2 : 0} separator=" " end={totalPurchased.value} duration={1} redraw={false} preserveValue={true} suffix={` ${totalPurchased.unit}`} /></td>
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
@@ -29,7 +29,7 @@ const Details = ({details}) => {
 						<td>
 							{
 								typeof totalInderectEmissions.value === 'number'
-								? <CountUp end={totalInderectEmissions.value} duration={1} seperator="&nbsp;" redraw={false} suffix={` ${totalInderectEmissions.unit}`} preserveValue={true} />
+								? <CountUp decimals={totalInderectEmissions.value % 1 !== 0 ? 2 : 0} separator=" " end={totalInderectEmissions.value} duration={1} redraw={false} suffix={` ${totalInderectEmissions.unit}`} preserveValue={true} />
 								: <>{totalInderectEmissions.value}</>
 							}
 						</td>
@@ -39,7 +39,7 @@ const Details = ({details}) => {
 						<td>
 							{
 								typeof referenceMixEmissions.value === 'number'
-								? <CountUp end={referenceMixEmissions.value} duration={1} seperator="&nbsp;" redraw={false} suffix={` ${referenceMixEmissions.unit}`} preserveValue={true} />
+								? <CountUp decimals={referenceMixEmissions.value % 1 !== 0 ? 2 : 0} separator=" " end={referenceMixEmissions.value} duration={1} redraw={false} suffix={` ${referenceMixEmissions.unit}`} preserveValue={true} />
 								: <>{referenceMixEmissions.value}</>
 							}
 						</td>
@@ -50,7 +50,7 @@ const Details = ({details}) => {
 						<th>
 							{
 								typeof totalSavings.value === 'number'
-								? <CountUp end={totalSavings.value} duration={1} seperator="&nbsp;" redraw={false} suffix={` ${totalSavings.unit}`} preserveValue={true} />
+								? <CountUp decimals={totalSavings.value % 1 !== 0 ? 2 : 0} separator=" " end={totalSavings.value} duration={1} redraw={false} suffix={` ${totalSavings.unit}`} preserveValue={true} />
 								: <>{totalSavings.value}</>
 							}
 						</th>

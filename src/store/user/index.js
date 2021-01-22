@@ -3,6 +3,7 @@ import {getCurrentRegion} from './functions'
 const initialState = {
 	loading: true,
 	customer: 'Big Fish AS',
+	logo: false,
 	regions: {
 		current: {
 			id: 'all',
