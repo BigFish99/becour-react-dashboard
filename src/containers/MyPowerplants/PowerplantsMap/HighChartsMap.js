@@ -117,7 +117,6 @@ const HighChartMaps = ({ powerplants, regions }) => {
 				tooltip: {
 					headerFormat: '',
 					pointFormat: `
-						<p>Renewable: {point.consumption.renewable}</p><br/>
 						<p>Purchased: {point.consumption.totalPurchased}</p>
 					`
 				}

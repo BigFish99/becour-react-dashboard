@@ -10,9 +10,9 @@ const MyDocuments = ({getConsumerDocuments, currentYear, currentRegion, loading,
 
 	useEffect(() => {
 		if(currentPoint !== null) {
-			getConsumerDocuments(currentYear, currentRegion, currentPoint.value)
+			getConsumerDocuments(currentYear, currentRegion.id, currentPoint.value)
 		} else {
-			getConsumerDocuments(currentYear, currentRegion, null)
+			getConsumerDocuments(currentYear, currentRegion.id, null)
 		}
 	}, [currentYear, currentRegion, getConsumerDocuments, currentPoint])
 

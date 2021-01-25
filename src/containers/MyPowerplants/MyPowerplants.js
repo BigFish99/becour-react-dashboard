@@ -15,9 +15,9 @@ const MyPowerplants = ({currentRegion, currentYear, getConsumerPowerplants, clea
 	useEffect(() => {
 		let category = id ? id : 'all'
 		if(currentPoint !== null) {
-			getConsumerPowerplants(category, currentYear, currentRegion, currentPoint)
+			getConsumerPowerplants(category, currentYear, currentRegion.id, currentPoint)
 		} else {
-			getConsumerPowerplants(category, currentYear, currentRegion, null)
+			getConsumerPowerplants(category, currentYear, currentRegion.id, null)
 		}
 	}, [id, currentYear, currentRegion, getConsumerPowerplants, currentPoint])
 

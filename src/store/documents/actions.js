@@ -1,4 +1,4 @@
-export const getConsumerDocuments = (year, region, point) => ({
+export const getConsumerDocuments = (year, region, consumptionPoint) => ({
 	type: 'GET_CONSUMER_DOCUMENTS',
 	payload: {
 		request: {
@@ -6,7 +6,7 @@ export const getConsumerDocuments = (year, region, point) => ({
 			params: {
 				year: year,
 				region: region,
-				point: point
+				consumptionPoint: consumptionPoint
 			},
 			headers: {
 				Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,
