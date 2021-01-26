@@ -51,6 +51,7 @@ const initialState = {
 	},
 	consumptionLocations: [],
 	consumptionMatching: {
+		forecast: [],
 		wind: [],
 		hydro: [],
 		solar: [],

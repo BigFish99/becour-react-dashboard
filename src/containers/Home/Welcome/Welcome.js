@@ -5,14 +5,16 @@ import Loader from '../../../components/Loader/Loader'
 import CountUp from 'react-countup'
 import './Welcome.css'
 
-const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }) => {
+const Welcome = ({ company, logo, renewable, nonRenewable, avoidedEmissions, loading }) => {
 
 	return (
 		<section className="Welcome">
 			<div className="wrapper content-box">
 				<div className="logo">
-					<div className="inner">
-
+					<div className={`inner ${!logo && 'no-logo'}`}>
+						{	logo &&
+							<img src={logo} />
+						}
 					</div>
 				</div>
 				<div className="content">
@@ -63,6 +65,7 @@ const Welcome = ({ company, renewable, nonRenewable, avoidedEmissions, loading }
 const mapStateToProps = state => ({
 	loading: state.user.loading,
 	company: state.user.customer,
+	logo: state.user.logo,
 	renewable: state.user.tiles.renewable,
 	nonRenewable: state.user.tiles.nonRenewable,
 	avoidedEmissions: state.user.tiles.avoidedEmissions

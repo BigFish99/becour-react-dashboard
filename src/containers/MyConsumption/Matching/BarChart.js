@@ -70,12 +70,6 @@ const BarChart = ({consumptionMatching}) => {
 		},
 		series: [
 			{
-				name: 'Total',
-				data: consumptionMatching.total,
-				type: 'spline',
-				color: '#48AD4E'
-			},
-			{
 				name: 'Wind power',
 				data: consumptionMatching.wind,
 				color: '#48AD4E'
@@ -89,6 +83,19 @@ const BarChart = ({consumptionMatching}) => {
 				name: 'Hydro power',
 				data: consumptionMatching.hydro,
 				color: '#6daaee'
+			},
+			{
+				name: 'Total',
+				data: consumptionMatching.total,
+				type: 'spline',
+				color: '#48AD4E'
+			},
+			{
+				name: 'Forecast',
+				data: consumptionMatching.forecast,
+				type: 'line',
+				visible: false,
+				color: '#D86F23'
 			}
 		],
 		responsive: {
