@@ -12,13 +12,10 @@ class MyPowerplants extends React.Component {
 
 	componentDidUpdate(prevProps) {
 		let category = this.props.match.params.id ? this.props.match.params.id : 'all'
-		if(prevProps.currentRegion !== this.props.currentRegion) {
+		if(prevProps.currentRegion !== this.props.currentRegion || prevProps.currentYear !== this.props.currentYear || prevProps.match.params !== this.props.match.params) {
 			this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, null)
 		}
 		if(prevProps.currentPoint !== this.props.currentPoint) {
-			this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
-		}
-		if(prevProps.match.params !== this.props.match.params) {
 			this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
 		}
 	}

@@ -9,8 +9,8 @@ import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
 class MyDocuments extends React.Component {
 
 	componentDidUpdate(prevProps) {
-		if(prevProps.currentRegion !== this.props.currentRegion) {
-			this.props.getConsumerDocuments(this.props.currentYear, this.props.currentRegion.id, null)
+		if(prevProps.currentRegion !== this.props.currentRegion || prevProps.currentYear !== this.props.currentYear) {
+			this.props.getConsumerDocuments(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
 		}
 		if(prevProps.currentPoint !== this.props.currentPoint) {
 			this.props.getConsumerDocuments(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)

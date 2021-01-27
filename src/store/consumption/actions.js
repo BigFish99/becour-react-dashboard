@@ -16,6 +16,10 @@ export const getConsumptionData = (year, region, consumptionPoint) => ({
 	}
 })
 
+export const setConsumptionLoading = () => ({
+	type: 'SET_CONSUMPTION_LOADING'
+})
+
 export const clearConsumptionData = () => ({
 	type: 'CLEAR_CONSUMPTION_DATA'
 })

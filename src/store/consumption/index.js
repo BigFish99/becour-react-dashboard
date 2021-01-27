@@ -76,6 +76,12 @@ const consumption = (state = initialState, action) => {
 		case 'CLEAR_CONSUMPTION_DATA': {
 			return initialState
 		}
+		case 'SET_CONSUMPTION_LOADING': {
+			return {
+				...state,
+				loading: true
+			}
+		}
 		default:
 			return state;
 	}

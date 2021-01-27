@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {getConsumptionData} from '../../store/consumption/actions'
+import {getConsumptionData, setConsumptionLoading} from '../../store/consumption/actions'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import Overview from './Overview/Overview'
@@ -10,11 +10,17 @@ import Matching from './Matching/Matching'
 class MyConsumption extends React.Component {
 
 	componentDidUpdate(prevProps) {
-		if(prevProps.currentRegion !== this.props.currentRegion) {
-			this.props.getConsumptionData(this.props.currentYear, this.props.currentRegion.id, null)
+		if(prevProps.currentRegion !== this.props.currentRegion || prevProps.currentYear !== this.props.currentYear) {
+			this.props.setConsumptionLoading()
+			setTimeout(() => {
+				this.props.getConsumptionData(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+			}, 500)
 		}
 		if(prevProps.currentPoint !== this.props.currentPoint) {
-			this.props.getConsumptionData(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+			this.props.setConsumptionLoading()
+			setTimeout(() => {
+				this.props.getConsumptionData(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+			}, 500)
 		}
 	}
 
@@ -54,4 +60,4 @@ const mapStateToProps = state => ({
 	currentPoint: state.user.regions.point
 })
 
-export default connect(mapStateToProps, {getConsumptionData})(MyConsumption)
+export default connect(mapStateToProps, {getConsumptionData, setConsumptionLoading})(MyConsumption)
