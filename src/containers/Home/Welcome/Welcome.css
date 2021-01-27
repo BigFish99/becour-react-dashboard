@@ -19,10 +19,12 @@
 	align-items: center;
 	justify-content: center;
 	box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+	overflow: hidden;
 }
 
 .Welcome .logo img {
 	flex: 0 1 auto;
+	max-width: 100%;
 }
 
 .Welcome .logo .inner.no-logo {

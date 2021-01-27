@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import {connect} from 'react-redux'
 import {getConsumerDocuments} from '../../store/documents/actions'
@@ -6,36 +6,43 @@ import {Route} from 'react-router-dom'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
 
-const MyDocuments = ({getConsumerDocuments, currentYear, currentRegion, loading, currentPoint}) => {
+class MyDocuments extends React.Component {
 
-	useEffect(() => {
-		if(currentPoint !== null) {
-			getConsumerDocuments(currentYear, currentRegion.id, currentPoint.value)
-		} else {
-			getConsumerDocuments(currentYear, currentRegion.id, null)
+	componentDidUpdate(prevProps) {
+		if(prevProps.currentRegion !== this.props.currentRegion) {
+			this.props.getConsumerDocuments(this.props.currentYear, this.props.currentRegion.id, null)
 		}
-	}, [currentYear, currentRegion, getConsumerDocuments, currentPoint])
+		if(prevProps.currentPoint !== this.props.currentPoint) {
+			this.props.getConsumerDocuments(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+		}
+	}
 
-	return (
-		<main className="MyDocuments container-sidebar">
-			<SideBarTree />
-			<PageNavigation
-				loading={loading}
-				points={currentRegion.points ? currentRegion.points : false}
-				navigation={[
-					{
-						path: `/my-documents/`,
-						title: 'Trade Confirmations'
-					},
-					{
-						path: `/my-documents/contracts`,
-						title: 'Contracts'
-					},
-				]}
-			/>
-			<Route path="/my-documents/" exact component={TradeConfirmations} />
-		</main>
-	)
+	componentDidMount() {
+		this.props.getConsumerDocuments(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+	}
+
+	render() {
+		return(
+			<main className="MyDocuments container-sidebar">
+				<SideBarTree />
+				<PageNavigation
+					loading={this.props.loading}
+					points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
+					navigation={[
+						{
+							path: `/my-documents/`,
+							title: 'Trade Confirmations'
+						},
+						{
+							path: `/my-documents/contracts`,
+							title: 'Contracts'
+						},
+					]}
+				/>
+				<Route path="/my-documents/" exact component={TradeConfirmations} />
+			</main>
+		)
+	}
 }
 
 const mapStateToProps = state => ({

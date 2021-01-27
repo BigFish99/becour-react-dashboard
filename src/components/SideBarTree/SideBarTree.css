@@ -20,9 +20,30 @@
 .SideBarTree-logo {
 	width: 150px;
 	height: 150px;
-	background-color: gray;
 	border-radius: 50%;
 	margin: 0 auto 30px auto;
+}
+
+.SideBarTree-logo .SideBarTree-logo-inner {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: #FFF;
+	border: 4px solid #FFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+	overflow: hidden;
+}
+
+.SideBarTree-logo img {
+	flex: 0 1 auto;
+	max-width: 100%;
+}
+
+.SideBarTree-logo .SideBarTree-logo-inner.no-logo {
+	background-color: var(--color-green-light);
 }
 
 .SideBarTree-region {

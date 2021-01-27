@@ -88,7 +88,7 @@ const BarChart = ({consumptionMatching}) => {
 				name: 'Total',
 				data: consumptionMatching.total,
 				type: 'spline',
-				color: '#48AD4E'
+				color: '#000'
 			},
 			{
 				name: 'Forecast',

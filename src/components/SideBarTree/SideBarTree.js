@@ -29,11 +29,18 @@ const Region = ({ name, children, id, setCurrentRegion, currentRegion, toggleReg
 	)
 }
 
-const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpand, setRegionExpand, setRegionToCompanyOverview}) => {
+const SideBarTree = ({logo, regions, setCurrentRegion, currentRegion, toggleRegionExpand, setRegionExpand, setRegionToCompanyOverview}) => {
 	return (
 		<nav className="SideBarTree">
 			<div className="inner">
-				<div className="SideBarTree-logo"></div>
+				<div className="SideBarTree-logo">
+					<div className={logo ? 'SideBarTree-logo-inner' : 'SideBarTree-logo-inner no-logo'}>
+						{
+							logo &&
+							<img src={logo} alt="Company logo" />
+						}
+					</div>
+				</div>
 				<button className={currentRegion.id === 'all' ? 'companyOverview active' : 'companyOverview'} onClick={() => setRegionToCompanyOverview()}>All regions</button>
 				<div className="list">
 					{
@@ -47,6 +54,7 @@ const SideBarTree = ({regions, setCurrentRegion, currentRegion, toggleRegionExpa
 }
 
 const mapStateToProps = state => ({
+	logo: state.user.logo,
 	currentRegion: state.user.regions.current,
 	regions: state.user.regions.available
 })

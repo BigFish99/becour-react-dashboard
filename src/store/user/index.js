@@ -111,6 +111,7 @@ const user = (state = initialState, action) => {
 					available: action.payload.data.years ? action.payload.data.years : false
 				},
 				customer: action.payload.data.customer ? action.payload.data.customer : false,
+				logo: action.payload.data.logo ? action.payload.data.logo : false,
 				map: action.payload.data.map ? action.payload.data.map : [],
 				powerplants: action.payload.data.powerplants ? action.payload.data.powerplants : [],
 				tiles: action.payload.data.tiles ? action.payload.data.tiles : state.tiles

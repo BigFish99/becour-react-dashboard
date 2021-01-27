@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getConsumptionData} from '../../store/consumption/actions'
@@ -7,37 +7,44 @@ import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import Overview from './Overview/Overview'
 import Matching from './Matching/Matching'
 
-const MyConsumption = ({loading, currentYear, currentRegion, getConsumptionData, currentPoint}) => {
+class MyConsumption extends React.Component {
 
-	useEffect(() => {
-		if(currentPoint !== null) {
-			getConsumptionData(currentYear, currentRegion.id, currentPoint.value)
-		} else {
-			getConsumptionData(currentYear, currentRegion.id, null)
+	componentDidUpdate(prevProps) {
+		if(prevProps.currentRegion !== this.props.currentRegion) {
+			this.props.getConsumptionData(this.props.currentYear, this.props.currentRegion.id, null)
 		}
-	}, [currentYear, currentRegion, getConsumptionData, currentPoint])
+		if(prevProps.currentPoint !== this.props.currentPoint) {
+			this.props.getConsumptionData(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+		}
+	}
 
-	return (
-		<main className="MyConsumption container-sidebar">
-			<SideBarTree />
-			<PageNavigation
-				loading={loading}
-				points={currentRegion.points ? currentRegion.points : false}
-				navigation={[
-					{
-						path: `/my-consumption/`,
-						title: 'Consumption overview'
-					},
-					{
-						path: `/my-consumption/consumption-matching`,
-						title: 'Consumption matching'
-					}
-				]}
-			/>
-			<Route path="/my-consumption/" exact component={Overview} />
-			<Route path="/my-consumption/consumption-matching" exact component={Matching} />
-		</main>
-	)
+	componentDidMount() {
+		this.props.getConsumptionData(this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+	}
+
+	render() {
+		return (
+			<main className="MyConsumption container-sidebar">
+				<SideBarTree />
+				<PageNavigation
+					loading={this.props.loading}
+					points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
+					navigation={[
+						{
+							path: `/my-consumption/`,
+							title: 'Consumption overview'
+						},
+						{
+							path: `/my-consumption/consumption-matching`,
+							title: 'Consumption matching'
+						}
+					]}
+				/>
+				<Route path="/my-consumption/" exact component={Overview} />
+				<Route path="/my-consumption/consumption-matching" exact component={Matching} />
+			</main>
+		)
+	}
 }
 
 const mapStateToProps = state => ({

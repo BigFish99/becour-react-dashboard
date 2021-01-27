@@ -13,7 +13,7 @@ const Welcome = ({ company, logo, renewable, nonRenewable, avoidedEmissions, loa
 				<div className="logo">
 					<div className={`inner ${!logo && 'no-logo'}`}>
 						{	logo &&
-							<img src={logo} />
+							<img src={logo} alt="Company logo" />
 						}
 					</div>
 				</div>
