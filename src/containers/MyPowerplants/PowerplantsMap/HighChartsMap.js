@@ -28,7 +28,7 @@ const HighChartMaps = ({ powerplants, regions }) => {
 				min: 0,
 				stops: [
 					[0, '#F6F6F6'],
-					[.2, '#96051C'],
+					[.01, '#96051C'],
 					[.8, '#D86F23'],
 					[1, '#48AD4E']
 				]

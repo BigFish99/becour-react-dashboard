@@ -29,8 +29,14 @@ const ConsumptionOverview = ({overview}) => {
 				</div>
 				<div className="part">
 					<h3>Total avoided emissions</h3>
-					<p className="counter"><CountUp decimals={overview.totalAvoidedEmissions.value % 1 !== 0 ? 2 : 0} separator=" " end={overview.totalAvoidedEmissions.value} duration={1} redraw={false} preserveValue={true} /></p>
-					<p className="suffix">{overview.totalAvoidedEmissions.unit}</p>
+					{
+						typeof overview.totalAvoidedEmissions.value !== 'number'
+						? <p className="counter">{overview.totalAvoidedEmissions.value}</p>
+						: 	<>
+								<p className="counter"><CountUp decimals={overview.totalAvoidedEmissions.value % 1 !== 0 ? 2 : 0} separator=" " end={overview.totalAvoidedEmissions.value} duration={1} redraw={false} preserveValue={true} /></p>
+								<p className="suffix">{overview.totalAvoidedEmissions.unit}</p>
+							</>
+					}
 				</div>
 			</div>
 		</div>

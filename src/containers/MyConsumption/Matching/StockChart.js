@@ -6,10 +6,21 @@ HSIndicators(Highcharts)
 
 const StockChart = ({consumptionMatching}) => {
 
+	const dataGrouping = {
+		units: [
+			['hour', [1, 7]],
+			['day', [1, 7]],
+			['month', [1]],
+			['year', null]
+	  ],
+	  groupPixelWidth: 50,
+	  approximation: 'sum'
+  }
+
 	const options = {
 		chart: {
 			type: 'column',
-			alignTicks: false
+			alignTicks: true
 		},
 		title: {
 			text: null
@@ -54,56 +65,47 @@ const StockChart = ({consumptionMatching}) => {
 			},
 			buttons: [
 				{
-					type: 'day',
-					text: 'Default',
-					count: 3
+					type: 'moth',
+					text: 'Month',
+					count: 1
 				},
 				{
-					type: 'day',
-					text: 'Day',
+					type: 'week',
+					text: 'Week',
 					count: 1,
-					dataGrouping: {
-						forced: false,
-						units: [['day', [1]]]
-					}
 				},
 				{
 					type: 'hour',
 					text: 'Hour',
-					count: 3,
-					dataGrouping: {
-						forced: false,
-						units: [['hour', [1, 2, 3, 4, 6, 12]]]
-					}
+					count: 24,
 				}
 			]
-		},
-		xAxis: {
-			range: 3 * 24 * 3600000,
-			maxRange: 3 * 24 * 3600000,
-			minRange: 5 * 3600000
 		},
 		series: [
 			{
 				name: 'Wind power',
 				data: consumptionMatching.wind,
-				color: '#48AD4E'
+				color: '#48AD4E',
+				dataGrouping: dataGrouping
 			},
 			{
 				name: 'Solar power',
 				data: consumptionMatching.solar,
-				color: '#FDB813'
+				color: '#FDB813',
+				dataGrouping: dataGrouping
 			},
 			{
 				name: 'Hydro power',
 				data: consumptionMatching.hydro,
-				color: '#6daaee'
+				color: '#6daaee',
+				dataGrouping: dataGrouping
 			},
 			{
 				name: 'Total',
 				data: consumptionMatching.total,
 				type: 'spline',
-				color: '#000'
+				color: '#000',
+				dataGrouping: dataGrouping
 			}
 		]
 	}
