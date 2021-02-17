@@ -47,7 +47,8 @@ const initialState = {
 		totalSavings: {
 			value: 0,
 			unit: ''
-		}
+		},
+		infoBox: ""
 	},
 	consumptionLocations: [],
 	consumptionMatching: {
