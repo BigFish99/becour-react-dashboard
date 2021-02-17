@@ -3,12 +3,13 @@ import {getCurrentRegion} from './functions'
 const initialState = {
 	loading: true,
 	customer: 'Big Fish AS',
+	logo: false,
 	regions: {
 		current: {
 			id: 'all',
 			name: 'All'
 		},
-		point: false,
+		point: null,
 		available: []
 	},
 	years: {
@@ -18,9 +19,18 @@ const initialState = {
 	map: [],
 	powerplants: [],
 	tiles: {
-		renewable: null,
-		nonRenewable: null,
-		avoidedEmissions: null,
+		renewable: {
+			value: 0,
+			unit: ''
+		},
+		nonRenewable: {
+			value: 0,
+			unit: ''
+		},
+		avoidedEmissions: {
+			value: 0,
+			unit: ''
+		},
 		chart: {
 			series: []
 		}
@@ -71,6 +81,17 @@ const user = (state = initialState, action) => {
 				}
 			}
 		}
+		case 'USER_SET_REGION_EXPAND': {
+			let regions = state.regions.available.slice()
+			regions[action.index].expanded = true;
+			return {
+				...state,
+				regions: {
+					...state.regions,
+					available: regions
+				}
+			}
+		}
 		case 'USER_GET_CONSUMER_DATA': {
 			return {
 				...state,
@@ -90,9 +111,28 @@ const user = (state = initialState, action) => {
 					available: action.payload.data.years ? action.payload.data.years : false
 				},
 				customer: action.payload.data.customer ? action.payload.data.customer : false,
+				logo: action.payload.data.logo ? action.payload.data.logo : false,
 				map: action.payload.data.map ? action.payload.data.map : [],
 				powerplants: action.payload.data.powerplants ? action.payload.data.powerplants : [],
 				tiles: action.payload.data.tiles ? action.payload.data.tiles : state.tiles
+			}
+		}
+		case 'USER_SET_CURRENT_CONSUMPTION_POINT': {
+			return {
+				...state,
+				regions: {
+					...state.regions,
+					point: action.point
+				}
+			}
+		}
+		case 'USER_CLEAR_CURRENT_CONSUMPTION_POINT': {
+			return {
+				...state,
+				regions: {
+					...state.regions,
+					point: null
+				}
 			}
 		}
 		default:

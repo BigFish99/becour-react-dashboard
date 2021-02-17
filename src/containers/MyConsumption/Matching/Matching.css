@@ -1,0 +1,7 @@
+.Consumption-Matching .chart {
+	transition: opacity .2s;
+}
+
+.Consumption-Matching .chart.loading {
+	opacity: .3;
+}

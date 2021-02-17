@@ -1,11 +1,8 @@
 import React from 'react'
-import './ConsumptionChart.css'
-import { connect } from 'react-redux'
-import Loader from '../../../../components/Loader/Loader'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-const ConsumptionChart = ({ loading, chart }) => {
+const BarChart = ({consumptionMatching}) => {
 
 	let options = {
 		title: {
@@ -34,7 +31,7 @@ const ConsumptionChart = ({ loading, chart }) => {
 				}
 			}
 		},
-		colors: ['#58BEBB', '#48AD4E', '#96051C'],
+		colors: ['#58BEBB', '#48AD4E', '#666'],
 		xAxis: {
 			labels: {
 				enabled: true
@@ -71,7 +68,36 @@ const ConsumptionChart = ({ loading, chart }) => {
 			shared: true,
 			valueSuffix: ' GWh'
 		},
-		series: chart,
+		series: [
+			{
+				name: 'Wind power',
+				data: consumptionMatching.wind,
+				color: '#48AD4E'
+			},
+			{
+				name: 'Solar power',
+				data: consumptionMatching.solar,
+				color: '#FDB813'
+			},
+			{
+				name: 'Hydro power',
+				data: consumptionMatching.hydro,
+				color: '#6daaee'
+			},
+			{
+				name: 'Total',
+				data: consumptionMatching.total,
+				type: 'spline',
+				color: '#000'
+			},
+			{
+				name: 'Forecast',
+				data: consumptionMatching.forecast,
+				type: 'line',
+				visible: false,
+				color: '#D86F23'
+			}
+		],
 		responsive: {
 			rules: [{
 				condition: {
@@ -86,28 +112,13 @@ const ConsumptionChart = ({ loading, chart }) => {
 		}
 	}
 
-	return (
-		<div className="ConsumptionChart">
-			{
-				loading
-					? <Loader />
-					: chart.length > 0
-						? <div className="ConsumptionChart-chart">
-							<HighchartsReact
-								highcharts={Highcharts}
-								constructorType={'chart'}
-								options={options}
-							/>
-						</div>
-						: <p>No data</p>
-			}
-		</div>
+	return(
+		<HighchartsReact
+			highcharts={Highcharts}
+			constructorType={'chart'}
+			options={options}
+		/>
 	)
 }
 
-const mapStateToProps = state => ({
-	loading: state.user.loading,
-	chart: state.user.tiles.chart.series
-})
-
-export default connect(mapStateToProps, null)(ConsumptionChart)
+export default BarChart

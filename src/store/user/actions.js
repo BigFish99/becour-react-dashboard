@@ -17,6 +17,11 @@ export const toggleRegionExpand = index => ({
 	index
 })
 
+export const setRegionExpand = index => ({
+	type: 'USER_SET_REGION_EXPAND',
+	index
+})
+
 export const getConsumerData = () => ({
 	type: 'USER_GET_CONSUMER_DATA',
 	payload: {
@@ -28,4 +33,13 @@ export const getConsumerData = () => ({
 			}
 		}
 	}
+})
+
+export const setCurrentConsumptionPoint = point => ({
+	type: 'USER_SET_CURRENT_CONSUMPTION_POINT',
+	point
+})
+
+export const clearCurrentConsumptionPoint = () => ({
+	type: 'USER_CLEAR_CURRENT_CONSUMPTION_POINT'
 })

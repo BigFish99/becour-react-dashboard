@@ -9,7 +9,7 @@ const Plant = ({name, about, consumption, image}) => {
 			<div className="image">
 				{
 					image
-					? <div className="src" />
+					? <div className="src" style={{backgroundImage: `url(${image})`}} />
 					: <div className="src no-src" />
 				}
 			</div>
@@ -17,10 +17,6 @@ const Plant = ({name, about, consumption, image}) => {
 				<p className="title">{name}</p>
 				<table>
 					<tbody>
-						<tr>
-							<th>Renewable</th>
-							<td>{consumption.renewable}</td>
-						</tr>
 						<tr>
 							<th>Total purchased</th>
 							<td>{consumption.totalPurchased}</td>
@@ -125,7 +121,10 @@ const PowerplantList = ({loading, powerplants}) => {
 			{
 				loading
 				? <Loader />
-				: <List powerplants={powerplants} />
+				:
+					powerplants
+						? <List powerplants={powerplants} />
+						: <p>No data.</p>
 			}
 		</div>
 	)

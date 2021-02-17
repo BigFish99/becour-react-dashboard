@@ -1,29 +1,63 @@
 const initialState = {
 	loading: true,
 	overview: {
-		totalConsumption: 0,
-		totalRenewable: 0,
-		totalNonRenewable: 0,
-		totalAvoidedEmissions: 0,
+		totalConsumption: {
+			value: 0,
+			unit: ''
+		},
+		totalRenewable: {
+			value: 0,
+			unit: ''
+		},
+		totalNonRenewable: {
+			value: 0,
+			unit: ''
+		},
+		totalAvoidedEmissions: {
+			value: 0,
+			unit: ''
+		},
 	},
 	energyDisclosure: {
-		renewable: {
+		documented: {
 			total: 0,
 			wind: 0,
 			solar: 0,
 			hydro: 0
 		},
-		nuclear: 0,
-		fossil: 0
+		undocumented: 0
 	},
 	details: {
-		renewable: 0,
-		totalPurchased: 0,
-		totalInderectEmissions: 0,
-		referenceMixEmissions: 0,
-		totalSavings: 0
+		renewable: {
+			value: 0,
+			unit: ''
+		},
+		totalPurchased: {
+			value: 0,
+			unit: ''
+		},
+		totalInderectEmissions: {
+			value: 0,
+			unit: ''
+		},
+		referenceMixEmissions: {
+			value: 0,
+			unit: ''
+		},
+		totalSavings: {
+			value: 0,
+			unit: ''
+		},
+		infoBox: ""
 	},
-	consumptionLocations: []
+	consumptionLocations: [],
+	consumptionMatching: {
+		forecast: [],
+		wind: [],
+		hydro: [],
+		solar: [],
+		total: []
+	}
 };
 
 const consumption = (state = initialState, action) => {
@@ -42,6 +76,12 @@ const consumption = (state = initialState, action) => {
 		}
 		case 'CLEAR_CONSUMPTION_DATA': {
 			return initialState
+		}
+		case 'SET_CONSUMPTION_LOADING': {
+			return {
+				...state,
+				loading: true
+			}
 		}
 		default:
 			return state;

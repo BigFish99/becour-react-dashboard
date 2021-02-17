@@ -5,21 +5,28 @@ import EnergyDisclosure from './EnergyDisclosure'
 import Details from './Details'
 
 
-const ConsumptionDetails = ({energyDisclosure, details, loading}) => {
+const ConsumptionDetails = ({energyDisclosure, details}) => {
 	return(
 		<div className="ConsumptionDetails">
 			<div className="section content-box">
-				<EnergyDisclosure energyDisclosure={energyDisclosure} />
+				{
+					energyDisclosure
+					? <EnergyDisclosure energyDisclosure={energyDisclosure} />
+					: <p>No data.</p>
+				}
 			</div>
 			<div className="section content-box">
-				<Details details={details} />
+				{
+					details
+					? <Details details={details} />
+					: <p>No data.</p>
+				}
 			</div>
 		</div>
 	)
 }
 
 const mapStateToProps = state => ({
-	loading: state.consumption.loading,
 	energyDisclosure: state.consumption.energyDisclosure,
 	details: state.consumption.details
 })

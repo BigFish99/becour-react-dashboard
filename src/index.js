@@ -10,7 +10,7 @@ import axios from 'axios'
 import axiosMiddleware from 'redux-axios-middleware'
 
 const client = axios.create({
-	baseURL: ' https://p9dev.becour.com/api/serverscript/consumerdata',
+	baseURL: process.env.REACT_APP_API_URL,
 	responseType: 'json'
 });
 

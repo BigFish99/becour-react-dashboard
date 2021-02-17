@@ -1,9 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import Loader from '../../../components/Loader/Loader'
+import apiGet from '../../../functions/apiGet'
+import createCSV from '../../../functions/createCSV'
 import Table from '../../../components/Table/Table'
+import NoDocuments from '../NoDocuments/NoDocuments'
 
-const TradeConfirmations = ({tradeConfirmations, loading}) => {
+const TradeConfirmations = ({tradeConfirmations, currentYear, currentRegion}) => {
 
 	let table = {
 		headers: ['Tradedate', 'Trade', 'Power plant', 'Delivery profile', 'Volume (MWh)', 'Price per MWh', 'PDF'],
@@ -16,22 +18,34 @@ const TradeConfirmations = ({tradeConfirmations, loading}) => {
 		})
 	}
 
+	const downloadCSV = () => {
+		apiGet('getTradeInformationCsv', {
+			year: currentYear,
+			region: currentRegion.id
+		})
+			.then(response => {
+				createCSV(`becour-trade-confirmations-${new Date().getTime()}.csv`, response.data)
+			})
+	}
+
 	return(
 		<div className="TradeConfirmations content-box">
+			<button onClick={downloadCSV} className="button green">Export CSV</button>
 			{
-				loading
-				? <Loader />
-				: table.rows.length > 0
-					? <Table {...table} select={true} />
-					: <p>No table data</p>
+				currentRegion.id.length <= 2
+				? 	tradeConfirmations.length > 0
+						? <Table {...table} select={true} />
+						: <NoDocuments type="empty" />
+				: <NoDocuments type="region" />
 			}
 		</div>
 	)
 }
 
 const mapStateToProps = state => ({
-	loading: state.documents.loading,
-	tradeConfirmations: state.documents.tradeConfirmations
+	tradeConfirmations: state.documents.tradeConfirmations,
+	currentYear: state.user.years.current,
+	currentRegion: state.user.regions.current
 })
 
 export default connect(mapStateToProps, null)(TradeConfirmations)

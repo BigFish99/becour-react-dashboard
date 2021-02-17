@@ -1,10 +1,12 @@
 import React from 'react'
 import Select from 'react-select'
+import {connect} from 'react-redux'
+import {setCurrentConsumptionPoint} from '../../store/user/actions'
 
-const PointSelect = ({points}) => {
+const PointSelect = ({points, setCurrentConsumptionPoint, currentPoint}) => {
 
 	const selectPoint = selected => {
-		console.log(selected)
+		setCurrentConsumptionPoint(selected)
 	}
 
 	return(
@@ -19,9 +21,14 @@ const PointSelect = ({points}) => {
 				isSearchable={true}
 				name="points"
 				options={points}
+				value={currentPoint}
 			/>
 		</div>
 	)
 }
 
-export default PointSelect
+const mapStateToProps = state => ({
+	currentPoint: state.user.regions.point
+})
+
+export default connect(mapStateToProps, {setCurrentConsumptionPoint})(PointSelect)

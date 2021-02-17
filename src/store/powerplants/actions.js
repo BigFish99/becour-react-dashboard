@@ -1,4 +1,4 @@
-export const getConsumerPowerplants = (category, year, region) => ({
+export const getConsumerPowerplants = (category, year, region, consumptionPoint) => ({
 	type: 'GET_CONSUMER_POWERPLANTS',
 	payload: {
 		request: {
@@ -6,7 +6,8 @@ export const getConsumerPowerplants = (category, year, region) => ({
 			params: {
 				category: category,
 				year: year,
-				region: region
+				region: region,
+				consumptionPoint: consumptionPoint
 			},
 			headers: {
 				Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,

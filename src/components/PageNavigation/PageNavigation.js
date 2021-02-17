@@ -5,12 +5,23 @@ import {NavLink} from 'react-router-dom'
 import {setCurrentYear} from '../../store/user/actions'
 import {connect} from 'react-redux'
 import PointSelect from './PointSelect'
+import ReactCountryFlag from 'react-country-flag'
 
 const PageNavigation = ({points, loading = null, navigation, yearsAvailable, currentYear, setCurrentYear, currentRegion}) => {
 	return(
 		<header className="PageNavigation content-box">
 			<h1>
-				{currentRegion.id === 'all' ? <span>Company overview</span> : <span>{currentRegion.name}</span> }
+				{
+					currentRegion.id === 'all'
+					? 	<span>Company overview</span>
+					: 	<span>
+							{
+								currentRegion.id.length <= 2 &&
+								<ReactCountryFlag svg countryCode={currentRegion.id} />
+							}
+							{currentRegion.name}
+						</span>
+				}
 				{
 					loading &&
 					<Loader loading={loading} />

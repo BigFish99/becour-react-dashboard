@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
+import './fonts.css'
 import './App.css'
 import {
 	BrowserRouter as Router,
 	Route,
-	Switch,
-	Redirect
+	Switch
 } from 'react-router-dom'
 
-import {getConsumerData} from '../../store/user/actions'
+import {getConsumerData, clearCurrentConsumptionPoint} from '../../store/user/actions'
 // Containers
 import Header from '../../components/Header/Header'
 import Home from '../Home/Home'
@@ -17,11 +17,15 @@ import MyPowerplants from '../MyPowerplants/MyPowerplants'
 import Contact from '../Contact/Contact'
 import {connect} from 'react-redux'
 
-function App({getConsumerData}) {
+function App({getConsumerData, currentRegion, clearCurrentConsumptionPoint}) {
 
 	useEffect(() => {
 		getConsumerData()
 	}, [getConsumerData])
+
+	useEffect(() => {
+		clearCurrentConsumptionPoint()
+	}, [currentRegion, clearCurrentConsumptionPoint])
 
 	return (
 		<div className="App">
@@ -34,11 +38,14 @@ function App({getConsumerData}) {
 					<Route path="/my-powerplants" exact component={MyPowerplants} />
 					<Route path="/my-powerplants/:id" component={MyPowerplants} />
 					<Route path="/contact" component={Contact} />
-					<Route path="/api/webapp/37f7ed03-42a3-4151-a01b-452a21a93b14/preview" exact render={() => <Redirect to="/" />} />
 				</Switch>
 			</Router>
 		</div>
 	);
 }
 
-export default connect(null, {getConsumerData})(App);
+const mapStateToProps = state => ({
+	currentRegion: state.user.regions.current
+})
+
+export default connect(mapStateToProps, {getConsumerData,clearCurrentConsumptionPoint})(App);

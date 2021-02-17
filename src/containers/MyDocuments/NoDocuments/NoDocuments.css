@@ -1,0 +1,13 @@
+.NoDocuments {
+	margin-top: 20px;
+	color: var(--color-red);
+}
+
+.NoDocuments h1 {
+	font-size: 1.8em;
+}
+
+.NoDocuments p {
+	font-size: 1.3em;
+	margin-top: 10px;
+}

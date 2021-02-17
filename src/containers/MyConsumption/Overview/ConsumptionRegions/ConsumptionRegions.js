@@ -25,11 +25,11 @@ const Region = ({name, consumptionVolume, plannedVolume, purchasedRE}) => {
 				<tbody>
 					<tr>
 						<th>Consumption volume</th>
-						<td>{consumptionVolume} MWh</td>
+						<td>{consumptionVolume.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} MWh</td>
 					</tr>
 					<tr>
 						<th>Planned volume</th>
-						<td>{plannedVolume} MWh</td>
+						<td>{plannedVolume.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} MWh</td>
 					</tr>
 					<tr>
 						<th>Purchased renewable energy</th>
@@ -42,6 +42,9 @@ const Region = ({name, consumptionVolume, plannedVolume, purchasedRE}) => {
 }
 
 const ConsumptionRegions = ({consumptionLocations}) => {
+	if(!consumptionLocations) {
+		return <p>No data.</p>
+	}
 	return(
 		<div className="ConsumptionRegions content-box">
 			{ consumptionLocations.length > 0 && <h2>Consumption locations</h2> }

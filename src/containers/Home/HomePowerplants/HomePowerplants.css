@@ -21,11 +21,13 @@
 }
 
 .HomePowerplants-Powerplant-plant {
-	background-color: var(--color-blue-dark);
-	color: var(--color-white);
+	background-color: var(--color-white);
+	color: var(--color-blue-dark);
+	border: 5px solid var(--color-white);
 	position: relative;
 	border-radius: 12px;
 	overflow: hidden;
+	box-shadow: 1px 1px 9px rgba(0,0,0,.2);
 }
 
 .HomePowerplants-Powerplant-image {
@@ -47,7 +49,7 @@
 }
 
 .HomePowerplants-Powerplant-content {
-	padding: 20px 20px 80px 20px;
+	padding: 20px 20px 130px 20px;
 }
 
 .HomePowerplants-Powerplant-plant h3 {
@@ -61,7 +63,9 @@
 	padding: 10px 15px 12px 15px;
 	font-weight: bold;
 	margin-top: 20px;
+	font-size: 1.1em;
 	background-color: var(--color-green);
+	color: var(--color-white);
 	border-radius: 20px;
 	position: absolute;
 	bottom: 20px;

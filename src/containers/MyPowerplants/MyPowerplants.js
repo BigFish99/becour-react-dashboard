@@ -1,63 +1,72 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './MyPowerplants.css'
 import {connect} from 'react-redux'
-import {useParams} from 'react-router-dom'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import {getConsumerPowerplants, clearPowerplantsData} from '../../store/powerplants/actions'
 import PowerplantsMap from './PowerplantsMap/PowerplantsMap'
 import PowerplantList from './PowerplantList/PowerplantList'
 
-const MyPowerplants = ({region, year, getConsumerPowerplants, clearPowerplantsData, loading}) => {
 
-	const {id} = useParams()
+class MyPowerplants extends React.Component {
 
-	useEffect(() => {
-		let category = id ? id : 'all'
-		getConsumerPowerplants(category, year, region)
-	}, [id, year, region, getConsumerPowerplants])
-
-	useEffect(() => {
-		return () => {
-			clearPowerplantsData()
+	componentDidUpdate(prevProps) {
+		let category = this.props.match.params.id ? this.props.match.params.id : 'all'
+		if(prevProps.currentRegion !== this.props.currentRegion || prevProps.currentYear !== this.props.currentYear || prevProps.match.params !== this.props.match.params) {
+			this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, null)
 		}
-	}, [clearPowerplantsData])
+		if(prevProps.currentPoint !== this.props.currentPoint) {
+			this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+		}
+	}
 
-	return (
-		<main className="MyPowerplants container-sidebar">
-			<SideBarTree />
-			<PageNavigation
-				title="My powerplants"
-				loading={loading}
-				navigation={[
-					{
-						path: `/my-powerplants/`,
-						title: 'All technologies'
-					},
-					{
-						path: `/my-powerplants/wind-power`,
-						title: 'Wind power'
-					},
-					{
-						path: `/my-powerplants/solar-power`,
-						title: 'Solar power'
-					},
-					{
-						path: `/my-powerplants/hydro-power`,
-						title: 'Hydro power'
-					},
-				]}
-			/>
-			<PowerplantsMap />
-			<PowerplantList />
-		</main>
-	)
+	componentDidMount() {
+		let category = this.props.match.params.id ? this.props.match.params.id : 'all'
+		this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
+	}
+
+	componentWillUnmount() {
+		this.props.clearPowerplantsData()
+	}
+
+	render() {
+		return (
+			<main className="MyPowerplants container-sidebar">
+				<SideBarTree />
+				<PageNavigation
+					loading={this.props.loading}
+					points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
+					navigation={[
+						{
+							path: `/my-powerplants/`,
+							title: 'All technologies'
+						},
+						{
+							path: `/my-powerplants/wind-power`,
+							title: 'Wind power'
+						},
+						{
+							path: `/my-powerplants/solar-power`,
+							title: 'Solar power'
+						},
+						{
+							path: `/my-powerplants/hydro-power`,
+							title: 'Hydro power'
+						},
+					]}
+				/>
+				<PowerplantsMap />
+				<PowerplantList />
+			</main>
+		)
+	}
 }
 
 const mapStateToProps = state => ({
 	loading: state.powerplants.loading,
-	year: state.user.years.current,
-	region: state.user.regions.current,
+	currentYear: state.user.years.current,
+	currentRegion: state.user.regions.current,
+	currentPoint: state.user.regions.point
 })
 
 export default connect(mapStateToProps, {getConsumerPowerplants, clearPowerplantsData})(MyPowerplants)
