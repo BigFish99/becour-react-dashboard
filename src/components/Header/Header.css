@@ -38,7 +38,8 @@
 .Header-menuItem {
 	flex: 0 1 auto;
 	color: var(--color-white);
-	font-weight: bold;
+	font-weight: 600;
+	font-size: 1em;
 	padding: 10px 20px;
 }
 
@@ -52,5 +53,5 @@
 }
 
 .Header-menuItem a.active {
-	color: var(--color-orange);
+	color: var(--color-green);
 }

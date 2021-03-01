@@ -1,15 +1,15 @@
 :root {
 	--color-black: #34373b;
 	--color-white: #FFFFFF;
-	--color-green: #48AD4E;
-	--color-green-light: #c1ddc3;
-	--color-blue: #58BEBB;
-	--color-blue-dark: #181A31;
-	--color-red: #96051C;
-	--color-red-light: #F43C5B;
-	--color-pink: #F58FAA;
-	--color-orange: #D86F23;
-	--color-yellow: #ECBE3F;
+	--color-green: #00BA6C;
+	--color-green-light: #EDFAF5;
+	--color-blue: #0AC5D1;
+	--color-blue-dark: #04003A;
+	--color-red: #F3372A;
+	--color-red-light: #F56258;
+	--color-pink: #F1A9B9;
+	--color-orange: #D9873C;
+	--color-yellow: #F0C659;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -67,7 +67,7 @@ body {
 
 h1 {
 	font-size: 2em;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 a {
