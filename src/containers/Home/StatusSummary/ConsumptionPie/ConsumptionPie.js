@@ -37,12 +37,12 @@ const ConsumptionPie = ({renewable, nonRenewable, loading}) => {
 			innerSize: '30%',
 			data: [{
 				name: 'Renewable',
-				color: '#48AD4E',
+				color: '#00BA6C',
 				y: Math.round(renewable / (renewable + nonRenewable) * 100)
 			},
 			{
 				name: 'Non renewable',
-				color: '#96051C',
+				color: '#F3372A',
 				y: Math.round(nonRenewable / (renewable + nonRenewable) * 100)
 			}]
 		}]
