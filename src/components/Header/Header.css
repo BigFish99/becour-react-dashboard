@@ -38,13 +38,13 @@
 .Header-menuItem {
 	flex: 0 1 auto;
 	color: var(--color-white);
-	font-weight: 600;
-	font-size: 1em;
+	font-weight: 500;
+	font-size: 1.1em;
 	padding: 10px 20px;
 }
 
 .Header-button {
-	font-weight: bold;
+	font-weight: 500;
 	color: var(--color-white);
 	display: block;
 	padding: 10px 20px;
@@ -54,4 +54,5 @@
 
 .Header-menuItem a.active {
 	color: var(--color-green);
+	font-weight: 800;
 }

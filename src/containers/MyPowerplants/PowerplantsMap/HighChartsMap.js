@@ -27,20 +27,22 @@ const HighChartMaps = ({ powerplants, regions }) => {
 			{
 				min: 0,
 				stops: [
-					[0, '#F6F6F6'],
-					[.01, '#96051C'],
-					[.8, '#D86F23'],
-					[1, '#48AD4E']
+					[0, '#E6E6EC'],
+					[.01, '#F3372A'],
+					[.8, '#D9873C'],
+					[1, '#00BA6C']
 				]
 			},
 			{
-				maxColor: '#181A31',
-				minColor: '#58BEBB'
+				maxColor: '#04003A',
+				minColor: '#04003A'
 			}
 		],
 		plotOptions: {
 			map: {
-				colorAxis: 0
+				colorAxis: 0,
+				borderWidth: 0,
+				nullColor: '#E6E6EC'
 			},
 			mappoint: {
 				colorAxis: 1,

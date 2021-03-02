@@ -65,12 +65,12 @@
 	text-align: left;
 	cursor: pointer;
 	border-bottom: 1px solid transparent;
-	font-weight: bold;
+	font-weight: 800;
 }
 
 .SideBarTree button.companyOverview.active,
 .SideBarTree button.companyOverview:hover {
-	color: var(--color-blue-dark);
+	color: var(--color-green);
 	border-color: currentColor;
 }
 
@@ -84,7 +84,7 @@
 	font-size: 1em;
 	cursor: pointer;
 	border-bottom: 1px solid transparent;
-	font-weight: bold;
+	font-weight: 800;
 }
 
 .SideBarTree-region button.sublink {
@@ -94,7 +94,7 @@
 	padding: 0;
 	background: transparent;
 	color: var(--color-blue-dark);
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 1em;
 	cursor: pointer;
 	border-bottom: 1px solid transparent;
@@ -103,12 +103,14 @@
 
 .SideBarTree-region button.sublink:hover,
 .SideBarTree-region button.sublink.active {
+	color: var(--color-green);
 	border-color: currentColor;
 	opacity: 1;
 }
 
 .SideBarTree-region button.link:hover,
 .SideBarTree-region button.link.active {
+	color: var(--color-green);
 	border-color: currentColor;
 }
 
@@ -153,10 +155,10 @@
 
 .SideBarTree-region ul {
 	list-style: none;
-	margin: o;
+	margin: 0;
 	padding: 0;
 	font-size: .9em;
-	padding-left: 25px;
+	padding-left: 15px;
 }
 
 .SideBarTree-region ul li {

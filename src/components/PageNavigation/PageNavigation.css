@@ -35,13 +35,15 @@
 	padding: 10px 20px 10px 0;
 	border-bottom: 3px solid var(--color-green-light);
 	transition: border-color .2s ease-out;
+	font-weight: 500;
+	font-size: 1.1em;
 }
 .PageNavigation-navigation ul li a.active,
 .PageNavigation-navigation ul li a:hover {
 	border-color: var(--color-green);
 }
 .PageNavigation-navigation ul li a.active {
-	font-weight: bold;
+	font-weight: 800;
 }
 
 .PageNavigation-years ul {
@@ -52,15 +54,16 @@
 	appearance: none;
 	border: 0;
 	padding: 10px 20px 10px 0;
-	font-size: 1.1em;
+	font-size: 1.15em;
 	background: transparent;
 	cursor: pointer;
+	font-weight: 500;
 }
 .PageNavigation-years ul button:hover {
 	color: var(--color-green);
 }
 .PageNavigation-years ul button.active {
-	font-weight: bold;
+	font-weight: 800;
 	color: var(--color-green);
 }
 

@@ -34,7 +34,7 @@ const ConsumptionMap = ({ map, loading }) => {
 		colorAxis: {
 			min: 0,
 			stops: [
-				[0, '#F6F6F6'],
+				[0, '#E6E6EC'],
 				[.01, '#F3372A'],
 				[.8, '#D9873C'],
 				[1, '#00BA6C']
@@ -43,6 +43,8 @@ const ConsumptionMap = ({ map, loading }) => {
 		series: [{
 			name: 'Renewable Energy',
 			mapData: mapData,
+			borderWidth: 0,
+			nullColor: '#E6E6EC',
 			data: map,
 			tooltip: {
 				valueSuffix: ' %'

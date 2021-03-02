@@ -44,20 +44,21 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 		series: [{
 			name: 'Energy Source',
 			innerSize: '30%',
+			borderWidth: 0,
 			data: [
 				{
 					name: 'Wind',
-					color: '#48AD4E',
+					color: '#00BA6C',
 					y: wind
 				},
 				{
 					name: 'Hydro',
-					color: '#48AD4E',
+					color: '#0AC5D1',
 					y: hydro
 				},
 				{
 					name: 'Solar',
-					color: '#48AD4E',
+					color: '#F0C659',
 					y: solar
 				},
 				{
