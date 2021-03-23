@@ -115,7 +115,7 @@ strong {
 
 .content-box {
 	padding: 40px 30px;
-	box-shadow: 1px 1px 15px rgba(0,0,0,.2);
+	box-shadow: 0px 0px 50px rgba(0,0,0,.05);
 	border-radius: 15px;
 	background-color: #FFF;
 }

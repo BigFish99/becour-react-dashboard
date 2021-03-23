@@ -23,7 +23,7 @@ const ConsumptionOverview = ({overview}) => {
 					<p className="suffix text-green">{overview.totalRenewable.unit}</p>
 				</div>
 				<div className="part">
-					<h3>Non-renewable energy</h3>
+					<h3>Undocumented energy</h3>
 					<p className="counter text-red"><CountUp decimals={overview.totalNonRenewable.value % 1 !== 0 ? 2 : 0} separator=" " end={overview.totalNonRenewable.value} duration={1} redraw={false} preserveValue={true} /></p>
 					<p className="suffix text-red">{overview.totalNonRenewable.unit}</p>
 				</div>

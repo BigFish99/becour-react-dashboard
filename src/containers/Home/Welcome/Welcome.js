@@ -5,11 +5,16 @@ import Loader from '../../../components/Loader/Loader'
 import CountUp from 'react-countup'
 import './Welcome.css'
 
-const Welcome = ({ company, logo, renewable, nonRenewable, avoidedEmissions, loading }) => {
+const Welcome = ({ company, logo, renewable, nonRenewable, loading }) => {
+
+	const renewablePercent = parseFloat((renewable.value / (renewable.value + nonRenewable.value) * 100).toFixed(0));
 
 	return (
 		<section className="Welcome">
-			<div className="wrapper content-box">
+			<div className="percentage-bar">
+				<div className="percent" style={{width: `${renewablePercent}%`}}></div>
+			</div>
+			<div className="wrapper">
 				<div className="logo">
 					<div className={`inner ${!logo && 'no-logo'}`}>
 						{	logo &&
@@ -31,32 +36,30 @@ const Welcome = ({ company, logo, renewable, nonRenewable, avoidedEmissions, loa
 						loading
 						? <Loader />
 						: <p className="value green">
-								<CountUp end={renewable.value} duration={1} decimals={renewable.value % 1 !== 0 ? 2 : 0} separator=" " suffix={` ${renewable.unit}`} redraw={false} preserveValue={true} />
+								<CountUp end={renewable.value} duration={1} decimals={renewable.value % 1 !== 0 ? 2 : 0} separator=" " suffix={` <span class="small">${renewable.unit}</span>`} redraw={false} preserveValue={true} />
 							</p>
 					}
 				</div>
 				<div className="stat">
-					<p className="title">Non-renewable energy</p>
+					<p className="title">Undocumented energy</p>
 					{
 						loading
 						? <Loader />
 						: <p className="value red">
-								<CountUp end={nonRenewable.value} duration={1} decimals={nonRenewable.value % 1 !== 0 ? 2 : 0} separator=" " suffix={` ${nonRenewable.unit}`} redraw={false} preserveValue={true} />
+								<CountUp end={nonRenewable.value} duration={1} decimals={nonRenewable.value % 1 !== 0 ? 2 : 0} separator=" " suffix={` <span class="small">${nonRenewable.unit}</span>`} redraw={false} preserveValue={true} />
 							</p>
 					}
 				</div>
-				{/*
-					<div className="stat">
-						<p className="title">Avoided emissions</p>
-						{
-							loading
-							? <Loader />
-							: <p className="value">
-									<CountUp end={avoidedEmissions.value} duration={1} seperator="&nbsp;" suffix={` ${avoidedEmissions.unit}`} redraw={false} preserveValue={true} />
-								</p>
-						}
-					</div>
-				*/}
+				<div className="stat">
+					<p className="title">Renewable energy</p>
+					{
+						loading
+						? <Loader />
+						: 	<p className="value green large">
+								<CountUp end={renewablePercent} duration={1} suffix="%" redraw={false} preserveValue={true} />
+							</p>
+					}
+				</div>
 			</div>
 		</section>
 	)
@@ -67,9 +70,7 @@ const mapStateToProps = state => ({
 	company: state.user.customer,
 	logo: state.user.logo,
 	renewable: state.user.tiles.renewable,
-	nonRenewable: state.user.tiles.nonRenewable,
-	avoidedEmissions: state.user.tiles.avoidedEmissions
-
+	nonRenewable: state.user.tiles.nonRenewable
 })
 
 export default connect(mapStateToProps, {removeLoader})(Welcome)

@@ -17,17 +17,13 @@
 .HomePowerplants-items {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 40px;
+	gap: 20px;
 }
 
 .HomePowerplants-Powerplant-plant {
-	background-color: var(--color-white);
-	color: var(--color-blue-dark);
-	border: 5px solid var(--color-white);
+	background-color: var(--color-blue-dark);
+	color: var(--color-white);
 	position: relative;
-	border-radius: 12px;
-	overflow: hidden;
-	box-shadow: 1px 1px 9px rgba(0,0,0,.2);
 }
 
 .HomePowerplants-Powerplant-image {
