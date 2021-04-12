@@ -31,7 +31,6 @@ const BarChart = ({consumptionMatching}) => {
 				}
 			}
 		},
-		colors: ['#58BEBB', '#48AD4E', '#666'],
 		xAxis: {
 			labels: {
 				enabled: true
@@ -72,30 +71,30 @@ const BarChart = ({consumptionMatching}) => {
 			{
 				name: 'Wind power',
 				data: consumptionMatching.wind,
-				color: '#48AD4E'
+				color: '#00BA6C'
 			},
 			{
 				name: 'Solar power',
 				data: consumptionMatching.solar,
-				color: '#FDB813'
+				color: '#F0C659'
 			},
 			{
 				name: 'Hydro power',
 				data: consumptionMatching.hydro,
-				color: '#6daaee'
+				color: '#0AC5D1'
 			},
 			{
 				name: 'Total',
 				data: consumptionMatching.total,
 				type: 'spline',
-				color: '#000'
+				color: '#04003A'
 			},
 			{
 				name: 'Forecast',
 				data: consumptionMatching.forecast,
 				type: 'line',
 				visible: false,
-				color: '#D86F23'
+				color: '#F3372A'
 			}
 		],
 		responsive: {

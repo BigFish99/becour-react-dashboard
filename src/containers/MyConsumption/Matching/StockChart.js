@@ -85,26 +85,26 @@ const StockChart = ({consumptionMatching}) => {
 			{
 				name: 'Wind power',
 				data: consumptionMatching.wind,
-				color: '#48AD4E',
+				color: '#00BA6C',
 				dataGrouping: dataGrouping
 			},
 			{
 				name: 'Solar power',
 				data: consumptionMatching.solar,
-				color: '#FDB813',
+				color: '#F0C659',
 				dataGrouping: dataGrouping
 			},
 			{
 				name: 'Hydro power',
 				data: consumptionMatching.hydro,
-				color: '#6daaee',
+				color: '#0AC5D1',
 				dataGrouping: dataGrouping
 			},
 			{
 				name: 'Total',
 				data: consumptionMatching.total,
 				type: 'spline',
-				color: '#000',
+				color: '#04003A',
 				dataGrouping: dataGrouping
 			}
 		]

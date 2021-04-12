@@ -2,6 +2,7 @@ import React from 'react'
 import './StatusSummary.css'
 import ConsumptionMap from './ConsumptionMap/ConsumptionMap'
 import ConsumptionChart from './ConsumptionChart/ConsumptionChart'
+import Contribution from './Contribution/Contribution'
 
 const StatusSummary = () => {
 	return(
@@ -15,10 +16,8 @@ const StatusSummary = () => {
 					<div className="box map">
 						<ConsumptionMap />
 					</div>
-					<div className="">
-
-					</div>
-					<div className="">
+					<div>
+						<Contribution />
 						<ConsumptionChart />
 					</div>
 				</div>
