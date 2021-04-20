@@ -1,22 +1,22 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import Loader from '../../../../components/Loader/Loader'
-import { ReactComponent as WindMills } from '../../../../assets/svg/windmills.svg';
-import { ReactComponent as HydroPower } from '../../../../assets/svg/hydro-plant.svg';
-import { ReactComponent as SolarPower } from '../../../../assets/svg/solar-panels.svg';
-import { ReactComponent as NextButton } from '../../../../assets/svg/next.svg';
-import { ReactComponent as PrevButton } from '../../../../assets/svg/previous.svg';
+import windmills from '../../../../assets/svg/windmills.svg';
+import hydro from '../../../../assets/svg/hydro-plant.svg';
+import solar from '../../../../assets/svg/solar-panels.svg';
+import next from '../../../../assets/svg/next.svg';
+import previous from '../../../../assets/svg/previous.svg';
 import {motion, AnimatePresence} from 'framer-motion'
 import './Contribution.css'
 
 const Icon = ({type}) => {
 	switch(type) {
 		case 'wind':
-			return <WindMills />
+			return <img src={windmills} alt="" />
 		case 'hydro':
-			return <HydroPower />
+			return <img src={hydro} alt="" />
 		case 'solar':
-			return <SolarPower />
+			return <img src={solar} alt="" />
 		default:
 			return null
 	}
@@ -76,8 +76,8 @@ const Items = ({items, loading}) => {
 			{
 				items.length > 1 &&
 				<div className="navigation">
-					<button className="prev" onClick={nextSlide}><PrevButton /></button>
-					<button className="next" onClick={prevSlide}><NextButton /></button>
+					<button className="prev" onClick={nextSlide}><img src={previous} alt="Previous" /></button>
+					<button className="next" onClick={prevSlide}><img src={next} alt="Next" /></button>
 				</div>
 			}
 		</div>
@@ -91,7 +91,7 @@ const Contribution = ({loading, contribution}) => {
 		<div className="Contribution">
 			{ contribution.title && <p className="title">{contribution.title}</p> }
 			{
-				contribution.items
+				contribution.items.length > 0
 				&& <Items items={contribution.items} loading={loading} />
 			}
 		</div>
