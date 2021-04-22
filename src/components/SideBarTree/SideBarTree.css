@@ -2,14 +2,14 @@
 	position: fixed;
 	width: 270px;
 	left: 0;
-	top: 120px;
+	top: 0;
 	bottom: 0;
 	background-color: #FFF;
 	overflow: scroll;
 }
 
 .SideBarTree .inner {
-	padding: 30px;
+	padding: 200px 30px 30px 30px;
 }
 
 .container-sidebar {
