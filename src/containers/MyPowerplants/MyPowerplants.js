@@ -33,30 +33,32 @@ class MyPowerplants extends React.Component {
 		return (
 			<main className="MyPowerplants container-sidebar">
 				<SideBarTree />
-				<PageNavigation
-					loading={this.props.loading}
-					points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
-					navigation={[
-						{
-							path: `/my-powerplants/`,
-							title: 'All technologies'
-						},
-						{
-							path: `/my-powerplants/wind-power`,
-							title: 'Wind power'
-						},
-						{
-							path: `/my-powerplants/solar-power`,
-							title: 'Solar power'
-						},
-						{
-							path: `/my-powerplants/hydro-power`,
-							title: 'Hydro power'
-						},
-					]}
-				/>
-				<PowerplantsMap />
-				<PowerplantList />
+				<div className="mainContent">
+					<PageNavigation
+						loading={this.props.loading}
+						points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
+						navigation={[
+							{
+								path: `/my-powerplants/`,
+								title: 'All technologies'
+							},
+							{
+								path: `/my-powerplants/wind-power`,
+								title: 'Wind power'
+							},
+							{
+								path: `/my-powerplants/solar-power`,
+								title: 'Solar power'
+							},
+							{
+								path: `/my-powerplants/hydro-power`,
+								title: 'Hydro power'
+							},
+						]}
+					/>
+					<PowerplantsMap />
+					<PowerplantList />
+				</div>
 			</main>
 		)
 	}

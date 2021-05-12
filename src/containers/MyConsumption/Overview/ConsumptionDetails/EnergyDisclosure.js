@@ -33,6 +33,7 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 		plotOptions: {
 			pie: {
 				 allowPointSelect: true,
+				 enableMouseTracking: true,
 				 cursor: 'pointer',
 				 dataLabels: {
 					 format: '{point.y}%',
@@ -41,6 +42,7 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 				 showInLegend: false
 			}
 	  },
+	  colors: ['#00BA6C', '#0AC5D1', '#F0C659', '#F3372A'],
 		series: [{
 			name: 'Energy Source',
 			innerSize: '30%',
@@ -48,22 +50,18 @@ const EnergyDisclosure = ({energyDisclosure}) => {
 			data: [
 				{
 					name: 'Wind',
-					color: '#00BA6C',
 					y: wind
 				},
 				{
 					name: 'Hydro',
-					color: '#0AC5D1',
 					y: hydro
 				},
 				{
 					name: 'Solar',
-					color: '#F0C659',
 					y: solar
 				},
 				{
 					name: 'Undocumented',
-					color: '#96051C',
 					y: undocumented
 				}
 			]

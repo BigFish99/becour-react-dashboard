@@ -85,3 +85,11 @@
 .Contact-Person p.email a {
 	border-bottom: 1px solid currentColor;
 }
+
+.Contact-Form p.errorMessage {
+	color: var(--color-red);
+}
+
+.thankYou h3 {
+	font-size: 22px;
+}

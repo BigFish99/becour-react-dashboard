@@ -5,6 +5,7 @@ import {getConsumerDocuments} from '../../store/documents/actions'
 import {Route} from 'react-router-dom'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
+import Contracts from './Contracts/Contracts'
 
 class MyDocuments extends React.Component {
 
@@ -25,21 +26,24 @@ class MyDocuments extends React.Component {
 		return(
 			<main className="MyDocuments container-sidebar">
 				<SideBarTree />
-				<PageNavigation
-					loading={this.props.loading}
-					points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
-					navigation={[
-						{
-							path: `/my-documents/`,
-							title: 'Trade Confirmations'
-						},
-						{
-							path: `/my-documents/contracts`,
-							title: 'Contracts'
-						},
-					]}
-				/>
-				<Route path="/my-documents/" exact component={TradeConfirmations} />
+				<div className="mainContent">
+					<PageNavigation
+						loading={this.props.loading}
+						points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
+						navigation={[
+							{
+								path: `/my-documents/`,
+								title: 'Trade Confirmations'
+							},
+							{
+								path: `/my-documents/contracts`,
+								title: 'Contracts'
+							},
+						]}
+					/>
+					<Route path="/my-documents/" exact component={TradeConfirmations} />
+					<Route path="/my-documents/contracts/" exact component={Contracts} />
+				</div>
 			</main>
 		)
 	}

@@ -32,22 +32,24 @@ class MyConsumption extends React.Component {
 		return (
 			<main className="MyConsumption container-sidebar">
 				<SideBarTree />
-				<PageNavigation
-					loading={this.props.loading}
-					points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
-					navigation={[
-						{
-							path: `/my-consumption/`,
-							title: 'Consumption overview'
-						},
-						{
-							path: `/my-consumption/consumption-matching`,
-							title: 'Consumption matching'
-						}
-					]}
-				/>
-				<Route path="/my-consumption/" exact component={Overview} />
-				<Route path="/my-consumption/consumption-matching" exact component={Matching} />
+				<div className="mainContent">
+					<PageNavigation
+						loading={this.props.loading}
+						points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
+						navigation={[
+							{
+								path: `/my-consumption/`,
+								title: 'Consumption overview'
+							},
+							{
+								path: `/my-consumption/consumption-matching`,
+								title: 'Consumption matching'
+							}
+						]}
+					/>
+					<Route path="/my-consumption/" exact component={Overview} />
+					<Route path="/my-consumption/consumption-matching" exact component={Matching} />
+				</div>
 			</main>
 		)
 	}
