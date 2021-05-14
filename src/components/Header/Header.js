@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../assets/svg/becour_react.svg'
+import logo from '../../assets/svg/marbly-logo.svg'
 import { NavLink } from 'react-router-dom'
 import './Header.css'
 
@@ -13,10 +13,10 @@ const Header = () => {
 				<nav className="topNavigation">
 					<ul className="topNavigationMenu">
 						<li className="topMenuItem">
-							<a href="//reactdev.becour.com">Home</a>
+							<a href="//marbly.becour.com">Home</a>
 						</li>
 						<li className="topMenuItem">
-							<a href="//reactdev.becour.com/marketplace">RE Marketplace</a>
+							<a href="//marbly.becour.com/marketplace">Marketplace</a>
 						</li>
 						<li className="topMenuItem">
 							<NavLink to="/" className="portfolio">My portfolio</NavLink>
