@@ -25,7 +25,7 @@ const Details = ({details}) => {
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
-						<td>Total inderect emissions</td>
+						<td>Total indirect emissions</td>
 						<td>
 							{
 								typeof totalInderectEmissions.value === 'number'
@@ -46,7 +46,7 @@ const Details = ({details}) => {
 					</tr>
 					<tr className="seperator"></tr>
 					<tr>
-						<th>Total savings inderect emissions</th>
+						<th>Total savings indirect emissions</th>
 						<th>
 							{
 								typeof totalSavings.value === 'number'
