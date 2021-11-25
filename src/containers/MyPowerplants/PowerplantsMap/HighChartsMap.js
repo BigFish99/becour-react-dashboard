@@ -26,10 +26,10 @@ const HighChartMaps = ({ powerplants, regions }) => {
 		colorAxis: [
 			{
 				min: 0,
+				max: 100,
 				stops: [
-					[0, '#E6E6EC'],
-					[.01, '#F3372A'],
-					[.8, '#D9873C'],
+					[0, '#F3372A'],
+					[0.6, '#D9873C'],
 					[1, '#00BA6C']
 				]
 			},

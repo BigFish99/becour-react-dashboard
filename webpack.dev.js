@@ -1,57 +1,60 @@
-const presetEnv = require.resolve('@babel/preset-env');
-const presetReact = require.resolve('@babel/preset-react');
+const path = require('path');
 const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const classPropPlugin = require.resolve("@babel/plugin-proposal-class-properties");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { resolve, join } = require('path');
+const fs = require('fs');
+const { planet9Proxy } = require('planet9-vscode-tool')
 
-module.exports = settings => ({
-    target: 'web',
-    mode: 'development',
-    devtool: 'eval-source-map',
-    output: {
-        filename: '[name].bundle.js',
-        path: '/',
-        publicPath: `/api/webapp/${settings.appId}/preview`
-    },
-    resolve: {
-        extensions: ['.js', '.jsx']
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [presetEnv, presetReact]
-                    }
-                }
+/**@returns {import('webpack').Configuration}*/
+module.exports = async function Configuration() {
+    return {
+        mode: 'development',
+        entry: {
+            main: './src/index.tsx',
+        },
+        devtool: "source-map",
+        devServer: {
+            contentBase: false,
+            compress: true,
+            port: 9000,
+            proxy: await planet9Proxy(),
+            open: true,
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: resolve('./public/index.html'),
+            }),
+        ],
+        resolve: {
+            alias: {
+                'planet9-internal': path.resolve(__dirname, '.planet9/apis/')
             },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name(resourcePath) {
-                                return resourcePath;
+            extensions: ['.tsx', '.ts', '.js']
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.(ts|tsx)$/,
+                    loader: 'ts-loader',
+                    include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, '.planet9')],
+                    exclude: [/node_modules/]
+                },
+                {
+                    test: /.css$/,
+                    use: [
+                        {
+                            loader: "style-loader"
+                        },
+                        {
+                            loader: "css-loader",
+                            options: {
+                                sourceMap: true
                             }
                         }
-                    }
-                ]
-            }
-        ]
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            BASENAME: JSON.stringify(`/api/webapp/${settings.appId}/preview`)
-        }),
-        new htmlWebpackPlugin({
-            templateContent: settings.htmlTemplate
-        })
-    ]
-});
+                    ]
+                }
+            ]
+        }
+    }
+}

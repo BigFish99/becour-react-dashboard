@@ -1,49 +1,56 @@
 {
-  "name": "becour-react-dashboard",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@highcharts/map-collection": "^1.1.3",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.21.1",
-    "framer-motion": "^4.1.3",
-    "highcharts": "^9.1.0",
-    "highcharts-react-official": "^3.0.0",
-    "proj4": "^2.6.2",
-    "react": "^17.0.2",
-    "react-collapse": "^5.0.1",
-    "react-country-flag": "^2.3.0",
-    "react-countup": "^4.3.3",
-    "react-dom": "^16.14.0",
-    "react-redux": "^7.2.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.0",
-    "react-select": "^3.1.0",
-    "react-spinners": "^0.9.0",
-    "redux": "^4.0.5",
-    "redux-axios-middleware": "^4.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "becour-react-dashboard",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": "/webapp/becour_marbly",
+	"dependencies": {
+		"planet9-vscode-tool": "github:neptune-software/planet9-vscode-tool",
+		"@highcharts/map-collection": "^1.1.3",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.5.0",
+		"@testing-library/user-event": "^7.2.1",
+		"axios": "^0.21.1",
+		"framer-motion": "^4.1.3",
+		"highcharts": "^9.1.0",
+		"highcharts-react-official": "^3.0.0",
+		"proj4": "^2.6.2",
+		"react": "^17.0.2",
+		"react-collapse": "^5.0.1",
+		"react-country-flag": "^2.3.0",
+		"react-countup": "^4.3.3",
+		"react-dom": "^16.14.0",
+		"react-redux": "^7.2.2",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "^4.0.0",
+		"react-select": "^3.1.0",
+		"react-spinners": "^0.9.0",
+		"redux": "^4.0.5",
+		"redux-axios-middleware": "^4.0.1"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"dev": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"planet9": {
+		"projectId": "1B08A5BC-7F47-EC11-981F-2818782AACF9",
+		"projectName": "becour_marbly"
+	}
 }
