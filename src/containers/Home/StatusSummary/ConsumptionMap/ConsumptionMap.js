@@ -58,8 +58,8 @@ const ConsumptionMap = ({ map, loading }) => {
 			{
 				loading
 				? <Loader />
-				: map.length > 0
-					?  <div className="ConsumptionMap-map">
+				:
+					<div className="ConsumptionMap-map">
 							<HighchartsReact
 								className="map"
 								highcharts={Highcharts}
@@ -67,7 +67,7 @@ const ConsumptionMap = ({ map, loading }) => {
 								options={options}
 							/>
 						</div>
-					: <p>No map data</p>
+
 			}
 		</div>
 	)
