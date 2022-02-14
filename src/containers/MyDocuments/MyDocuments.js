@@ -6,6 +6,8 @@ import {Route} from 'react-router-dom'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
 import Contracts from './Contracts/Contracts'
+import ProofOfPurchases from './ProofOfPurchases/ProofOfPurchases'
+import AuditReports from './AuditReports/AuditReports'
 
 class MyDocuments extends React.Component {
 
@@ -33,16 +35,26 @@ class MyDocuments extends React.Component {
 						navigation={[
 							{
 								path: `/my-documents/`,
-								title: 'Trade Confirmations'
+								title: 'Order Confirmations'
 							},
 							{
 								path: `/my-documents/contracts`,
 								title: 'Contracts'
 							},
+							{
+								path: `/my-documents/proof-of-purchases`,
+								title: 'Proof of Purchases'
+							},
+							{
+								path: `/my-documents/audit-reports`,
+								title: 'Audit Reports'
+							},
 						]}
 					/>
 					<Route path="/my-documents/" exact component={TradeConfirmations} />
 					<Route path="/my-documents/contracts/" exact component={Contracts} />
+					<Route path="/my-documents/proof-of-purchases/" exact component={ProofOfPurchases} />
+					<Route path="/my-documents/audit-reports/" exact component={AuditReports} />
 				</div>
 			</main>
 		)
