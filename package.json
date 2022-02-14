@@ -4,7 +4,6 @@
 	"private": true,
 	"homepage": "/webapp/becour_marbly",
 	"dependencies": {
-		"planet9-vscode-tool": "github:neptune-software/planet9-vscode-tool",
 		"@highcharts/map-collection": "^1.1.3",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.5.0",
