@@ -2,7 +2,7 @@ import React from 'react'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import {connect} from 'react-redux'
 import {getConsumerDocuments} from '../../store/documents/actions'
-import {Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
 import TradeConfirmations from './TradeConfirmations/TradeConfirmations'
 import Contracts from './Contracts/Contracts'
@@ -34,7 +34,7 @@ class MyDocuments extends React.Component {
 						points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
 						navigation={[
 							{
-								path: `/my-documents/`,
+								path: `/my-documents`,
 								title: 'Order Confirmations'
 							},
 							{
@@ -51,10 +51,12 @@ class MyDocuments extends React.Component {
 							},
 						]}
 					/>
-					<Route path="/my-documents/" exact component={TradeConfirmations} />
-					<Route path="/my-documents/contracts/" exact component={Contracts} />
-					<Route path="/my-documents/proof-of-purchases/" exact component={ProofOfPurchases} />
-					<Route path="/my-documents/audit-reports/" exact component={AuditReports} />
+					<Routes>
+						<Route path="/" element={<TradeConfirmations/>} />
+						<Route path="/contracts" element={<Contracts/>} />
+						<Route path="/proof-of-purchases" element={<ProofOfPurchases />} />
+						<Route path="/audit-reports" element={<AuditReports />} />
+					</Routes>
 				</div>
 			</main>
 		)

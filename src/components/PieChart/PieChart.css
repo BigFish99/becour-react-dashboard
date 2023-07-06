@@ -1,0 +1,8 @@
+.PieChart {
+	position: relative;
+	width: 100%;
+}
+
+.PieChart canvas {
+	width: 100%;
+}

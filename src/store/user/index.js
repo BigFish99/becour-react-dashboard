@@ -3,6 +3,7 @@ import {getCurrentRegion} from './functions'
 const initialState = {
 	loading: true,
 	customer: 'Big Fish AS',
+	matching: false,
 	logo: false,
 	regions: {
 		current: {
@@ -14,7 +15,7 @@ const initialState = {
 	},
 	years: {
 		current: new Date().getFullYear(),
-		available: [2019, 2020, 2021, 2022]
+		available: [2019, 2020, 2021, 2022, 2023]
 	},
 	map: [],
 	powerplants: [],
@@ -106,6 +107,7 @@ const user = (state = initialState, action) => {
 			return {
 				...state,
 				loading: false,
+				matching: action.payload.data.matching ? action.payload.data.matching : false,
 				regions: {
 					...state.regions,
 					available: action.payload.data.regions ? action.payload.data.regions : false

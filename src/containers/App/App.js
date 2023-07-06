@@ -2,9 +2,9 @@ import React, {useEffect} from 'react';
 import './fonts.css'
 import './App.css'
 import {
-	HashRouter as Router,
+	HashRouter,
 	Route,
-	Switch
+	Routes
 } from 'react-router-dom'
 
 import {getConsumerData, clearCurrentConsumptionPoint} from '../../store/user/actions'
@@ -15,6 +15,7 @@ import MyDocuments from '../MyDocuments/MyDocuments'
 import MyConsumption from '../MyConsumption/MyConsumption'
 import MyPowerplants from '../MyPowerplants/MyPowerplants'
 import Contact from '../Contact/Contact'
+import Matching from '../Matching/Matching'
 import {connect} from 'react-redux'
 
 function App({getConsumerData, currentRegion, clearCurrentConsumptionPoint}) {
@@ -29,17 +30,18 @@ function App({getConsumerData, currentRegion, clearCurrentConsumptionPoint}) {
 
 	return (
 		<div className="App">
-			<Router>
+			<HashRouter>
 				<Header />
-				<Switch>
-					<Route path="/" exact component={Home} />
-					<Route path="/my-documents" component={MyDocuments} />
-					<Route path="/my-consumption" component={MyConsumption} />
-					<Route path="/my-powerplants" exact component={MyPowerplants} />
-					<Route path="/my-powerplants/:id" component={MyPowerplants} />
-					<Route path="/contact" component={Contact} />
-				</Switch>
-			</Router>
+				<Routes>
+					<Route path="/" element={<Home/>} />
+					<Route path="/my-documents/*" element={<MyDocuments />} />
+					<Route path="/my-consumption/*" element={<MyConsumption />} />
+					<Route path="/my-powerplants" element={<MyPowerplants />} />
+					<Route path="/my-powerplants/:id" element={<MyPowerplants />} />
+					<Route path="/matching" element={<Matching />} />
+					<Route path="/contact" element={<Contact />} />
+				</Routes>
+			</HashRouter>
 		</div>
 	);
 }

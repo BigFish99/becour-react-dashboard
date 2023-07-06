@@ -1,0 +1,59 @@
+.Calendar {
+	.calendar-toggle {
+		border-radius: 30px;
+		background-color: var(--color-blue-dark);
+		border: 5px solid var(--color-blue-dark);
+		display: inline-block;
+	}
+	.toggle__button {
+		padding: 15px 20px;
+		appearance: none;
+		border: 0;
+		background-color: var(--color-green-dark);
+		color: #FFF;
+		border-radius: 30px;
+		&.active {
+			background-color: var(--color-green);
+		}
+	}
+}
+
+.CalendarYearly {
+	.header {
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-align: center;
+		border-bottom: 1px solid var(--color-blue-dark);
+	}
+
+	.body {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 10px;
+		margin-top: 20px;
+	}
+
+	.month {
+		background-color: rgba(221, 228, 224, 1);
+		border-radius: 10px;
+		overflow: hidden;
+		appearance: none;
+		border: 0;
+		padding: 0;
+		cursor: pointer;
+	}
+
+	.CalendarYearly__month__header {
+		padding: 10px;
+		text-align: center;
+		background-color: var(--color-blue-dark);
+		font-weight: bold;
+		color: var(--color-white);
+		border-radius: 10px 10px 0 0;
+	}
+}
+
+.CalendarYearly .month:hover {
+	background-color: rgba(121, 195, 99, 1);
+}
