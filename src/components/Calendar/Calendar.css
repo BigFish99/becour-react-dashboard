@@ -35,25 +35,38 @@
 	}
 
 	.month {
-		background-color: rgba(221, 228, 224, 1);
+		background-color: #FFF;
 		border-radius: 10px;
 		overflow: hidden;
 		appearance: none;
 		border: 0;
-		padding: 0;
+		padding: 10px;
+		position: relative;
 		cursor: pointer;
+		box-shadow: 0px 1.464174747467041px 4.189564228057861px 0px rgba(97, 41, 8, 0.03), 0px 7.993040084838867px 14.071874618530273px 0px rgba(97, 41, 8, 0.05), 0px 27px 63px 0px rgba(97, 41, 8, 0.08);
 	}
 
 	.CalendarYearly__month__header {
-		padding: 10px;
+		position: absolute;
+		width: 100%;
+		top: 5px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		z-index: 2;
 		text-align: center;
-		background-color: var(--color-blue-dark);
 		font-weight: bold;
-		color: var(--color-white);
-		border-radius: 10px 10px 0 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.CalendarYearly__month__header p {
+		font-size: 1rem;
+		margin: 0;
 	}
 }
 
 .CalendarYearly .month:hover {
-	background-color: rgba(121, 195, 99, 1);
+	background-color: #F6F6F6;
 }

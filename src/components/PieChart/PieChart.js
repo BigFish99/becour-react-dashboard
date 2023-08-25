@@ -46,7 +46,7 @@ const createChartData = (charts) => {
 			weight: .1
 		}
 	];
-	charts.map((chart) => {
+	charts.forEach((chart) => {
 		datasets.push({
 			label: chart.label,
 			data: chart.series.map((series) => series.value / chart.total * 100),
@@ -82,7 +82,7 @@ const PieChart = ({charts}) => {
 				options: {
 					responsive: true,
 					maintainAspectRatio: false,
-					cutout: '40%',
+					cutout: '55%',
 					borderWidth: 0,
 					borderRadius: 30,
 					layout: {
@@ -105,7 +105,7 @@ const PieChart = ({charts}) => {
 				chart.current.destroy()
 			}
 		}
-	},[])
+	},[charts])
 
 
 	React.useEffect(() => {

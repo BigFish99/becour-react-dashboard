@@ -1,5 +1,9 @@
 .MatchingSummary {
 	display: grid;
-	grid-template-columns: 1fr 2fr;
-	gap: 50px;
+	grid-template-columns: 300px 2fr;
+	gap: 70px;
+
+	.chart {
+		max-width: 300px;
+	}
 }
