@@ -22,7 +22,7 @@ const TableContent = ({ headers, rows}) => {
 											`${cell}` === '#' || `${cell}`.includes('http')
 												?
 												cell !== '#' && <a className="download-button" rel="noreferrer" href={cell} target="_blank" title="download pdf">Download</a>
-												: `${cell}`
+												: cell ? `${cell}` : '–'
 										}
 									</td>
 								)

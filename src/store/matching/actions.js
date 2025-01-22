@@ -1,12 +1,10 @@
 import { apiVersion } from "../apiVersion"
-
-export const getConsumerPowerplants = (category, year, region, consumptionPoint) => ({
-	type: 'GET_CONSUMER_POWERPLANTS',
+export const getMatchingData = (year, region, consumptionPoint) => ({
+	type: 'GET_CONSUMER_MATCHING',
 	payload: {
 		request: {
-			url: '/getConsumerPowerplants',
+			url: '/getMatchingData',
 			params: {
-				category: category,
 				year: year,
 				region: region,
 				consumptionPoint: consumptionPoint,
@@ -18,8 +16,4 @@ export const getConsumerPowerplants = (category, year, region, consumptionPoint)
 			}
 		}
 	}
-})
-
-export const clearPowerplantsData = () => ({
-	type: 'CLEAR_POWERPLANTS_DATA'
 })

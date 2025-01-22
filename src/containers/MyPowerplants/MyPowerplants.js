@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import './MyPowerplants.css'
+import { useParams } from 'react-router-dom'
 import {connect} from 'react-redux'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
 import SideBarTree from '../../components/SideBarTree/SideBarTree'
@@ -7,61 +8,59 @@ import {getConsumerPowerplants, clearPowerplantsData} from '../../store/powerpla
 import PowerplantsMap from './PowerplantsMap/PowerplantsMap'
 import PowerplantList from './PowerplantList/PowerplantList'
 
+const MyPowerplants = ({loading, currentYear, currentRegion, currentPoint, getConsumerPowerplants, clearPowerplantsData}) => {
 
-class MyPowerplants extends React.Component {
+	const prevCurrentRegion = useRef();
+	const prevCurrentYear = useRef();
+	const prevCurrentPoint = useRef();
+	const prevCurrentCategory = useRef();
+	const params = useParams()
 
-	componentDidUpdate(prevProps) {
-		let category = this.props.match.params.id ? this.props.match.params.id : 'all'
-		if(prevProps.currentRegion !== this.props.currentRegion || prevProps.currentYear !== this.props.currentYear || prevProps.match.params !== this.props.match.params) {
-			this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, null)
+	useEffect(() => {
+		let category = params.id ? params.id : 'all';
+		if(prevCurrentPoint.current !== currentPoint || prevCurrentYear.current !== currentYear || prevCurrentRegion.current !== currentRegion || prevCurrentCategory.current !== params.id) {
+			getConsumerPowerplants(category, currentYear, currentRegion.id, currentPoint ? currentPoint.value : null)
+			prevCurrentPoint.current = currentPoint;
+			prevCurrentYear.current = currentYear;
+			prevCurrentRegion.current = currentRegion;
+			prevCurrentCategory.current = params.id;
 		}
-		if(prevProps.currentPoint !== this.props.currentPoint) {
-			this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
-		}
-	}
 
-	componentDidMount() {
-		let category = this.props.match.params.id ? this.props.match.params.id : 'all'
-		this.props.getConsumerPowerplants(category, this.props.currentYear, this.props.currentRegion.id, this.props.currentPoint ? this.props.currentPoint.value : null)
-	}
+		return () => { clearPowerplantsData() }
+	}, [currentRegion, currentPoint, currentYear, params, clearPowerplantsData, getConsumerPowerplants])
 
-	componentWillUnmount() {
-		this.props.clearPowerplantsData()
-	}
+	return(
+		<main className="MyPowerplants container-sidebar">
+			<SideBarTree />
+			<div className="mainContent">
+				<PageNavigation
+					loading={loading}
+					points={currentRegion.points ? currentRegion.points : false}
+					navigation={[
+						{
+							path: `/my-powerplants`,
+							title: 'All technologies'
+						},
+						{
+							path: `/my-powerplants/wind-power`,
+							title: 'Wind power'
+						},
+						{
+							path: `/my-powerplants/solar-power`,
+							title: 'Solar power'
+						},
+						{
+							path: `/my-powerplants/hydro-power`,
+							title: 'Hydro power'
+						},
+					]}
+				/>
+				<PowerplantsMap />
+				<PowerplantList />
+			</div>
+		</main>
+	)
 
-	render() {
-		return (
-			<main className="MyPowerplants container-sidebar">
-				<SideBarTree />
-				<div className="mainContent">
-					<PageNavigation
-						loading={this.props.loading}
-						points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
-						navigation={[
-							{
-								path: `/my-powerplants/`,
-								title: 'All technologies'
-							},
-							{
-								path: `/my-powerplants/wind-power`,
-								title: 'Wind power'
-							},
-							{
-								path: `/my-powerplants/solar-power`,
-								title: 'Solar power'
-							},
-							{
-								path: `/my-powerplants/hydro-power`,
-								title: 'Hydro power'
-							},
-						]}
-					/>
-					<PowerplantsMap />
-					<PowerplantList />
-				</div>
-			</main>
-		)
-	}
 }
 
 const mapStateToProps = state => ({

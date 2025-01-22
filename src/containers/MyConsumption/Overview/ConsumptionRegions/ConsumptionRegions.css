@@ -32,3 +32,9 @@
 .ConsumptionRegions-Region tbody td {
 	font-weight: bold;
 }
+
+.ConsumptionRegions-Region table tbody tr {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 15px;
+}

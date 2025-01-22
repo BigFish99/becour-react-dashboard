@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getConsumptionData, setConsumptionLoading} from '../../store/consumption/actions'
 import PageNavigation from '../../components/PageNavigation/PageNavigation'
@@ -38,7 +38,7 @@ class MyConsumption extends React.Component {
 						points={this.props.currentRegion.points ? this.props.currentRegion.points : false}
 						navigation={[
 							{
-								path: `/my-consumption/`,
+								path: `/my-consumption`,
 								title: 'Consumption overview'
 							},
 							{
@@ -47,8 +47,10 @@ class MyConsumption extends React.Component {
 							}
 						]}
 					/>
-					<Route path="/my-consumption/" exact component={Overview} />
-					<Route path="/my-consumption/consumption-matching" exact component={Matching} />
+					<Routes>
+						<Route path="/" element={<Overview />} />
+						<Route path="/consumption-matching" element={<Matching />} />
+					</Routes>
 				</div>
 			</main>
 		)

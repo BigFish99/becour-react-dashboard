@@ -1,9 +1,10 @@
 import React from 'react'
 import logo from '../../assets/svg/marbly-logo.svg'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 import './Header.css'
 
-const Header = () => {
+const Header = ({matching}) => {
 	return (
 		<>
 			<div className="Header-top">
@@ -31,7 +32,7 @@ const Header = () => {
 				<nav className="bottomNavigation">
 					<ul className="bottomNavigationMenu">
 						<li className="bottomMenuItem">
-							<NavLink exact to="/">Dashboard</NavLink>
+							<NavLink to="/">Dashboard</NavLink>
 						</li>
 						<li className="bottomMenuItem">
 							<NavLink to="/my-documents">My Documents</NavLink>
@@ -42,8 +43,14 @@ const Header = () => {
 						<li className="bottomMenuItem">
 							<NavLink to="/my-powerplants">My Power plants</NavLink>
 						</li>
+						{
+							matching &&
+							<li className="bottomMenuItem">
+								<NavLink to="/matching">Matching</NavLink>
+							</li>
+						}
 						<li className="bottomMenuItem">
-							<NavLink exact to="/contact">Contact</NavLink>
+							<NavLink to="/contact">Contact</NavLink>
 						</li>
 					</ul>
 				</nav>
@@ -52,4 +59,8 @@ const Header = () => {
 	)
 }
 
-export default Header
+const mapStateToProps = state => ({
+	matching: state.user.matching
+})
+
+export default connect(mapStateToProps)(Header)

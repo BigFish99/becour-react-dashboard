@@ -1,0 +1,72 @@
+.Calendar {
+	.calendar-toggle {
+		border-radius: 30px;
+		background-color: var(--color-blue-dark);
+		border: 5px solid var(--color-blue-dark);
+		display: inline-block;
+	}
+	.toggle__button {
+		padding: 15px 20px;
+		appearance: none;
+		border: 0;
+		background-color: var(--color-green-dark);
+		color: #FFF;
+		border-radius: 30px;
+		&.active {
+			background-color: var(--color-green);
+		}
+	}
+}
+
+.CalendarYearly {
+	.header {
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-align: center;
+		border-bottom: 1px solid var(--color-blue-dark);
+	}
+
+	.body {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 10px;
+		margin-top: 20px;
+	}
+
+	.month {
+		background-color: #FFF;
+		border-radius: 10px;
+		overflow: hidden;
+		appearance: none;
+		border: 0;
+		padding: 10px;
+		position: relative;
+		cursor: pointer;
+		box-shadow: 0px 1.464174747467041px 4.189564228057861px 0px rgba(97, 41, 8, 0.03), 0px 7.993040084838867px 14.071874618530273px 0px rgba(97, 41, 8, 0.05), 0px 27px 63px 0px rgba(97, 41, 8, 0.08);
+	}
+
+	.CalendarYearly__month__header {
+		position: absolute;
+		width: 100%;
+		top: 5px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		z-index: 2;
+		text-align: center;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.CalendarYearly__month__header p {
+		font-size: 1rem;
+		margin: 0;
+	}
+}
+
+.CalendarYearly .month:hover {
+	background-color: #F6F6F6;
+}

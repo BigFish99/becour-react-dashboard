@@ -1,6 +1,5 @@
 import React from 'react'
 import './PowerplantsMap.css'
-import Loader from '../../../components/Loader/Loader'
 import {connect} from 'react-redux'
 import HighChartsMap from './HighChartsMap'
 

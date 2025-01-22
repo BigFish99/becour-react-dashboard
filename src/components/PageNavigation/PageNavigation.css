@@ -20,6 +20,7 @@
 
 .PageNavigation h1 span {
 	vertical-align: middle;
+	display: inline-block !important;
 }
 
 .PageNavigation-navigation ul,

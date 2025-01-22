@@ -34,7 +34,7 @@ const PageNavigation = ({points, loading = null, navigation, yearsAvailable, cur
 							{
 								navigation.map((item, i) =>
 									<li key={i}>
-										<NavLink exact to={item.path}>{item.title}</NavLink>
+										<NavLink to={item.path} end>{item.title}</NavLink>
 									</li>
 								)
 							}
