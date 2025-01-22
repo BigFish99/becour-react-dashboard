@@ -1,3 +1,4 @@
+/*
 import {testNumber} from '../../functions/testNumber'
 
 const months = [
@@ -57,7 +58,7 @@ const createNewTestData = () => {
 			]
 		}
 	})
-}
+}*/
 
 const initialState = {
 	loading: true,

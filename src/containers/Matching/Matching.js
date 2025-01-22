@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 const Matching = ({summary, months, getMatchingData, loading, currentYear, currentRegion, currentPoint}) => {
 
 	React.useEffect(() => {
-		getMatchingData()
+		getMatchingData(currentYear, currentRegion.id, currentPoint?.value)
 	}, [getMatchingData, currentYear, currentRegion, currentPoint])
 
 	return (

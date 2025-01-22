@@ -1,3 +1,5 @@
+import {apiVersion} from '../apiVersion';
+
 export const setCurrentYear = year => ({
 	type: 'USER_SET_CURRENT_YEAR',
 	year
@@ -30,6 +32,9 @@ export const getConsumerData = () => ({
 			headers: {
 				Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,
 				'Content-Type': 'application/json'
+			},
+			params: {
+				version: apiVersion
 			}
 		}
 	}

@@ -1,3 +1,5 @@
+import { apiVersion } from "../apiVersion"
+
 export const getConsumerDocuments = (year, region, consumptionPoint) => ({
 	type: 'GET_CONSUMER_DOCUMENTS',
 	payload: {
@@ -6,7 +8,8 @@ export const getConsumerDocuments = (year, region, consumptionPoint) => ({
 			params: {
 				year: year,
 				region: region,
-				consumptionPoint: consumptionPoint
+				consumptionPoint: consumptionPoint,
+				version: apiVersion
 			},
 			headers: {
 				Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,

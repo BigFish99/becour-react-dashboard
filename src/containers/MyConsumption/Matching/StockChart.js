@@ -81,33 +81,7 @@ const StockChart = ({consumptionMatching}) => {
 				}
 			]
 		},
-		series: [
-			{
-				name: 'Wind power',
-				data: consumptionMatching.wind,
-				color: '#00BA6C',
-				dataGrouping: dataGrouping
-			},
-			{
-				name: 'Solar power',
-				data: consumptionMatching.solar,
-				color: '#F0C659',
-				dataGrouping: dataGrouping
-			},
-			{
-				name: 'Hydro power',
-				data: consumptionMatching.hydro,
-				color: '#0AC5D1',
-				dataGrouping: dataGrouping
-			},
-			{
-				name: 'Total',
-				data: consumptionMatching.total,
-				type: 'spline',
-				color: '#04003A',
-				dataGrouping: dataGrouping
-			}
-		]
+		series: consumptionMatching.series.map((serie) => ({...serie, dataGrouping: dataGrouping}))
 	}
 
 	return(

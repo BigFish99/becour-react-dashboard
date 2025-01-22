@@ -67,36 +67,7 @@ const BarChart = ({consumptionMatching}) => {
 			shared: true,
 			valueSuffix: ' GWh'
 		},
-		series: [
-			{
-				name: 'Wind power',
-				data: consumptionMatching.wind,
-				color: '#00BA6C'
-			},
-			{
-				name: 'Solar power',
-				data: consumptionMatching.solar,
-				color: '#F0C659'
-			},
-			{
-				name: 'Hydro power',
-				data: consumptionMatching.hydro,
-				color: '#0AC5D1'
-			},
-			{
-				name: 'Total',
-				data: consumptionMatching.total,
-				type: 'spline',
-				color: '#04003A'
-			},
-			{
-				name: 'Forecast',
-				data: consumptionMatching.forecast,
-				type: 'line',
-				visible: false,
-				color: '#F3372A'
-			}
-		],
+		series: consumptionMatching.series,
 		responsive: {
 			rules: [{
 				condition: {

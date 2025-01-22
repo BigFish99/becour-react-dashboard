@@ -1,3 +1,5 @@
+import { apiVersion } from "../apiVersion";
+
 export const removeLoader = () => ({
 	type: 'REMOVE_LOADER'
 });
@@ -10,6 +12,9 @@ export const frontPageGetConsumerData = () => ({
 			headers: {
 				Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,
 				'Content-Type': 'application/json'
+			},
+			params: {
+				version: apiVersion
 			}
 		}
 	}

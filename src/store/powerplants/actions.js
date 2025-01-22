@@ -1,3 +1,5 @@
+import { apiVersion } from "../apiVersion"
+
 export const getConsumerPowerplants = (category, year, region, consumptionPoint) => ({
 	type: 'GET_CONSUMER_POWERPLANTS',
 	payload: {
@@ -7,7 +9,8 @@ export const getConsumerPowerplants = (category, year, region, consumptionPoint)
 				category: category,
 				year: year,
 				region: region,
-				consumptionPoint: consumptionPoint
+				consumptionPoint: consumptionPoint,
+				version: apiVersion
 			},
 			headers: {
 				Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,

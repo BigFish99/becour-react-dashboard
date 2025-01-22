@@ -1,3 +1,4 @@
+import { apiVersion } from "../apiVersion"
 export const getMatchingData = (year, region, consumptionPoint) => ({
 	type: 'GET_CONSUMER_MATCHING',
 	payload: {
@@ -6,7 +7,8 @@ export const getMatchingData = (year, region, consumptionPoint) => ({
 			params: {
 				year: year,
 				region: region,
-				consumptionPoint: consumptionPoint
+				consumptionPoint: consumptionPoint,
+				version: apiVersion
 			},
 			headers: {
 				Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,
